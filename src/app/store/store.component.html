@@ -1,0 +1,169 @@
+<div *ngIf="mobile">
+    <br>
+    <br>
+    <br>
+</div>
+<div class="jumbotron"><a [routerLink]="['/home']">Home/</a>
+    <a [routerLink]="['/stores']">Stores/</a>
+    <a [routerLink]="['/store',storeURL]">{{storeURL}}/</a>
+    <h1 class="display-4 text-center">{{storeName}}</h1>
+    <div class="lead" style="font-size: 1.2em !important;">
+        <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
+            {{responseError}}
+            <button type="button" class="close" (click)="closeError()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <!-- <br> -->
+        <h1 class="display-4 text-center">{{storeDate}}</h1>
+        <!-- <div class="col-md-8 text-center mx-auto">
+            <span class="text-center xyz">March 2020</span>
+        </div> -->
+        <!-- <div class="col-md-8 text-center mx-auto">
+            <span [innerHTML]="storeDetail" class="text-center xyz"></span>
+        </div> -->
+        <div class="container">
+            <ul class="tranding_select tabs" style="background:transparent">
+                <li class="tab"><a class="waves-effect btn" (click)="switch=false"
+                        [ngClass]="{'active': !switch}">Coupons</a></li>
+                <li class="tab"><a class="waves-effect btn" (click)="switch=true" [ngClass]="{'active': switch}">Related
+                        Stores</a></li>
+            </ul>
+            <br>
+            <div class="text-center m-5" *ngIf="!couponsArray && isBusy">
+                <div class="lds-facebook">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="row" *ngIf="!switch">
+                <div class="col">
+                    <section class="notifications_area" *ngIf="couponsArray">
+                        <div class="notifications">
+                            <div class="hed_notic">Active Coupons</div>
+                            <ul class="notifications_content follow">
+                                <li *ngFor="let coupon of couponsArray | keyvalue | sortby">
+                                    <a *ngIf="coupon.value.expDate > currentDate">
+                                        <div class="media first_child">
+                                            <img [src]="storePic" style="position: relative;top:-10px"
+                                                class="responsive-img">
+                                            <div class="media_body">
+                                                <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
+                                                <h6><b>Expiry Date: </b>&nbsp;
+                                                    <span>{{coupon.value.expDate | date}}</span></h6>
+                                                <div class="btn_group">
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal2(template2,coupon.value)"
+                                                        *ngIf="!coupon.value.activeStatus">
+                                                        Copy code & Visit Merchant</span>
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal(template,coupon.value)"
+                                                        *ngIf="coupon.value.activeStatus">
+                                                        Get Offer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="notifications">
+                            <div class="hed_notic">Expired Coupons</div>
+                            <ul class="notifications_content follow">
+                                <li *ngFor="let coupon of couponsArray | keyvalue">
+                                    <a *ngIf="currentDate > coupon.value.expDate">
+                                        <div class="media first_child">
+                                            <img [src]="storePic" style="position: relative;top:-10px"
+                                                class="responsive-img">
+                                            <div class="media_body" style="opacity: 0.45;">
+                                                <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
+                                                <h6><b>Expiry Date: </b>&nbsp;
+                                                    <span>{{coupon.value.expDate | date}}</span></h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <br>
+                </div>
+                <div class="col-sm-12 col-lg-3">
+                    <h4>About this Store</h4>
+                    <br>
+                    <span [innerHTML]="longDes" class="xyz"></span>
+                </div>
+            </div>
+            <div class="row" *ngIf="switch">
+                <div class="col">
+                    <div class="row mb-0">
+                        <div class="col-md-8 text-center mx-auto" *ngIf="2>storeArray.length">
+                            <span class="text-center xyz"><br>No related stores....</span>
+                        </div>
+                        <ng-container *ngFor="let store of storeArray | keyvalue">
+                            <div class="col-sm-6 col-lg-3" *ngIf="store.value.storeURL != storeId">
+                                <div class="brand-card" (click)="loadAnotherStore(store.value.storeURL)">
+                                    <div class="brand-card-header">
+                                        <img src="{{store.value.img}}" class="rounded-circle roundImg" width="100"
+                                            height="100" />
+                                    </div>
+                                    <div class="brand-card-body">
+                                        <div class="text-muted small">{{store.value.name}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">No code required</span><br><br>
+        <button type="button" class="btn btn-success" (click)="window.open(editObj.trackingLink)">
+            Shop Now
+        </button>
+        <br>
+        <br>
+        <span>*No code required. Just click the above button to avail this deal</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
+<ng-template #template2>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">Here is the code</span><br><br>
+        <div class="template2">
+            {{editObj.code}}
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="copyClipboardFunc()">
+            <span *ngIf="!codeCopied">Copy code & Visit Store</span>
+            <span *ngIf="codeCopied">Code Copied</span>
+        </button>
+        <br>
+        <br>
+        <span>Copy this code and paste it at checkout</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>

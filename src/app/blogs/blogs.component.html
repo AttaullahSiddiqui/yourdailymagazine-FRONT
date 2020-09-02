@@ -1,0 +1,54 @@
+<div *ngIf="mobile">
+    <br>
+    <br>
+    <br>
+</div>
+<div class="jumbotron">
+    <a [routerLink]="['/home']">Home/</a>
+    <a [routerLink]="['/blogs']">Blogs/</a>
+    <h1 class="display-4 text-center">BLOGS FROM BUYMEDEAL TEAM</h1>
+    <hr class="my-4" />
+    <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
+        {{responseError}}
+        <button type="button" class="close" (click)="closeError()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+    <div class="lead" style="font-size: 1.2em !important;">
+        <div class="container">
+            <div class="text-center m-5" *ngIf="!blogsArr && isFetching">
+                <div class="lds-facebook">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div *ngFor="let blog of blogsArr | keyvalue">
+                <div class="row">
+                    <div class="col-6">
+                        <a [routerLink]="['/blog', blog.value.blogURL]">
+                            <h3>{{blog.value.title}}</h3>
+                        </a>
+                        <span><b>Date:</b>&nbsp; {{blog.value.CreatedAt | date}}</span>&nbsp;&nbsp;
+                        <span><b>By :</b> Danish</span>&nbsp;&nbsp;
+                        <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
+                        <br>
+                        <br>
+                        <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">
+                        </div>
+                        <a class="viewMore" [routerLink]="['/blog', blog.value.blogURL]"
+                            *ngIf="blog.value.shortDes.length > 799">View
+                            More</a>
+                    </div>
+                    <div class="col-6" [routerLink]="['/blog', blog.value.blogURL]">
+                        <a><img [src]="blog.value.img"></a>
+                    </div>
+                </div>
+                <hr class="my-4" />
+            </div>
+        </div>
+        <button type="button" class="btn btn-outline-primary" (click)="loadPrev()">Previous</button>
+        <button type="button" class="btn btn-outline-primary pull-right" (click)="loadNext()">Next</button>
+    </div>
+</div>

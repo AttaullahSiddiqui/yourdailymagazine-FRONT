@@ -1,0 +1,66 @@
+.roundImg {
+    margin-top: 10px;
+}
+.noPadding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 30vh !important;
+}
+.card-img-top {
+    width: 100px !important;
+    height: 100px !important;
+    margin-top: 20px;
+}
+h6 {
+    font-size: 1.15em !important;
+}
+.read_latter {
+    min-width: 100% !important;
+    margin-top: 0;
+}
+.middle_section {
+    min-width: 100% !important;
+    padding: 0 !important;
+}
+.section_row {
+    padding-top: 0;
+    max-width: 100% !important;
+}
+.min_pages {
+    padding-bottom: 0 !important;
+}
+@media (min-width: 992px) {
+    .min_pages {
+        max-width: 70% !important;
+        margin: 0 auto;
+    }
+}
+li:hover {
+    cursor: pointer;
+}
+.jumbotron > a {
+    font-size: 1.3em !important;
+    color:#28BAA2
+}
+.responsive-img{
+    max-width: 40% !important;
+    margin:10px
+}
+.brand-card-header{
+    height: auto !important;
+    margin-bottom: 0 !important;
+}
+.text-value{
+    font-size:1.4em;
+}
+.mainDiv:hover{
+    cursor: pointer;
+    outline:0
+}
+.storeDetail{
+    font-size:1.2em;
+    margin:auto 10px
+}
+.brand-card-header{
+    background-color: #28BAA2 !important;
+}

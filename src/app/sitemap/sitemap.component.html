@@ -1,0 +1,66 @@
+<br>
+<br>
+<br>
+<div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
+    {{responseError}}
+    <button type="button" class="close" (click)="closeError()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container">
+    <h1 class="display-4 text-center">Site Links</h1>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/home']">Home</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/categories']">Categories</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/stores']">Stores</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/blogs']">Blogs</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/about']">About</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/privacy']">Privacy</p>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <p class="textSize" [routerLink]="['/termsandconditions']">Terms & Conditions</p>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="display-4 text-center">Stores</h1>
+        <br>
+        <br>
+        <div class="row" *ngIf="storesArray">
+            <div class="col-lg-3 col-sm-12" *ngFor="let que of queArr" [hidden]="checkEmpty(que)">
+                <div class="minHeight">
+                    <h1>{{que | uppercase}}</h1>
+                    <br>
+                    <p [routerLink]="['/store', store.value.storeURL]"
+                        *ngFor="let store of storesArray | keyvalue | orderby:que" class="textSize">
+                        {{store.value.name | slice:0:20}}</p>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="display-4 text-center">Blogs</h1>
+        <br>
+        <br>
+        <div class="row" *ngIf="blogsArray">
+            <div class="col-lg-6 col-sm-12" *ngFor="let blog of blogsArray | keyvalue"
+                [routerLink]="['/blog', blog.value.blogURL]">
+                <p class="textSize"><i class="icon-map"></i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{blog.value.title | slice:0:40}}</p>
+            </div>
+        </div>
+    </div>
+</div>

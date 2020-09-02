@@ -1,0 +1,121 @@
+<div *ngIf="mobile">
+    <br>
+    <br>
+    <br>
+</div>
+<div class="jumbotron">
+    <a [routerLink]="['/home']">Home/</a>
+    <a [routerLink]="['/stores']">Stores/</a>
+    <h1 class="display-4 text-center" *ngIf="storeArray">BROWSE STORES FOR EXCITING DEALS</h1>
+    <hr class="my-4" />
+    <div style="font-size: 1.2em !important;margin-top: 20px;">
+        <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
+            {{responseError}}
+            <button type="button" class="close" (click)="closeError()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="row justify-content-md-center">
+            <!-- <div class="col-sm-6 col-lg-3">
+                <div class="brand-card">
+                    <div class="brand-card-header bg-facebook">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <div class="brand-card-body">
+                        <div>
+                            <div class="text-value">89k</div>
+                            <div class="text-uppercase text-muted small">friends</div>
+                        </div>
+                        <div>
+                            <div class="text-value">459</div>
+                            <div class="text-uppercase text-muted small">feeds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="brand-card">
+                    <div class="brand-card-header bg-twitter">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <div class="brand-card-body">
+                        <div>
+                            <div class="text-value">973k</div>
+                            <div class="text-uppercase text-muted small">followers</div>
+                        </div>
+                        <div>
+                            <div class="text-value">1.792</div>
+                            <div class="text-uppercase text-muted small">tweets</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-sm-12 col-lg-3 mainDiv" *ngFor="let store of storeArray | keyvalue"
+                [routerLink]="['/store', store.value.storeURL]">
+                <div class="brand-card">
+                    <div class="brand-card-header bg-linkedin">
+                        <!-- <i class="fa fa-linkedin"></i> -->
+                        <img [src]="store.value.img" class="circle responsive-img">
+                    </div>
+                    <div class="brand-card-body">
+                        <div>
+                            <div class="text-value">{{store.value.name}}</div>
+                            <br>
+                            <div class="text-muted storeDetail" [innerHTML]="store.value.shortDes | slice:0:100">
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <div class="text-value">292</div>
+                            <div class="text-uppercase text-muted small">feeds</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-6 col-lg-3">
+                <div class="brand-card">
+                    <div class="brand-card-header bg-google-plus">
+                        <i class="fa fa-google-plus"></i>
+                    </div>
+                    <div class="brand-card-body">
+                        <div>
+                            <div class="text-value">894</div>
+                            <div class="text-uppercase text-muted small">followers</div>
+                        </div>
+                        <div>
+                            <div class="text-value">92</div>
+                            <div class="text-uppercase text-muted small">circles</div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <section class="min_container min_pages">
+            <div class="section_row">
+
+                <!-- <div class="middle_section col mx-auto">
+                    <div class="notifications read_latter">
+                        <ul class="notifications_content">
+                            <li *ngFor="let store of storeArray | keyvalue"
+                                [routerLink]="['/store', store.value.storeURL]">
+                                <div class="media first_child">
+                                    <img [src]="store.value.img" class="circle responsive-img">
+                                    <div class="media_body">
+                                        <p>{{store.value.name}}</p>
+                                        <h6 [innerHTML]="store.value.shortDes"></h6>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    </div>
+    <div class="text-center m-5" *ngIf="isLoading">
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

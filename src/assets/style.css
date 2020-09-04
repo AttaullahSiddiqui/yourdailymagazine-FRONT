@@ -63,7 +63,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area {
-    background: #232F42;
+    background: #354555;
     border: 0;
     height: 80px;
     line-height: normal;
@@ -496,7 +496,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     padding: 0 20px;
     margin: 0;
     box-shadow: none!important;
-    border: 1px solid #2e3d55;
+    /* border: 1px solid #2e3d55; */
+    border: 1px solid #28BAA2;
     height: auto
 }
 
@@ -848,7 +849,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .middle_section {
-    order: 2;
+    order: 3;
     max-width: 720px;
     flex: 0 0 50%;
     padding: 0 20px
@@ -858,7 +859,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 0 30px 0 rgba(0, 36, 90, .1);
-    order: 1;
+    order: 2;
     max-width: 340px;
     flex: 0 0 23%;
     padding: 20px 30px 30px;
@@ -953,7 +954,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .interests .interests_list li a {
-    font: 400 16px/35px Lato, sans-serif;
+    font: 400 18px/35px Lato, sans-serif;
     color: #758690
 }
 
@@ -1207,8 +1208,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar {
-    order: 3;
-    max-width: 420px;
+    order: 1;
+    /* max-width: 420px; */
     flex: 0 0 29%;
     margin-top: 15px
 }
@@ -1253,7 +1254,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content a {
     display: block;
-    font: 400 16px/24px Lato, sans-serif;
+    font: 400 18px/24px Lato, sans-serif;
     color: #263843;
     margin-top: -16px
 }
@@ -3166,7 +3167,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area {
     display: block;
     overflow: hidden;
-    background: #232f42
+    background: #354555
 }
 
 .footer_area .footer_row {
@@ -3211,7 +3212,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a {
     display: block;
     font: 400 18px/24px Lato, sans-serif;
-    color: #7b8aa3;
+    color: white;
     margin-top: -16px
 }
 
@@ -3521,10 +3522,10 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 @media (max-width:1550px) {
     .min_container .section_row {
-        width: 1300px
+        /* width: 1300px */
     }
     .min_container .section_row .middle_section {
-        max-width: 580px
+        /* max-width: 580px */
     }
     .min_container .section_row .middle_section .post .post_content .author_area .like_user .like_img li .mor_like {
         display: none

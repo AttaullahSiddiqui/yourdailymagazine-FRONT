@@ -80,51 +80,80 @@
 
 <section class="min_container min_pages">
     <div class="section_row">
-        <div class="middle_section col" id="infinite_scroll" style="padding:0 !important">
-            <div id="featured">
-                <div class="card">
-                    <br>
-                    <a class="text-center display-4">Your Favourite Deals And Discounts</a>
-                    <br>
-                    <br>
-                    <table class="table table-responsive-sm table-hover table-outline mb-0">
-                        <tbody>
-                            <tr *ngIf="!dealsArray">
-                                <div class="text-center m-5">
-                                    <div class="lds-facebook">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
+        <div class="col">
+            <div class="right_side_bar">
+                <div class="right_sidebar_iner">
+                    <div class="popular_posts">
+                        <h3 class="categories_tittle">Popular Blogs</h3>
+                        <div class="text-center m-5" *ngIf="!blogArray">
+                            <div class="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value.blogURL]"
+                            *ngFor="let blog of blogArray | keyvalue | slice:-5">
+                            <div class="col-3 p_img">
+                                <div class="manAvatar">
+                                    <img [src]="blog.value.img" class="customImgRound">
                                 </div>
-                            </tr>
-                            <tr *ngFor="let deal of dealsArray | keyvalue">
-                                <td class="text-center">
-                                    <div class="avatar">
-                                        <img src="assets/images/soblue.png" class="img-avatar">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div>{{deal.value.offerBox}}</div>
-                                    <div class="small text-muted">
-                                        <span>Validity</span> | <span>{{deal.value.expDate | date}}</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-primary active"
-                                        (click)="openModal2(template2,deal.value)" *ngIf="!deal.value.activeStatus">Copy
-                                        code</button>
-                                    <button type="button" class="btn btn-sm btn-primary active"
-                                        (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus">Get
-                                        Deal</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            </div>
+                            <div class="col s9 p_content">
+                                <a>{{blog.value.title}}</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-6">
+            <div class="middle_section" id="infinite_scroll" style="padding:0 !important">
+                <div id="featured">
+                    <div class="card">
+                        <br>
+                        <a class="text-center display-4">Your Favourite Deals And Discounts</a>
+                        <br>
+                        <br>
+                        <table class="table table-responsive-sm table-hover table-outline mb-0">
+                            <tbody>
+                                <tr *ngIf="!dealsArray">
+                                    <div class="text-center m-5">
+                                        <div class="lds-facebook">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </tr>
+                                <tr *ngFor="let deal of dealsArray | keyvalue">
+                                    <td class="text-center">
+                                        <div class="avatar">
+                                            <img src="assets/images/soblue.png" class="img-avatar">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>{{deal.value.offerBox}}</div>
+                                        <div class="small text-muted">
+                                            <span>Validity</span> | <span>{{deal.value.expDate | date}}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-primary active"
+                                            (click)="openModal2(template2,deal.value)"
+                                            *ngIf="!deal.value.activeStatus">Copy
+                                            code</button>
+                                        <button type="button" class="btn btn-sm btn-primary active"
+                                            (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus">Get
+                                            Deal</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
             <div class="left_side_bar">
                 <div class="interests">
                     <h3 class="categories_tittle">Your Interests</h3>
@@ -155,30 +184,6 @@
                         <li><a class="googleplus"><i class="fa fa-youtube"></i></a></li>
                         <li><a class="facebook"><i class="fa fa-facebook"></i></a></li>
                     </ul>
-                </div>
-            </div>
-        </div>
-        <div class="right_side_bar col">
-            <div class="right_sidebar_iner">
-                <div class="popular_posts">
-                    <h3 class="categories_tittle">Popular Blogs</h3>
-                    <div class="text-center m-5" *ngIf="!blogArray">
-                        <div class="lds-ripple">
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value.blogURL]"
-                        *ngFor="let blog of blogArray | keyvalue | slice:-5">
-                        <div class="col-3 p_img">
-                            <div class="manAvatar">
-                                <img [src]="blog.value.img" class="customImgRound">
-                            </div>
-                        </div>
-                        <div class="col s9 p_content">
-                            <a>{{blog.value.title}}</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

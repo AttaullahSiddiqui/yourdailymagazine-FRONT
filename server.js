@@ -3,7 +3,8 @@ let mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
-let cors = require('cors')
+let cors = require('cors');
+const compression = require('compression');
 
 let CONFIG = require('./server/app.config');
 
@@ -11,6 +12,7 @@ const appRoutes = require('./server/routes/app.routes');
 
 const app = express();
 
+app.use(compression())
 app.use(cors());
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");

@@ -27,7 +27,8 @@
             <li class="notifications follow">
               <input (input)="searchFunc(searchBox)" (focus)="switch=true" (focusout)="focusOutFunc()"
                 [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website" type="text">
-              <div class="dropdown-menu" style="width: 100%" *ngIf="searchBox && switch">
+              <div class="dropdown-menu" style="width: 100%;max-height: 80vh;overflow-y:auto;"
+                *ngIf="searchBox && switch">
                 <table class="table table-responsive-sm table-hover table-outline mb-0">
                   <tbody>
                     <tr>

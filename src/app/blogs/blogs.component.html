@@ -17,7 +17,7 @@
     <br>
     <div class="lead" style="font-size: 1.2em !important;">
         <div class="container">
-            <div class="text-center m-5" *ngIf="!blogsArr && isFetching">
+            <div class="text-center m-5" *ngIf="!blogsArr.length && isFetching">
                 <div class="lds-facebook">
                     <div></div>
                     <div></div>
@@ -31,7 +31,8 @@
                             <h3>{{blog.value.title}}</h3>
                         </a>
                         <span><b>Date:</b>&nbsp; {{blog.value.CreatedAt | date}}</span>&nbsp;&nbsp;
-                        <span><b>By :</b> Danish</span>&nbsp;&nbsp;
+                        <span><b>By: </b> <span style="text-transform: capitalize;">{{blog.value.author}}</span>
+                        </span>&nbsp;&nbsp;
                         <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
                         <br>
                         <br>

@@ -6,6 +6,7 @@ let blogSchema = mongoose.Schema({
     shortDes: { type: String, required: true },
     longDes: { type: String, required: true },
     img: { type: String, required: true },
+    author: { type: String, required: true },
     imgAlt: { type: String, required: true },
     views: { type: Number },
     metaTitle: { type: String, required: true },

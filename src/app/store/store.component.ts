@@ -19,6 +19,7 @@ export class StoreComponent implements OnInit {
   longDes;
   storeName;
   storeURL: string = "";
+  storeURLToShow: string = "";
   storeId;
   storeDate;
   codeCopied = false;
@@ -34,9 +35,8 @@ export class StoreComponent implements OnInit {
   ngOnInit() {
     if (window.screen.width < 400) this.mobile = true
     this.route.paramMap.subscribe(paramMap => {
-      this.storeURL = paramMap.get('id');
-      this.loadCoupons(this.storeURL);
-      this.loadStoreData(this.storeURL);
+      this.storeURLToShow = paramMap.get('id');
+      this.loadStoreData(this.storeURLToShow);
     })
   }
   openModal(template: TemplateRef<any>, couponNode) {
@@ -89,6 +89,8 @@ export class StoreComponent implements OnInit {
   loadStoreData(id) {
     this._dataService.fetchWithQuery("/userDisplay/singleStoreData", id).subscribe(res => {
       if (res.data) {
+        this.storeURL = res.data['0']['_id'];
+        this.loadCoupons(this.storeURL);
         this.storePic = res.data['0']['img'];
         this.storeDetail = res.data['0']['shortDes'];
         this.longDes = res.data['0']['longDes'];

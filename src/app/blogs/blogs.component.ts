@@ -9,7 +9,7 @@ import { Title } from "@angular/platform-browser";
 })
 export class BlogsComponent implements OnInit {
   responseError = "";
-  blogsArr: {} = null;
+  blogsArr = [];
   skipNo = 0;
   isFetching = false;
   limitVar: Number = 980;
@@ -25,7 +25,9 @@ export class BlogsComponent implements OnInit {
     this.isFetching = true;
     this._dataService.fetchAPIWithLimit("/userDisplay/fetchBlogsWithLimit", 6, "", this.skipNo).subscribe(res => {
       if (res.data) {
-        this.blogsArr = { ...this.blogsArr, ...res.data };
+        //this.blogsArr = { ...this.blogsArr, ...res.data };
+        this.blogsArr = this.blogsArr.concat(res.data);
+        this.blogsArr = res.data;
         this.isFetching = false;
       }
       else {

@@ -139,14 +139,15 @@ function searchQuery(req, res) {
 }
 function fetchBlogsWithLimit(req, res) {
     Blog.
-        find({}, 'title img blogURL shortDes views CreatedAt').
+        find({}, 'title img blogURL shortDes views author CreatedAt').
+        sort({ CreatedAt: -1 }).
         skip(Number(req.query.skipNo)).
         limit(Number(req.query.limitNo)).
         exec(function (err, blogs) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
             else {
                 if (blogs.length) res.json(resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2));
-                else res.json(resHandler.respondError("Can't fetch Blogs at the moment", -3));
+                else res.json(resHandler.respondError("Unable to fetch more Blogs", -3));
             }
         });
 }

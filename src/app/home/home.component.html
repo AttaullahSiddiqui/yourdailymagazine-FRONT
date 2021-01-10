@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value.blogURL]"
-                            *ngFor="let blog of blogArray | keyvalue | slice:-5">
+                            *ngFor="let blog of blogArray | keyvalue | slice:-6">
                             <div class="col-3 p_img">
                                 <div class="manAvatar">
                                     <img [src]="blog.value.img" class="customImgRound">

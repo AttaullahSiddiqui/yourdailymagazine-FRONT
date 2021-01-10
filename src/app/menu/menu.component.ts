@@ -45,7 +45,6 @@ export class MenuComponent implements AfterViewInit {
     this._dataService.fetchAPIWithLimit("/userDisplay/searchQuery", 10, queri, "").subscribe(res => {
       if (res.data) {
         this.storeArray = res.data;
-        console.log(this.storeArray)
       }
       else this.noResult = true;
     })

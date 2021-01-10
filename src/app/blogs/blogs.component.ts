@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Title } from "@angular/platform-browser";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-blogs',
@@ -8,13 +9,12 @@ import { Title } from "@angular/platform-browser";
   styleUrls: ['./blogs.component.scss']
 })
 export class BlogsComponent implements OnInit {
-  responseError = "";
   blogsArr = [];
   skipNo = 0;
   isFetching = false;
   limitVar: Number = 980;
   mobile: boolean = false;
-  constructor(private _dataService: DataService, private titleService: Title) { }
+  constructor(private _dataService: DataService, private titleService: Title, private toastr: ToastrService) { }
 
   ngOnInit() {
     if (window.screen.width < 400) this.mobile = true
@@ -52,8 +52,7 @@ export class BlogsComponent implements OnInit {
     this.fetchBlogs()
   }
   errorHandler(err) {
-    this.responseError = err;
+    this.toastr.error(err, 'Error');
     window.scrollTo(0, 0);
   }
-  closeError() { this.responseError = "" }
 }

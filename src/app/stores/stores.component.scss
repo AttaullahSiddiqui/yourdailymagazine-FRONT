@@ -42,6 +42,9 @@ li:hover {
     font-size: 1.3em !important;
     color:#28BAA2
 }
+.jumbotron > a:hover{
+    text-decoration: underline;
+}
 .responsive-img{
     max-width: 40% !important;
     margin:10px

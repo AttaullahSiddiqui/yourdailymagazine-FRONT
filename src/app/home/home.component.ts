@@ -18,12 +18,13 @@ export class HomeComponent implements OnInit {
   blogArray: [] = null;
   dealsArray: [] = null;
   hiddenInput = null;
-  web: boolean = true;
+  web: boolean = false;
   constructor(private _dataService: DataService, private modalService: BsModalService, private titleService: Title) { }
 
   ngOnInit() {
     this.titleService.setTitle("BuyMeDeal");
     if (window.screen.width < 400) this.web = false
+    else this.web = true;
     this._dataService.fetchAPI("/userDisplay/fetchSlides").subscribe(res => {
       if (res.data) this.slideArray = res.data;
       else this.errorHandler(res.message)

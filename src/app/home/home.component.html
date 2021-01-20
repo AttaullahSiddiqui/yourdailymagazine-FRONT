@@ -1,9 +1,12 @@
 <br>
 <br>
-<ngb-carousel *ngIf="slideArray" class="height87" interval="3000" [pauseOnHover]="false">
+<div *ngIf="!web">
+    <br>
+</div>
+<ngb-carousel *ngIf="slideArray" [ngClass]="{'height87': web}" interval="3000" [pauseOnHover]="false">
     <ng-template ngbSlide *ngFor="let slide of slideArray | keyvalue">
         <ng-container>
-            <img [src]="slide.value.img" class="height87" alt="Random first slide">
+            <img [src]="slide.value.img" [ngClass]="{'height87': web, 'chotiImg':!web}" alt="Random first slide">
         </ng-container>
     </ng-template>
 </ngb-carousel>
@@ -24,7 +27,7 @@
         <div></div>
     </div>
 </div>
-<div class="row justify-content-md-center mb-0" style="margin:auto 30px">
+<div class="row justify-content-md-center mb-0" [ngClass]="{'ifWebBlog': web}" style="margin:auto 5px">
     <div class="col-md-4 xxzz" *ngFor="let blog of blogArray | keyvalue" [routerLink]="['/blog', blog.value.blogURL]">
         <div class="card">
             <img [src]="blog.value.img" class="card-img-top">
@@ -37,7 +40,7 @@
                     <h4 class="card-caption text-center" [innerHTML]="blog.value.shortDes | slice:0:85"></h4>
                     <div class="ftr">
                         <div class="author">
-                            <img src="http://adamthemes.com/demo/code/cards/images/avatar3.png" alt=""
+                            <img src="../../assets/images/author.png" alt=""
                                 class="avatar img-raised avatar-img rounded-circle">
                             <span class="userNm">{{blog.value.author}}</span>
                             <div class="ripple-cont">

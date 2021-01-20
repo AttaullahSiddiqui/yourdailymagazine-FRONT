@@ -36,7 +36,7 @@ function fetchSlides(req, res) {
 
 function fetchTopStores(req, res) {
     Store.
-        find({}, 'img storeURL').
+        find({}, 'img storeURL name').
         limit(Number(req.query.limitNo)).
         exec(function (err, stores) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));

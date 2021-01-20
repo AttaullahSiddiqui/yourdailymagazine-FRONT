@@ -25,8 +25,9 @@
         <li class="search_min">
           <ul class="search_from">
             <li class="notifications follow">
-              <input (input)="searchFunc(searchBox)" (focus)="switch=true" (focusout)="focusOutFunc()"
-                [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website" type="text">
+              <input style="border-radius: 2rem;" (input)="searchFunc(searchBox)" (focus)="switch=true"
+                (focusout)="focusOutFunc()" [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website"
+                type="text">
               <div class="dropdown-menu" style="width: 100%;max-height: 80vh;overflow-y:auto;"
                 *ngIf="searchBox && switch">
                 <table class="table table-responsive-sm table-hover table-outline mb-0">
@@ -62,7 +63,7 @@
                 </table>
               </div>
             </li>
-            <li><a class="search_icon"><i class="icon-magnifier"></i></a></li>
+            <li><a class="search_icon" style="border-radius: 0 2rem 2rem 0;"><i class="icon-magnifier"></i></a></li>
           </ul>
         </li>
       </ul>
@@ -79,7 +80,7 @@
 
 <footer class="footer_area">
   <div class="footer_row row" style="padding:25px 20px auto !important">
-    <div class="col l3 m6 footer_col">
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
       <div class="popular_posts">
         <h3 class="categories_tittle text-center">Popular Blogs</h3>
         <div class="text-center m-5" *ngIf="!blogArray">
@@ -102,7 +103,7 @@
         </div>
       </div>
     </div>
-    <div class="col l3 m6 footer_col footer_trending text-center">
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col footer_trending text-center">
       <div class="social_Sharing" style="padding-top: 0;">
         <h3 class="categories_tittle">Social Sharing</h3>
         <ul class="social_icon">
@@ -115,25 +116,25 @@
       <br>
       <br>
       <br>
-      <div class="social_Sharing text-center" style="padding-top: 0;">
+      <div class="social_Sharing text-center" style="padding:0 20px 0 20px">
         <h3 class="categories_tittle">Contact Us</h3>
         <br>
         <br>
         <form #emailForm="ngForm" novalidate (ngSubmit)="addEmailToDB(contactEmail)">
           <div class="input-group mb-3">
             <input type="email"
-              style="background:transparent;color:white;font-size: 1.2em;height: 34px;width: 75%;border:1px solid"
+              style="background:transparent;color:white;font-size: 1.2em;height: 50px;width: 75%;border:1px solid"
               name="email" [email]="true" required [(ngModel)]="contactEmail" class="form-control"
               placeholder="Enter your email.." />
             <div class="input-group-append">
-              <button class="btn btn-secondary" type="submit" id="button-addon2"
+              <button class="btn btn-secondary" type="submit" id="button-addon2" style="height: 53px;margin-top: -1px;"
                 [disabled]="!emailForm.form.valid">Send</button>
             </div>
           </div>
         </form>
       </div>
     </div>
-    <div class="col l3 m6 footer_col text-center">
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
       <h3 class="categories_tittle text-center">Navigate</h3>
       <br>
       <br>

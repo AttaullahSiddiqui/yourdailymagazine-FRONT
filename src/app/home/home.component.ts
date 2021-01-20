@@ -28,11 +28,11 @@ export class HomeComponent implements OnInit {
       if (res.data) this.slideArray = res.data;
       else this.errorHandler(res.message)
     })
-    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopStores", 12).subscribe(res => {
+    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopStores", 7).subscribe(res => {
       if (res.data) this.storeArray = res.data;
       else this.errorHandler(res.message)
     })
-    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopBlogs", 9).subscribe(res => {
+    this._dataService.fetchOnlyLimit("/userDisplay/fetchTopBlogs", 7).subscribe(res => {
       if (res.data) this.blogArray = res.data;
       else this.errorHandler(res.message)
     })

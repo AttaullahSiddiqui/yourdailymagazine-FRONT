@@ -3860,7 +3860,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
         margin: 20px 15px
     }
     .min_container .section_row .right_side_bar {
-        margin: 20px 0
+        margin: 20px 0;
+        box-shadow: 0 0 30px 0 rgba(0, 36, 90, .1);
     }
     .your_states .chart_area .cercle_chart h2, .your_states .chart_area .cercle_chart h5 {
         right: 30px;

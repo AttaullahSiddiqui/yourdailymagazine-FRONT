@@ -15,46 +15,43 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="row justify-content-md-center">
-            <!-- <div class="col-sm-6 col-lg-3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-facebook">
-                        <i class="fa fa-facebook"></i>
+        <div class="row justify-content-md-center mb-0 onlyThis" [ngClass]="{'ifWeb': !mobile}"
+            style="margin: auto 5px;">
+            <div class="col-md-4" *ngFor="let store of storeArray | keyvalue;index as i;"
+                [routerLink]="['/store', store.value.storeURL]">
+                <div class="card profile-card-1" *ngIf="i%2!=0">
+                    <img src="../../assets/images/dback.jpeg" alt="profile-sample1" class="background" />
+                    <img [src]="store.value.img" alt="profile-image" class="profile" />
+                    <div class="card-content">
+                        <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2>
+                        <br>
+                        <button type="button" class="btn btn-outline-light btn-lg"
+                            style="padding: 30px auto 30px auto;">Visit</button>
                     </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">89k</div>
-                            <div class="text-uppercase text-muted small">friends</div>
-                        </div>
-                        <div>
-                            <div class="text-value">459</div>
-                            <div class="text-uppercase text-muted small">feeds</div>
-                        </div>
+                </div>
+                <div class="card profile-card-3" *ngIf="i%2==0">
+                    <div class="background-block">
+                        <img src="../../assets/images/aback2.jpeg" alt="profile-sample1" class="background" />
+                    </div>
+                    <div class="profile-thumb-block">
+                        <img [src]="store.value.img" alt="profile-image" class="profile" />
+                    </div>
+                    <div class="card-content">
+                        <h2>{{store.value.name}}<small>Store</small></h2>
+                        <br>
+                        <button type="button" class="btn btn-outline-dark btn-lg"
+                            style="padding: 30px auto 30px auto;">Visit</button>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-twitter">
-                        <i class="fa fa-twitter"></i>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">973k</div>
-                            <div class="text-uppercase text-muted small">followers</div>
-                        </div>
-                        <div>
-                            <div class="text-value">1.792</div>
-                            <div class="text-uppercase text-muted small">tweets</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="col-sm-12 col-lg-3 mainDiv" *ngFor="let store of storeArray | keyvalue"
+        </div>
+        <div class="row justify-content-md-center">
+
+
+            <!-- <div class="col-sm-12 col-lg-3 mainDiv" *ngFor="let store of storeArray | keyvalue"
                 [routerLink]="['/store', store.value.storeURL]">
                 <div class="brand-card">
                     <div class="brand-card-header bg-linkedin">
-                        <!-- <i class="fa fa-linkedin"></i> -->
                         <img [src]="store.value.img" class="circle responsive-img">
                     </div>
                     <div class="brand-card-body">
@@ -64,13 +61,9 @@
                             <div class="text-muted storeDetail" [innerHTML]="store.value.shortDes | slice:0:50">
                             </div>
                         </div>
-                        <!-- <div>
-                            <div class="text-value">292</div>
-                            <div class="text-uppercase text-muted small">feeds</div>
-                        </div> -->
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col-sm-6 col-lg-3">
                 <div class="brand-card">
                     <div class="brand-card-header bg-google-plus">

@@ -100,19 +100,30 @@
             </div>
             <div class="row" *ngIf="switch">
                 <div class="col">
-                    <div class="row mb-0">
+                    <div class="row justify-content-md-center mb-0">
                         <div class="col-md-8 text-center mx-auto" *ngIf="2>storeArray.length">
                             <span class="text-center xyz"><br>No related stores....</span>
                         </div>
                         <ng-container *ngFor="let store of storeArray | keyvalue">
-                            <div class="col-sm-6 col-lg-3" *ngIf="store.value.storeURL != storeId">
-                                <div class="brand-card" (click)="loadAnotherStore(store.value.storeURL)">
+                            <div class="col-sm-12 col-lg-3 onlyThis" *ngIf="store.value.storeURL != storeId">
+                                <!-- <div class="brand-card" (click)="loadAnotherStore(store.value.storeURL)">
                                     <div class="brand-card-header">
                                         <img src="{{store.value.img}}" class="rounded-circle roundImg" width="100"
                                             height="100" />
                                     </div>
                                     <div class="brand-card-body">
                                         <div class="text-muted small">{{store.value.name | slice:0:15}}</div>
+                                    </div>
+                                </div> -->
+                                <div class="card profile-card-1" (click)="loadAnotherStore(store.value.storeURL)">
+                                    <img src="../../assets/images/dback.jpeg" alt="profile-sample1"
+                                        class="background" />
+                                    <img [src]="store.value.img" alt="profile-image" class="profile" />
+                                    <div class="card-content">
+                                        <h2>{{store.value.name | slice:0:10}}</h2>
+                                        <!-- <br>
+                                        <button type="button" class="btn btn-outline-light btn-lg"
+                                            style="padding: 30px auto 30px auto;">Visit</button> -->
                                     </div>
                                 </div>
                             </div>

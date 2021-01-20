@@ -25,7 +25,34 @@
     </div>
 </div>
 <div class="row justify-content-md-center mb-0" style="margin:auto 30px">
-    <div class="col-sm-12 col-lg-4 visitCoupon" *ngFor="let blog of blogArray | keyvalue"
+    <div class="col-md-4 xxzz" *ngFor="let blog of blogArray | keyvalue" [routerLink]="['/blog', blog.value.blogURL]">
+        <div class="card">
+            <img [src]="blog.value.img" class="card-img-top">
+            <div class="card-body">
+                <div class="table">
+                    <h6 class="text-center">
+                        {{blog.value.title | slice:0:30}}
+                    </h6>
+                    <br>
+                    <h4 class="card-caption text-center" [innerHTML]="blog.value.shortDes | slice:0:85"></h4>
+                    <div class="ftr">
+                        <div class="author">
+                            <img src="http://adamthemes.com/demo/code/cards/images/avatar3.png" alt=""
+                                class="avatar img-raised avatar-img rounded-circle">
+                            <span class="userNm">Danish</span>
+                            <div class="ripple-cont">
+                                <div class="ripple ripple-on ripple-out"
+                                    style="left: 574px; top: 364px; background-color: rgb(60, 72, 88); transform: scale(11.875);">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="stats onlyL">View more&nbsp;&nbsp;<i class="cui-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-sm-12 col-lg-4 visitCoupon" *ngFor="let blog of blogArray | keyvalue"
         [routerLink]="['/blog', blog.value.blogURL]">
         <div class="brand-card" [ngClass]="{'applyMargin': web}">
             <div class="brand-card-header">
@@ -43,7 +70,7 @@
             </div>
             <br>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <ul class="tranding_select tabs">
@@ -51,8 +78,37 @@
             Blogs</a></li>
 </ul>
 <br>
-<div class="row justify-content-md-center mb-0" style="margin:auto 30px">
-    <div class="col-sm-6 col-lg-2 visitCoupon" *ngFor="let store of storeArray | keyvalue"
+<div class="row justify-content-md-center mb-0" [ngClass]="{'ifWeb': web}" style="margin: auto 5px;">
+    <div class="col-md-3 visitCoupon" *ngFor="let store of storeArray | keyvalue;index as i;"
+        [routerLink]="['/store', store.value.storeURL]">
+        <div class="card profile-card-1" *ngIf="i%2!=0">
+            <img src="../../assets/images/dback.jpeg" alt="profile-sample1" class="background" />
+            <img [src]="store.value.img" alt="profile-image" class="profile" />
+            <div class="card-content">
+                <h2>{{store.value.name}}<small>Store</small></h2>
+                <br>
+                <!-- <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i
+                            class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div> -->
+                <button type="button" class="btn btn-outline-light"
+                    style="padding: 30px auto 30px auto;">Explore</button>
+            </div>
+        </div>
+        <div class="card profile-card-3" *ngIf="i%2==0">
+            <div class="background-block">
+                <img src="../../assets/images/aback2.jpeg" alt="profile-sample1" class="background" />
+            </div>
+            <div class="profile-thumb-block">
+                <img [src]="store.value.img" alt="profile-image" class="profile" />
+            </div>
+            <div class="card-content">
+                <h2>{{store.value.name}}<small>Store</small></h2>
+                <br>
+                <button type="button" class="btn btn-outline-dark"
+                    style="padding: 30px auto 30px auto;">Explore</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-sm-6 col-lg-2 visitCoupon" *ngFor="let store of storeArray | keyvalue"
         [routerLink]="['/store', store.value.storeURL]">
         <div class="brand-card">
             <div class="brand-card-header">
@@ -68,7 +124,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <ul class="tranding_select tabs">
@@ -106,7 +162,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-xs-12 col-md-6">
             <div class="middle_section" id="infinite_scroll" style="padding:0 !important">
                 <div id="featured">
                     <div class="card">
@@ -153,7 +209,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-xs-12 col-md-3">
             <div class="left_side_bar">
                 <div class="interests">
                     <h3 class="categories_tittle">Your Interests</h3>

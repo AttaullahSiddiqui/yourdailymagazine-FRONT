@@ -493,6 +493,7 @@ h1 a{color:#131313; font-weight:bold;}
     .userNm{
         margin-left: 15px;
         font-size: 1.2em;
+        text-transform: capitalize;
     }
 }
 @media (min-width: 250px) and (max-width: 900px)

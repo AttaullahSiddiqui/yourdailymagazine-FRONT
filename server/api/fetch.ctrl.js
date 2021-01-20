@@ -59,7 +59,7 @@ function storesForSiteMap(req, res) {
 }
 function fetchTopBlogs(req, res) {
     Blog.
-        find({}, 'title img blogURL shortDes').
+        find({}, 'title img blogURL shortDes author').
         limit(Number(req.query.limitNo)).
         exec(function (err, blogs) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));

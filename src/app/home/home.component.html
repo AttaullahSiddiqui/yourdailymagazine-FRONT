@@ -85,7 +85,7 @@
             <img src="../../assets/images/dback.jpeg" alt="profile-sample1" class="background" />
             <img [src]="store.value.img" alt="profile-image" class="profile" />
             <div class="card-content">
-                <h2>{{store.value.name}}<small>Store</small></h2>
+                <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2>
                 <br>
                 <!-- <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i
                             class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div> -->

@@ -125,9 +125,10 @@ function fetchRandomStores(req, res) {
         });
 }
 function searchQuery(req, res) {
+    // { name: req.query.quer, img: "", storeURL: "" }
     var regex = new RegExp(req.query["quer"], 'i');
     Store.
-        find({ name: regex }, { name: req.query.quer, img: "", storeURL: "" }).
+        find({ name: regex }, 'name img storeURL').
         limit(Number(req.query.limitNo)).
         exec(function (err, stores) {
             if (err) res.json(resHandler.respondError(err[0], err[1] || -1));

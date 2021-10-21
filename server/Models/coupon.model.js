@@ -7,10 +7,15 @@ let couponSchema = mongoose.Schema({
     expDate: { type: Date, required: true },
     activeStatus: { type: Boolean, required: true },
     code: { type: String },
-    storeId: { type: String, required: true },
+    storeId: {
+        type: String,
+        ref: 'Store',
+        required: true
+    },
     featuredForHome: { type: Boolean, required: true },
     trending: { type: Boolean, required: true },
     newArrival: { type: Boolean, required: true },
+    forEvent: { type: Boolean, required: true },
     sortNo: { type: Number, required: true },
     CreatedAt: { type: String, default: Date.now() }
 });

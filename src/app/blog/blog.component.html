@@ -22,17 +22,16 @@
                     <div></div>
                 </div>
             </div>
-            <div class="col" *ngIf="blogNode">
+            <div class="col">
                 <br>
-                <img [src]="blogNode.img" style="width: 100%;">
+                <img [src]="blogNode.img" style="width: 100%;" *ngIf="blogNode">
                 <br>
                 <br>
-                <div>
-                    <h1 class="display-4 text-center">{{blogNode.title}}</h1>
-                    <br>
-                    <div [innerHTML]="blogNode.longDes"></div>
-                    <br>
-                </div>
+                <h1 class="display-4 text-center" *ngIf="blogNode">{{blogNode.title}}</h1>
+                <br>
+                <!-- <div [innerHTML]="blogDescription"></div> -->
+                <div #template></div>
+                <br>
             </div>
         </div>
     </div>

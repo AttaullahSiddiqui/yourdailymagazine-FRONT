@@ -12826,7 +12826,7 @@ module.exports = "<div *ngIf=\"mobile\">\r\n    <br>\r\n    <br>\r\n    <br>\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"mobile\">\r\n    <br>\r\n    <br>\r\n    <br>\r\n</div>\r\n<div class=\"jumbotron\">\r\n    <a [routerLink]=\"['/home']\">Home/</a>\r\n    <a [routerLink]=\"['/blogs']\">Blogs/</a>\r\n    <a [routerLink]=\"['/blog',blogURL]\">{{blogURL}}/</a>\r\n    <div class=\"lead\" style=\"font-size: 1.4em !important;\">\r\n        <div class=\"alert alert-danger alert-dismissible fade show col-lg-8\" *ngIf=\"responseError\" role=\"alert\">\r\n            {{responseError}}\r\n            <button type=\"button\" class=\"close\" (click)=\"closeError()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"text-center m-5\" *ngIf=\"!blogNode && isFetching\">\r\n                <div class=\"lds-facebook\">\r\n                    <div></div>\r\n                    <div></div>\r\n                    <div></div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col\" *ngIf=\"blogNode\">\r\n                <br>\r\n                <img [src]=\"blogNode.img\" style=\"width: 100%;\">\r\n                <br>\r\n                <br>\r\n                <div>\r\n                    <h1 class=\"display-4 text-center\">{{blogNode.title}}</h1>\r\n                    <br>\r\n                    <div [innerHTML]=\"blogNode.longDes\"></div>\r\n                    <br>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div *ngIf=\"mobile\">\r\n    <br>\r\n    <br>\r\n    <br>\r\n</div>\r\n<div class=\"jumbotron\">\r\n    <a [routerLink]=\"['/home']\">Home/</a>\r\n    <a [routerLink]=\"['/blogs']\">Blogs/</a>\r\n    <a [routerLink]=\"['/blog',blogURL]\">{{blogURL}}/</a>\r\n    <div class=\"lead\" style=\"font-size: 1.4em !important;\">\r\n        <div class=\"alert alert-danger alert-dismissible fade show col-lg-8\" *ngIf=\"responseError\" role=\"alert\">\r\n            {{responseError}}\r\n            <button type=\"button\" class=\"close\" (click)=\"closeError()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n            </button>\r\n        </div>\r\n        <div class=\"container\">\r\n            <div class=\"text-center m-5\" *ngIf=\"!blogNode && isFetching\">\r\n                <div class=\"lds-facebook\">\r\n                    <div></div>\r\n                    <div></div>\r\n                    <div></div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col\">\r\n                <br>\r\n                <img [src]=\"blogNode.img\" style=\"width: 100%;\" *ngIf=\"blogNode\">\r\n                <br>\r\n                <br>\r\n                <h1 class=\"display-4 text-center\" *ngIf=\"blogNode\">{{blogNode.title}}</h1>\r\n                <br>\r\n                <!-- <div [innerHTML]=\"blogDescription\"></div> -->\r\n                <div #template></div>\r\n                <br>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -13016,12 +13016,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BlogComponent = /** @class */ (function () {
-    function BlogComponent(route, _dataService, titleService) {
+    function BlogComponent(route, _dataService, titleService, sanitizer) {
         this.route = route;
         this._dataService = _dataService;
         this.titleService = titleService;
+        this.sanitizer = sanitizer;
         this.responseError = "";
         this.blogNode = null;
+        this.blogDescription = null;
         this.isFetching = false;
         this.blogURL = "";
         this.mobile = false;
@@ -13042,6 +13044,8 @@ var BlogComponent = /** @class */ (function () {
         this._dataService.fetchWithQuery("/userDisplay/fetchSingleBlog", id).subscribe(function (res) {
             if (res.data) {
                 _this.blogNode = res.data['0'];
+                _this.myTemplate.nativeElement.innerHTML = res.data['0']['longDes'];
+                // this.blogDescription = this.sanitizer.bypassSecurityTrustHtml(res.data['0']['longDes']);
                 _this.titleService.setTitle(res.data['0']['title']);
                 _this.isFetching = false;
             }
@@ -13058,15 +13062,20 @@ var BlogComponent = /** @class */ (function () {
     BlogComponent.ctorParameters = function () { return [
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
         { type: _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"] },
-        { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["Title"] }
+        { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["Title"] },
+        { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"] }
     ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('template', { read: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], static: true }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"])
+    ], BlogComponent.prototype, "myTemplate", void 0);
     BlogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-blog',
             template: __webpack_require__(/*! raw-loader!./blog.component.html */ "./node_modules/raw-loader/index.js!./src/app/blog/blog.component.html"),
             styles: [__webpack_require__(/*! ./blog.component.scss */ "./src/app/blog/blog.component.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["Title"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["Title"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__["DomSanitizer"]])
     ], BlogComponent);
     return BlogComponent;
 }());

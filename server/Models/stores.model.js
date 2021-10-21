@@ -9,6 +9,7 @@ let storeSchema = mongoose.Schema({
     longDes: { type: String, required: true },
     img: { type: String, required: true },
     imgAlt: { type: String, required: true },
+    thumbImg: { type: String },
     directUrl: { type: String, required: true },
     trackUrl: { type: String, required: true },
     metaTitle: { type: String, required: true },

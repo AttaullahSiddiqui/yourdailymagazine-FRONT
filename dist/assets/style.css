@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,900);
+@font-face {
+    font-family: 'gothic-bold';
+    src: url('../assets/fonts/gothicb.ttf');
+}
 .jscroll-loading {
     background: 0 0;
     text-align: center
@@ -548,7 +552,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     text-align: center;
     display: block;
     overflow: hidden;
-    background: #f0f5f7;
+    background: #e5e4e2;
     padding: 12px;
     border-bottom: 1px solid rgba(39, 49, 62, .06)
 }
@@ -3503,9 +3507,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 @media (max-width:1600px) {
-    .footer_area .footer_row {
+    /* .footer_area .footer_row {
         width: 1300px
-    }
+    } */
     .footer_area .footer_row .footer_col {
         padding: 0 15px
     }

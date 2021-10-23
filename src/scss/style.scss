@@ -6,3 +6,67 @@
 
 // If you want to add something do it here
 @import "custom";
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+.nav-tabs {
+    .nav-link {
+        color: #e50863 !important;
+        border-radius: 5px;
+        &:hover {
+            cursor: pointer;
+            border-bottom: 1px solid #e50863 !important;
+        }
+        &.active {
+            color: white !important;
+            background: #e50863;
+            &:focus {
+                background: #e50863;
+                color: white !important;
+                border-bottom-color: #e50863;
+            }
+        }
+    }
+}
+.tab-content {
+    margin-top: -1px;
+    background: transparent !important;
+    border: none;
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input > input {
+    margin-bottom: 0 !important;
+    padding-left: 10px !important;
+}
+.ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    background: #e4e7ea !important;
+}
+// ng-select {
+//   > div {
+//     > div.single {
+//       > div.toggle {
+//         color: white !important;
+//         background: none;
+//         &:hover {
+//           background-color: #4389a9;
+//         }
+//       }
+//       > div.placeholder {
+//         color: white !important;
+//         font-size: 35px !important;
+//       }
+//       > div.clear {
+//         &:hover {
+//           background-color: #4389a9;
+//         }
+//       }
+//     }
+//     border: none !important;
+//   }
+// }
+.modal {
+    pointer-events: none !important;
+}
+.modal-backdrop {
+    display: none !important;
+}

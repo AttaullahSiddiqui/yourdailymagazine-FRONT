@@ -1,0 +1,84 @@
+.media-body > p {
+    font-size: 1.2em;
+}
+.media-body > h2 {
+    font-weight: 450;
+}
+.imageAdjust {
+    width: inherit;
+    height: inherit;
+    image-rendering: pixelated;
+}
+.manAvatar {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.desSize {
+    font-size: 1.25em;
+}
+.row h2 {
+    color: rgb(54, 51, 51);
+    font-weight: 400;
+    margin: 0;
+}
+.featuredBtn {
+    padding: 5px 14px;
+    background-color: rgb(117, 117, 182);
+    border-radius: 8px;
+    color: white;
+}
+.trendingBtn {
+    padding: 5px 14px;
+    background-color: #cb146e;
+    border-radius: 8px;
+    color: white;
+}
+.jumbotron > a {
+    font-size: 1.55em !important;
+    color: #20c997;
+}
+.list-unstyled {
+    margin: auto 1rem;
+}
+.media {
+    img {
+        max-width: 60px;
+    }
+    h5 {
+        font-size: 1.1em;
+        font-weight: 500;
+        color: grey;
+    }
+}
+.customImgRound {
+    width: 50px;
+    border-radius: 50%;
+}
+.media img {
+    width: 55px;
+    height: 55px;
+}
+.description {
+    font-size: 1.2em;
+}
+td {
+    font-size: 1.1em;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
+}
+.display-4 {
+    font-weight: bold;
+    color: #333;
+    font-family: gothic-bold;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
+}

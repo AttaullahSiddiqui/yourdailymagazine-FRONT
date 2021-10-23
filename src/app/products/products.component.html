@@ -1,0 +1,221 @@
+<!-- <div *ngIf="mobile">
+    <br>
+    <br>
+    <br>
+</div> -->
+<div class="jumbotron" [ngClass]="{'p-0' : mobile}">
+    <a [routerLink]="['/home']">Home > </a>
+    <a [routerLink]="['/products']">Products > </a>
+    <ul class="tranding_select tabs py-0" style="background:transparent">
+        <li class="tab"><a class="waves-effect btn py-2" (click)="handleMainTabs(true)"
+                [ngClass]="{'active': switch}">Featured</a>
+        </li>
+        <li class="tab p-2"><a class="waves-effect btn" (click)="handleMainTabs(false)"
+                [ngClass]="{'active': !switch}">Trending</a></li>
+    </ul>
+    <!-- <div class="d-flex" *ngIf="mainObject">
+        <ul class="list-group list-group-horizontal-lg mx-auto">
+            <li class="list-group-item" [ngClass]="{'active': handleActive=='All'}" (click)="selectThis('All')">All
+            </li>
+            <li class="list-group-item" *ngFor="let obj of mainObject.tags | keyvalue"
+                [ngClass]="{'active': handleActive==obj.value}" (click)="selectThis(obj.value)">{{obj.value}}</li>
+        </ul>
+    </div> -->
+    <h1 class="display-4 text-center">Explore Products of Different Categories</h1>
+    <br>
+    <div class="lead text-center" style="font-size: 1.2em !important;">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-3 ">
+                    <div class="filterBar">
+                        <!-- <br>
+                        <h4 class="text-center">Filter By:</h4> -->
+                        <br>
+                        <div class="form-group ml-3 mr-3">
+                            <ng-select name="searchByCategory" [closeOnSelect]="true" [searchable]="true"
+                                appearance="outline" placeholder="{{myPlaceHolder1}}" [hideSelected]="true"
+                                [(ngModel)]="categoryFilter" (change)="filterByCategory(categoryFilter)"
+                                (search)="onSearch1($event)">
+                                <ng-option [value]="cat.value._id" *ngFor="let cat of categoryArr | keyvalue">
+                                    {{cat.value.name}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="form-group ml-3 mr-3">
+                            <ng-select name="searchByBrands" [closeOnSelect]="true" [searchable]="true"
+                                dropdownPosition="bottom" appearance="outline" placeholder="{{myPlaceHolder2}}"
+                                [hideSelected]="true" [(ngModel)]="brandFilter" (change)="filterByStore(brandFilter)"
+                                (search)="onSearch2($event)">
+                                <ng-option [value]="store.value.storeURL" *ngFor="let store of storeArray | keyvalue">
+                                    {{store.value.name}}
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                        <!-- <div class="card m-3">
+                            <div class="card-header text-left cursor-pointer" (click)="isCollapsed2 = !isCollapsed2">
+                                {{selectedStore || 'Brands'}}
+                                <div class="card-header-actions">
+                                    <i class="fa fa-chevron-down cTheme" *ngIf="isCollapsed2" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-up cTheme" *ngIf="!isCollapsed2" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="card-body p-0" [collapse]="isCollapsed2">
+                                <ul class="list-group-flush">
+                                    <li class="list-group-item cursor-pointer"
+                                        (click)="filterByStore('all','All Brands')">All
+                                    </li>
+                                    <li class="list-group-item cursor-pointer"
+                                        (click)="filterByStore(store.value.storeURL,store.value.name)"
+                                        *ngFor="let store of storeArray | keyvalue">{{store.value.name}}</li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <ul class="list-unstyled">
+                            <li class="display-5 disabled"
+                                style="font-size: 1.4em;font-weight: bold;color:rgb(77, 72, 72);font-family: gothic-bold;"
+                                *ngIf="randomProducts.length">
+                                Featured Products:</li>
+                            <div *ngFor="let random of randomProducts | keyvalue"
+                                [routerLink]="['/productdetail', random.value._id]" class="pt-4">
+                                <li class="media cursor-pointer">
+                                    <img [src]="random.value.img" class="mr-3">
+                                    <div class="media-body text-left">
+                                        <h5 class="mt-0 mb-1">{{random.value.name}}</h5>
+                                        <span><b>Price: </b>&nbsp; {{random.value.pricing}}</span><br>
+                                        <span><b>Views: </b>&nbsp; {{random.value.clicks}}</span>
+                                    </div>
+                                </li>
+                            </div>
+                            <br>
+                        </ul>
+                        <!-- <div class="row">
+                            <div class="col-xs-6 col-md-4 mb-2" *ngFor="let trend of featuredArr | keyvalue | slice:0:6"
+                                [routerLink]="['/productdetail', trend.value._id]">
+                                <img [src]="trend.value.img" alt="Avatar" class="avatar cursor-pointer">
+                            </div>
+                        </div> -->
+                    </div>
+                    <div *ngIf="mainObject" style="background-color: #e5e4e2;padding: 20px 0;margin-top: 20px;">
+                        <button type="button" class="btn btn-secondary btn-sm m-2"
+                            [ngClass]="{'active': handleActive=='All'}" (click)="filterByTag('All')">All</button>
+                        <button type="button" class="btn btn-secondary btn-sm m-2"
+                            *ngFor="let obj of mainObject.tags | keyvalue | slice:0:10"
+                            [ngClass]="{'active': handleActive==obj.value}"
+                            (click)="filterByTag(obj.value)">{{obj.value}}</button>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-9 p-0">
+                    <div *ngIf="switch">
+                        <div class="text-center m-5" *ngIf="isFetchingFeatured">
+                            <div class="lds-facebook">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-md-center">
+                            <span class="text-center xyz" *ngIf="noFeatured"><br>No Featured Products
+                                Available....</span>
+                            <div class="col-xs-12 col-md-4" *ngFor="let featured of featuredArr | keyvalue">
+                                <div class="card ml-2 mr-2">
+                                    <img *ngIf="featured.value.img" [src]="featured.value.img" class="card-img-top"
+                                        [routerLink]="['/productdetail', featured.value._id]"
+                                        [alt]="featured.value.imageAlt || 'product pic'">
+                                    <video *ngIf="featured.value.vid" loop [muted]="true"
+                                        onloadedmetadata="this.muted = true" autoplay class="card-img-top"
+                                        [routerLink]="['/productdetail', featured.value._id]">
+                                        <source [src]="featured.value.vid" />
+                                    </video>
+                                    <div class="card-body text-center">
+                                        <p class="card-text" [routerLink]="['/productdetail', featured.value._id]">
+                                            {{featured.value.name | slice:0:34}} <span
+                                                *ngIf="featured.value.name.length>35">...</span></p>
+                                        <hr />
+                                        <div class="row stats">
+                                            <span class="col-6 border-right">
+                                                <div class="text-value">{{featured.value.pricing}}</div>
+                                                <div class="text-uppercase text-muted small">Price</div>
+                                            </span>
+                                            <span class="col-6">
+                                                <div class="text-value">{{featured.value.clicks}}</div>
+                                                <div class="text-uppercase text-muted small">Views</div>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn btn-danger m-2 rounded"
+                                            (click)="goToLinkFeatured(featured.value.externalLink,featured.value._id,featured.key)">{{featured.value.buttonText}}</button>
+                                        <br>
+                                        <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                            [routerLink]="['/store', featured.value.storeId, 3]">View in Store</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div *ngIf="featuredArr.length">
+                            <button type="button" class="btn btn-dark ml-2 mr-2 pull-left" [disabled]="!skipNo1"
+                                (click)="prevFeatured()">Previous</button>
+                            <button type="button" class="btn btn-dark ml-2 mr-2 pull-right"
+                                (click)="loadMoreFeatured()">Next</button>
+                        </div>
+                    </div>
+                    <div *ngIf="!switch">
+                        <div class="text-center m-5" *ngIf="isFetchingTrending">
+                            <div class="lds-facebook">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-md-center">
+                            <span class="text-center xyz" *ngIf="noTrending"><br>No Trending Products
+                                Available....</span>
+                            <div class="col-xs-12 col-md-4" *ngFor="let trending of trendingArr | keyvalue">
+                                <div class="card mr-2 ml-2">
+                                    <img *ngIf="trending.value.img" [src]="trending.value.img" class="card-img-top"
+                                        [routerLink]="['/productdetail', trending.value._id]"
+                                        [alt]="trending.value.imageAlt || 'product pic'">
+                                    <video *ngIf="trending.value.vid" loop [muted]="true"
+                                        onloadedmetadata="this.muted = true" autoplay class="card-img-top"
+                                        [routerLink]="['/productdetail', trending.value._id]">
+                                        <source [src]="trending.value.vid" />
+                                    </video>
+                                    <div class="card-body text-center">
+                                        <p class="card-text" [routerLink]="['/productdetail', trending.value._id]">
+                                            {{trending.value.name| slice:0:34}} <span
+                                                *ngIf="trending.value.name.length>35">...</span>
+                                        </p>
+                                        <hr />
+                                        <div class="row stats">
+                                            <span class="col-6 border-right">
+                                                <div class="text-value">{{trending.value.pricing}}</div>
+                                                <div class="text-uppercase text-muted small">Price</div>
+                                            </span>
+                                            <span class="col-6">
+                                                <div class="text-value">{{trending.value.clicks}}</div>
+                                                <div class="text-uppercase text-muted small">Views</div>
+                                            </span>
+                                        </div>
+                                        <button type="button" class="btn btn-danger m-2 rounded"
+                                            (click)="goToLinkTrending(trending.value.externalLink,trending.value._id,trending.key)">{{trending.value.buttonText}}</button>
+                                        <br>
+                                        <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                            [routerLink]="['/store', trending.value.storeId,3]">View in Store</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div *ngIf="trendingArr.length">
+                            <button type="button" class="btn btn-dark ml-2 mr-2 pull-left" [disabled]="!skipNo2"
+                                (click)="prevTrending()">Previous</button>
+                            <button type="button" class="btn btn-dark ml-2 mr-2 pull-right"
+                                (click)="loadMoreTrending()">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,12 +1,86 @@
-a:hover{
-    color:#28BAA2;
+a:hover {
+    color: #741fa2;
     text-decoration: underline;
-    font-size:1.4em
 }
-a{
+a {
     font-size: 1.35em;
-    color:#28BAA2
+    color: black;
 }
-.jumbotron > a{
-    font-size: 1.3em !important;
+.jumbotron > a {
+    font-size: 1.3em;
+}
+.jumbotron > a:hover {
+    text-decoration: underline;
+}
+a.breadcrumbs {
+    color: #20c997 !important;
+    font-size: 1.55em !important;
+}
+
+.card {
+    width: 100%;
+    margin-top: 50px;
+    font-family: "Roboto", sans-serif;
+    color: #444;
+    border: 1px solid #999;
+    border-radius: 4px;
+    background: #eee;
+    text-align: center;
+    padding-top: 30px;
+    float: left;
+    :before {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        background-color: #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        border-radius: 30px;
+        font-size: 28px;
+        font-style: normal;
+        left: 50%;
+        line-height: 60px;
+        position: absolute;
+        top: -30px;
+        width: 60px;
+    }
+    .card-question {
+        margin: 20px 0 20px;
+        font-size: 150%;
+        font-family: intervogue;
+        font-weight: 600;
+        color: #5d4343;
+    }
+    .card-separator {
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+    a {
+        text-decoration: none;
+        color: #7f8c8d;
+    }
+    button {
+        height: auto;
+        width: 50%;
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+}
+
+.card-green {
+    border-top: 4px solid #137d5e;
+    :before {
+        color: #137d5e;
+        content: "\f2a1";
+        font-family: "FontAwesome";
+    }
+    .card-separator {
+        border: 1px solid #137d5e;
+    }
+}
+.display-4 {
+    font-weight: bold;
+    color: #333;
+    font-family: gothic-bold;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
 }

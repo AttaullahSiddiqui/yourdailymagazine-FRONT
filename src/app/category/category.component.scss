@@ -1,16 +1,64 @@
-.customSize{
+.customSize {
     font-size: 1.02em;
 }
-.brand-card-header{
-    height:4.5rem
+.brand-card-header {
+    height: fit-content;
 }
-.storeArrr:hover{
+.brand-card {
+    // border: none;
+}
+.storeArrr:hover {
     cursor: pointer;
 }
-a{
-    font-size: 1.3em;
-    color:#28BAA2
+// a {
+//     font-size: 1.55em;
+//     color: #20c997;
+// }
+.jumbotron > a {
+    color: #20c997;
+    font-size: 1.55em;
 }
-a:hover{
+a:hover {
     text-decoration: underline;
+}
+.cardTxt {
+    font-size: 1.4em;
+    font-family: intervogue;
+    font-weight: 600;
+}
+.brand-card {
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border-radius: 10px;
+    background: #e5e4e2;
+    // border-width: 3px;
+}
+// /deep/ .ng-dropdown-panel-items {
+//     height: 500px !important;
+// }
+// ::ng-deep .ng-dropdown-panel-items {
+//     max-height: 70vh !important;
+// }
+.ng-dropdown-panel .ng-dropdown-panel-items {
+    max-height: 82vh !important;
+}
+.display-4 {
+    font-weight: bold;
+    color: #333;
+    font-family: gothic-bold;
+}
+// ::-webkit-input-placeholder {
+//     color: red !important;
+// }
+
+// :-ms-input-placeholder {
+//     color: red !important;
+// }
+
+// ::placeholder {
+//     color: red !important;
+// }
+.jumbotron {
+    padding: 1rem 1rem !important;
 }

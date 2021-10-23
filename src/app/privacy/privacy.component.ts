@@ -12,7 +12,7 @@ export class PrivacyComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("Privacy");
-    if (window.screen.width < 400) this.mobile = true
+    if (window.screen.width < 450) this.mobile = true
   }
 
 }

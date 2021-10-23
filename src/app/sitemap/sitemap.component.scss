@@ -1,20 +1,25 @@
-.minHeight{
+.minHeight {
     min-height: 0vh;
     max-height: 40vh;
     overflow-y: auto;
 }
-.col-3{
+.col-3 {
     margin: 10px 0;
 }
-.textSize{
-    font-size: 1.5em;
+.textSize {
+    font-size: 1.7em;
+    font-family: intervogue;
 }
-p:hover{
+p:hover {
     cursor: pointer;
 }
-.display-4{
-    text-decoration: underline;
+.display-4 {
+    font-family: gothic-bold;
+    color: #333;
 }
-.icon-map{
+.icon-map {
     font-size: 1.2em;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
 }

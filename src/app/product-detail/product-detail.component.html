@@ -1,0 +1,188 @@
+<!-- <div *ngIf="mobile">
+    <br>
+    <br>
+    <br>
+</div> -->
+<div class="jumbotron">
+    <a [routerLink]="['/home']">Home > </a>
+    <a [routerLink]="['/products']">Products > </a>
+    <a [routerLink]="['/productdetail',productId]">{{productName}}/</a>
+    <div class="text-center m-5" *ngIf="isFetching">
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="lead" style="font-size: 1.2em !important;" *ngIf="product">
+        <!-- <h1 class="display-4 text-center" style="font-size: 2.5em;margin:20px auto">{{product.name}}</h1>
+        <hr class="my-4" />
+        <br> -->
+        <br>
+        <div class="container p-0">
+            <div class="row">
+                <div class="col-xs-12 col-lg-9">
+                    <br>
+                    <div class="row">
+                        <div class="colxs-12 col-md-6">
+                            <img *ngIf="product.img" [src]="product.img" class="w-100"
+                                [alt]="product.imageAlt || 'product pic'">
+                            <video *ngIf="product.vid" loop [muted]="true" onloadedmetadata="this.muted = true" autoplay
+                                class="w-100">
+                                <source [src]="product.vid" />
+                            </video>
+                        </div>
+                        <div class="colxs-12 col-md-6">
+                            <h2 class="mt-0 display-4" style="font-size: 2.8em;font-weight: 600;">{{product.name}}</h2>
+                            <br>
+                            <span class="h4 mr-4"><i class="fa fa-eye text-muted"></i> &nbsp;
+                                {{product.clicks}}</span>
+                            <span class="h4"><i class="fa fa-money text-muted"></i> &nbsp;
+                                {{product.pricing}}</span>
+                            <span class="featuredBtn ml-4">Featured</span>
+                            <!-- <p class="mt-4 desSize" [innerHTML]="product.description"></p> -->
+                            <br>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-dark mr-4"
+                                (click)="goToAmazonFeatured(product.externalLink,product._id)">{{product.buttonText}}</button>
+                            <button type="button" class="btn btn-outline-dark"
+                                [routerLink]="['/store', product.storeId, 3]">View
+                                in Store</button>
+                        </div>
+
+                    </div>
+                    <tabset>
+                        <tab heading="Description">
+                            <p [innerHTML]="product.description" class="description"></p>
+                        </tab>
+                        <tab heading="Additional Info">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                    <tr *ngFor="let item of product.moreInfo">
+                                        <td>{{item.property}}</td>
+                                        <td>{{item.propertyVal}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </tab>
+                        <tab heading="Reviews">
+                            <p class="text-center text-muted" style="font-size: 1.2em;" *ngIf="!reviewArr.length">No
+                                reviews...
+                            </p>
+                            <ul class="list-unstyled">
+                                <li class="media mt-2 border-bottom" *ngFor="let item of reviewArr | keyvalue">
+                                    <img src="assets/images/avatar.png" class="mr-4 avatar rounded-circle" alt="...">
+                                    <div class="media-body">
+                                        <h4 class="mt-0 mb-2 font-weight-light">{{item.value.name}}</h4>
+                                        <span class="text-muted">{{item.value.reviewText}}</span>
+                                        <br>
+                                        <ngb-rating [(rate)]="item.value.rating" [readonly]="true" [max]="5"
+                                            style="font-size: 3em;color:#F86C6B">
+                                        </ngb-rating>
+                                    </div>
+                                </li>
+                            </ul>
+                            <br>
+                            <button type="button" class="btn btn-outline-danger pull-right"
+                                (click)="openModal(template)">Add
+                                Review</button>
+                            <br>
+                        </tab>
+                    </tabset>
+                    <hr class="my-4" />
+                </div>
+                <div class="col-xs-12 col-lg-3">
+                    <ul class="list-unstyled">
+                        <li class="display-5 disabled"
+                            style="font-size: 1.4em;font-weight: bold;color:grey;font-family: gothic-bold;"
+                            *ngIf="randomProducts.length">Featured
+                            Products:
+                        </li>
+                        <br>
+                        <div *ngFor="let random of randomProducts | keyvalue"
+                            [routerLink]="['/productdetail', random.value._id]">
+                            <li class="media cursor-pointer">
+                                <img [src]="random.value.img" class="mr-3">
+                                <div class="media-body text-left">
+                                    <h5 class="mt-0 mb-1">{{random.value.name}}</h5>
+                                    <span><b>Price: </b>&nbsp; {{random.value.pricing}}</span><br>
+                                    <span><b>Views: </b>&nbsp; {{random.value.clicks}}</span>
+                                </div>
+                            </li>
+                            <hr />
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add Review</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <form #addReviewForm="ngForm" novalidate (ngSubmit)='submitReview(reviewObj)'>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" name="name" required [(ngModel)]="reviewObj.name">
+            </div>
+            <div class="form-group">
+                <label for="name">Your Email</label>
+                <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" class="form-control"
+                    name="email" required [(ngModel)]="reviewObj.email">
+            </div>
+            <div class="form-group">
+                <label for="reviewText">Your views about this Product</label>
+                <input type="text" class="form-control" name="reviewText" required [(ngModel)]="reviewObj.reviewText">
+            </div>
+            <ngb-rating [(rate)]="currentRate" style="font-size: 4.5em;color:#e50863;position: relative;left: 23%;"
+                [max]="5">
+            </ngb-rating>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default mr-3 mb-2" (click)="modalRef.hide()">Close</button>
+            <button type="submit" class="btn btn-danger mb-2"
+                [disabled]="!addReviewForm.form.valid || !addReviewForm.dirty || !currentRate">Submit</button>
+        </div>
+    </form>
+</ng-template>
+
+<!-- <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Review</h4>
+                <button type="button" class="close" id="closebtn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #addReviewForm="ngForm" novalidate (ngSubmit)='submitReview(reviewObj)'>
+                    <div class="modal-body" style="margin: auto 5%;">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" name="name" required [(ngModel)]="reviewObj.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="reviewText">Your views about this Product</label>
+                            <textarea type="text" class="form-control" name="reviewText" required
+                                [(ngModel)]="reviewObj.reviewText"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger"
+                    [disabled]="!addReviewForm.form.valid || !addReviewForm.dirty">Submit</button>
+            </div>
+        </div>
+    </div>
+</div> -->

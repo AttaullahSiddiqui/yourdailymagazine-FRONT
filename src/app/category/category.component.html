@@ -1,14 +1,14 @@
-<div *ngIf="mobile">
+<!-- <div *ngIf="mobile">
     <br>
     <br>
     <br>
-</div>
+</div> -->
 <div class="jumbotron">
-    <a [routerLink]="['/home']">Home/</a>
-    <a [routerLink]="['/categories']">Categories/</a>
-    <a [routerLink]="['/category',selectedCatURL]">{{selectedCatURL}}/</a>
+    <a [routerLink]="['/home']">Home > </a>
+    <a [routerLink]="['/categories']">Categories > </a>
+    <a [routerLink]="['/category',selectedCatURL]">{{selectedCatURL}}</a>
     <h1 class="display-4 text-center">{{selectedCat}}</h1>
-    <hr class="my-4" />
+    <br>
     <div class="lead" style="font-size: 1.2em !important;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
             {{responseError}}
@@ -16,16 +16,23 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="container">
+        <div class="container" style="max-width: 90%">
             <div class="row">
                 <div class="col-sm-12 col-lg-3">
                     <form>
-                        <select class="custom-select customSize" name="selctForm" [(ngModel)]="selectCat"
-                            (change)="loadStores(selectCat)">
-                            <option [value]="cat.value._id" *ngFor="let cat of categoryArr | keyvalue">
+                        <ng-select name="selctForm" [closeOnSelect]="true" [searchable]="true" appearance="outline"
+                            placeholder="{{myPlaceHolder1}}" [hideSelected]="true" dropdownPosition="bottom"
+                            [(ngModel)]="selectCat" (change)="secondaryFunc(selectCat)" (search)="onSearch1($event)">
+                            <ng-option [value]="cat.value.categoryURL" *ngFor="let cat of categoryArr | keyvalue">
+                                {{cat.value.name}}
+                            </ng-option>
+                        </ng-select>
+                        <!-- <select class="custom-select customSize" name="selctForm" [(ngModel)]="selectCat"
+                            (change)="secondaryFunc(selectCat)">
+                            <option [value]="cat.value.categoryURL" *ngFor="let cat of categoryArr | keyvalue">
                                 {{cat.value.name}}
                             </option>
-                        </select>
+                        </select> -->
                     </form>
                     <br>
                     <br>
@@ -39,15 +46,16 @@
                                 <div></div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-2 storeArrr" [routerLink]="['/store', store.value.storeURL]"
+                        <div class="col-sm-12 col-md-3 px-3 storeArrr" [routerLink]="['/store', store.value.storeURL]"
                             *ngFor="let store of storeArr | keyvalue">
                             <div class="brand-card">
+                                <br>
                                 <div class="brand-card-header">
-                                    <img [src]="store.value.img" class="rounded-circle roundImg" width="55"
-                                        height="55" />
+                                    <img [src]="store.value.img" style="border:3px solid #20c997"
+                                        class="rounded-circle roundImg" width="110" height="110" />
                                 </div>
                                 <div class="brand-card-body">
-                                    <div class="text-muted small">
+                                    <div class="cardTxt">
                                         {{store.value.name | slice:0:10}}</div>
                                 </div>
                             </div>

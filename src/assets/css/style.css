@@ -198,6 +198,19 @@
     animation-delay: -1.6s
 }
 
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+modal-container {
+    max-height: 100vh !important;
+}
+
+.jumbotron {
+    /* background: white !important; */
+    margin-bottom: 0 !important;
+}
+
 @keyframes lds-grid {
     0%, 100% {
         opacity: 1

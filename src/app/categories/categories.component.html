@@ -1,40 +1,89 @@
-<div *ngIf="mobile">
+<!-- <div *ngIf="mobile">
     <br>
     <br>
     <br>
-</div>
+</div> -->
 <div class="jumbotron">
-    <a [routerLink]="['/home']" class="breadcrumbs">Home/</a>
-    <a [routerLink]="['/categories']" class="breadcrumbs">Categories/</a>
-    <h1 class="display-4 text-center">Categories Containing Exciting Stores...</h1>
-    <hr class="my-4" />
-    <div class="lead" style="font-size: 1.2em !important;">
+    <a [routerLink]="['/home']" class="breadcrumbs">Home > </a>
+    <a [routerLink]="['/categories']" class="breadcrumbs">Categories > </a>
+    <h1 class="display-4 text-center">Choose That Fits Your Need...</h1>
+    <!-- <hr class="mt-4 mb-2" /> -->
+    <div class="lead mt-2" style="font-size: 1.2em !important;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
             {{responseError}}
             <button type="button" class="close" (click)="closeError()" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-9">
-                    <div class="text-center m-5" *ngIf="!categoryArr && isLoading">
-                        <div class="lds-facebook">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-12 p_content" *ngFor="let cat of categoryArr | keyvalue">
-                            <a [routerLink]="['/category', cat.value.categoryURL]">{{cat.value.name}}</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    Ads will be displayed here
+        <div class="container" style="max-width: 100%;">
+            <div class="text-center m-5" *ngIf="!categoryArr && isLoading">
+                <div class="lds-facebook">
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
             </div>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-2 col-sm-12" *ngFor="let cat of categoryArr | keyvalue">
+                    <div class="card card-green cursor-pointer" [routerLink]="['/category', cat.value.categoryURL]">
+                        <p class="card-question">{{cat.value.name}}</p>
+                        <div class="card-separator"></div>
+                        <br>
+                        <button type="button" class="btn btn-outline-success mx-auto"
+                            style="background-color: #137d5e;border-color: #137d5e;color: white;"
+                            [routerLink]="['/category', cat.value.categoryURL]">Browse
+                            Stores</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-9"> -->
+
+            <!-- <div class="row">
+                        <div class="col-lg-4 col-sm-12" *ngFor="let cat of categoryArr | keyvalue">
+                            <a [routerLink]="['/category', cat.value.categoryURL]">{{cat.value.name}}</a>
+                        </div>
+                    </div> -->
+
+
+            <!-- <div class="card-columns">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the first card</p>
+                            </div>
+                        </div>
+                        <div class="card bg-warning">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the second card</p>
+                            </div>
+                        </div>
+                        <div class="card bg-success">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the third card</p>
+                            </div>
+                        </div>
+                        <div class="card bg-danger">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the fourth card</p>
+                            </div>
+                        </div>
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the fifth card</p>
+                            </div>
+                        </div>
+                        <div class="card bg-info">
+                            <div class="card-body text-center">
+                                <p class="card-text">Some text inside the sixth card</p>
+                            </div>
+                        </div>
+                    </div> -->
+            <!-- </div> -->
+            <!-- <div class="col pt-5 pl-3">
+                    Ads will be displayed here
+                </div> -->
+            <!-- </div> -->
         </div>
     </div>
 </div>

@@ -1,1 +1,48 @@
-img{width:100%}.container{max-width:100%}.blogTxt{font-size:1.2em}a:hover{cursor:pointer;text-decoration: underline}a{color:#28BAA2}b{font-size:1.1em}.jumbotron>a{font-size:1.3em!important}button.btn-outline-primary{border-color:#28BAA2!important;color:#28BAA2!important}button.btn-outline-primary:hover{background-color:#28BAA2!important;color:#fff!important}
+img.blogsImg {
+    width: 100%;
+}
+.container {
+    max-width: 100%;
+}
+.blogTxt > p {
+    font-size: 1.4em !important;
+    font-family: intervogue !important;
+    letter-spacing: 0.03em;
+}
+.row a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #741fa2;
+}
+.row a {
+    color: black;
+}
+b {
+    font-size: 1.1em;
+}
+.jumbotron > a {
+    font-size: 1.55em !important;
+    color: #20c997;
+}
+a.viewMore:hover {
+    color: #20c997 !important;
+}
+button.btn-outline-primary {
+    border-color: #20c997 !important;
+    color: #20c997 !important;
+}
+button.btn-outline-primary:hover {
+    background-color: #20c997 !important;
+    color: #fff !important;
+}
+.display-4 {
+    font-weight: bold;
+    color: #333;
+    font-family: gothic-bold;
+}
+a > h3 {
+    font-family: gothic-bold;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
+}

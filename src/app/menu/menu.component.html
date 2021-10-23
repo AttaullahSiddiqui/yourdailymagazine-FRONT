@@ -5,21 +5,32 @@
     <li class="list-group-item" routerLink="/stores" (click)="closeNav($event)">Stores</li>
     <li class="list-group-item" routerLink="/categories" (click)="closeNav($event)">Categories</li>
     <li class="list-group-item" routerLink="/blogs" (click)="closeNav($event)">Blogs</li>
+    <li class="list-group-item" routerLink="/products" (click)="closeNav($event)">Products</li>
+    <li class="list-group-item" routerLink="/about" (click)="closeNav($event)">About</li>
+    <li class="list-group-item" routerLink="/privacy" (click)="closeNav($event)">Privacy</li>
+    <li class="list-group-item" routerLink="/termsandconditions" (click)="closeNav($event)">Terms & Conditions</li>
   </ul>
 </div>
-<nav class="header_area">
+<nav class="header_area" (click)="closeDropDown()">
   <div class="custom_container">
     <div class="nav-wrapper">
-      <a class="brand-logo d-none d-md-block"><img src="assets/img/brand/BMD.png" class="logoImg" /></a>
-      <a style="margin-left: 40px;" class="brand-logo d-block d-sm-none"><img src="assets/img/brand/BMD.png"
+      <a class="brand-logo d-block d-sm-none mobileSearch" (click)="showMobSearch=!showMobSearch"><i
+          [ngClass]="{'colorGreen': showMobSearch}" class="icon-magnifier d-block"></i></a>
+      <a class="brand-logo d-none d-md-block cursor-pointer" routerLink="/home"><img src="assets/img/brand/BMD.png"
+          class="logoImg" /></a>
+      <a style="margin-left: 13%;" class="brand-logo d-block d-sm-none"><img src="assets/img/brand/BMD.png"
           class="logoImg" /></a>
       <a href="" class="button-collapse" (click)="openNav($event)">
         <i class="fa fa-bars"></i></a>
       <ul class="left_menu hide-on-med-and-down">
         <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/categories" routerLinkActive="active">Categories</a></li>
+        <li><a routerLink="/categories" routerLinkActive="active">Categories</a>
+        </li>
         <li><a routerLink="/stores" routerLinkActive="active">Stores</a></li>
         <li><a routerLink="/blogs" routerLinkActive="active">Blogs</a></li>
+        <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+        <li (mouseenter)="openDropDown()"><a><i class="cui-chevron-bottom icons font-2xl navListIcon"></i></a>
+        </li>
       </ul>
       <ul class="right right_menu hide-on-med-and-down">
         <li class="search_min">
@@ -30,7 +41,7 @@
                 type="text">
               <div class="dropdown-menu" style="width: 100%;max-height: 80vh;overflow-y:auto;"
                 *ngIf="searchBox && switch">
-                <table class="table table-responsive-sm table-hover table-outline mb-0">
+                <table class="table table-responsive-sm table-hover table-striped table-outline mb-0">
                   <tbody>
                     <tr>
                       <div class="text-center" *ngIf="!storeArray && !noResult">
@@ -48,15 +59,12 @@
                     </tr>
                     <tr *ngFor="let store of storeArray | keyvalue">
                       <td class="text-center" [routerLink]="['/store', store.value.storeURL]">
-                        <div class="avatar">
+                        <div class="avatar2">
                           <img [src]="store.value.img" class="rounded-circle">
                         </div>
                       </td>
                       <td [routerLink]="['/store', store.value.storeURL]">
                         <div>{{store.value.name}}</div>
-                        <div class="small text-muted">
-                          <span>Store</span>
-                        </div>
                       </td>
                     </tr>
                   </tbody>
@@ -70,9 +78,51 @@
     </div>
   </div>
 </nav>
-<div class="app-body" style="margin-top: 30px;">
+
+<div class="alert alert-secondary text-center cursor-pointer" [ngClass]="{'largeAlert': mobile}"
+  [routerLink]="['/event']" role="alert" *ngIf="eventBarText">
+  <strong>Hurry Up !</strong> <br *ngIf="mobile"> {{eventBarText}} &nbsp; <br *ngIf="mobile"> <a class="alert-link">Shop
+    Now</a>
+</div>
+
+<input class="form-control mobSearch" (input)="searchFunc(searchBox)" [(ngModel)]="searchBox" *ngIf="showMobSearch"
+  type="text" placeholder="Type keyword..">
+
+<table class="table table-striped table-outline mb-0 searchTable" *ngIf="showMobSearch && searchBox">
+  <tbody>
+    <tr class="text-center">
+      <div class="text-center" *ngIf="!storeArray && !noResult">
+        <!-- <div class="text-center" *ngIf="!storeArray && !noResult"> -->
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="text-center" *ngIf="noResult">
+        <br>
+        No result found for "{{searchBox}}"
+        <br>
+        <br>
+      </div>
+    </tr>
+    <tr *ngFor="let store of storeArray | keyvalue">
+      <td class="text-center" [routerLink]="['/store', store.value.storeURL]"
+        (click)="showMobSearch=false;searchBox=''">
+        <div class="avatar2">
+          <img [src]="store.value.img" class="rounded-circle">
+        </div>
+      </td>
+      <td [routerLink]="['/store', store.value.storeURL]" (click)="showMobSearch=false;searchBox=''">
+        <div>{{store.value.name}}</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="app-body mt-0" (click)="closeDropDown()">
   <main class="main">
-    <div class="container-fluid rmHorizontalPadding">
+    <div class="container-fluid px-0" [ngClass]="{'addMarginTop': !eventBarText && !showMobSearch}"
+      style="background-color: #EBECF0">
       <router-outlet></router-outlet>
     </div>
   </main>
@@ -80,7 +130,7 @@
 
 <footer class="footer_area">
   <div class="footer_row row" style="padding:25px 20px auto !important">
-    <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col">
       <div class="popular_posts">
         <h3 class="categories_tittle text-center">Popular Blogs</h3>
         <div class="text-center m-5" *ngIf="!blogArray">
@@ -89,7 +139,39 @@
             <div></div>
           </div>
         </div>
-        <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value._id]"
+        <ngb-carousel *ngIf="blogArray" interval="5000" [pauseOnHover]="false" [showNavigationArrows]="false">
+          <ng-template ngbSlide>
+            <ng-container>
+              <div class="list-group">
+                <a class="list-group-item list-group-item-action mx-0" [routerLink]="['/blog', blog.value.blogURL]"
+                  *ngFor="let blog of blogArray | keyvalue | slice:0:4">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">{{blog.value.title | slice:0:40}}</h4>
+                  </div>
+                  <p>{{blog.value.CreatedAt | date}}</p>
+                </a>
+              </div>
+              <br>
+              <br>
+            </ng-container>
+          </ng-template>
+          <ng-template ngbSlide>
+            <ng-container>
+              <div class="list-group">
+                <a class="list-group-item list-group-item-action mx-0" [routerLink]="['/blog', blog.value.blogURL]"
+                  *ngFor="let blog of blogArray | keyvalue | slice:4:8">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h4 class="mb-1">{{blog.value.title | slice:0:40}}</h4>
+                  </div>
+                  <p>{{blog.value.CreatedAt | date}}</p>
+                </a>
+              </div>
+              <br>
+              <br>
+            </ng-container>
+          </ng-template>
+        </ngb-carousel>
+        <!-- <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value._id]"
           *ngFor="let blog of blogArray | keyvalue">
           <div class="col-lg-3 col-sm-12 p_img">
             <div class="manAvatar">
@@ -100,39 +182,7 @@
             <span class=".d-none .d-sm-block"><br><br></span>
             <a>{{blog.value.title}}</a>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-4 l3 m6 footer_col footer_trending text-center">
-      <div class="social_Sharing" style="padding-top: 0;">
-        <h3 class="categories_tittle">Social Sharing</h3>
-        <ul class="social_icon">
-          <li><a href="https://twitter.com/BuyMeDeal1" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="" class="googleplus"><i class="fa fa-youtube"></i></a></li>
-          <li><a href="https://www.facebook.com/buymedealofficial" target="_blank" class="facebook"><i
-                class="fa fa-facebook"></i></a></li>
-        </ul>
-      </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <div class="social_Sharing text-center" style="padding:0 20px 0 20px">
-        <h3 class="categories_tittle">Contact Us</h3>
-        <br>
-        <br>
-        <form #emailForm="ngForm" novalidate (ngSubmit)="addEmailToDB(contactEmail)">
-          <div class="input-group mb-3">
-            <input type="email"
-              style="background:transparent;color:white;font-size: 1.2em;height: 50px;width: 75%;border:1px solid"
-              name="email" [email]="true" required [(ngModel)]="contactEmail" class="form-control"
-              placeholder="Enter your email.." />
-            <div class="input-group-append">
-              <button class="btn btn-secondary" type="submit" id="button-addon2" style="height: 53px;margin-top: -1px;"
-                [disabled]="!emailForm.form.valid">Send</button>
-            </div>
-          </div>
-        </form>
+        </div> -->
       </div>
     </div>
     <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
@@ -182,8 +232,139 @@
         </div>
       </div>
     </div>
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col footer_trending text-center">
+      <div class="social_Sharing" style="padding-top: 0;">
+        <h3 class="categories_tittle">Social Sharing</h3>
+        <ul class="social_icon">
+          <li><a href="https://twitter.com/BuyMeDeal1" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="" class="googleplus"><i class="fa fa-youtube"></i></a></li>
+          <li><a href="https://www.facebook.com/buymedealofficial" target="_blank" class="facebook"><i
+                class="fa fa-facebook"></i></a></li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="social_Sharing text-center" style="padding:0 20px 0 20px">
+        <h3 class="categories_tittle">Connect</h3>
+        <br>
+        <br>
+        <form #emailForm="ngForm" novalidate (ngSubmit)="addEmailToDB(contactEmail)">
+          <div class="input-group mb-3">
+            <input type="email"
+              style="background:transparent;color:white;font-size: 1.2em;height: 50px;width: 75%;border:1px solid"
+              name="email" [email]="true" required [(ngModel)]="contactEmail" class="form-control"
+              placeholder="Enter your email.." />
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit" id="button-addon2" style="height: 53px;margin-top: -1px;"
+                [disabled]="!emailForm.form.valid">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <div class="copy_right">
     � 2021 <a href="">BuyMeDeal</a>. All rights reserved.
   </div>
 </footer>
+<div class="modal fade" id="dropDownModal" data-backdrop="true" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLongTitle" aria-hidden="true"
+  style="max-height: 100vh !important;width: 70%;height:fit-content;overflow-y:scroll;background-color:#EBECF0;margin-top: 80px !important;">
+  <div class="modal-dialog my-0" role="document" style="max-width: 100%;width: 100%;">
+    <div class="modal-content" style="background-color: #EBECF0;" (mouseleave)="closeDropDown()">
+      <!-- <div class="modal-header">
+        <h4 class="modal-title">Delete Coupon</h4>
+        <button type="button" class="close" id="closebtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+      <div class="modal-body p-0">
+        <section class="min_container min_pages">
+          <div class="section_row">
+            <div class="col-md-3 px-0">
+              <div class="left_side_bar pb-0 mt-0" style="background-color: #EBECF0;">
+                <div class="interests pt-0">
+                  <ul class="interests_list pt-0">
+                    <li (click)="fetchStores('5e7212be3f58470017428b28','Apparel And Clothing')"
+                      [ngClass]="{'activeClr': productQuery=='5e7212be3f58470017428b28'}"><a><i
+                          class="fa fa-hotel fa-lg"></i>Apparel & Clothing</a>
+                    </li>
+                    <li (click)="fetchStores('5e7212c53f58470017428b29','Books')"
+                      [ngClass]="{'activeClr': productQuery=='5e7212c53f58470017428b29'}"><a><i
+                          class="fa fa-shopping-cart fa-lg"></i>Books</a>
+                    </li>
+                    <li (click)="fetchStores('606b04b0e6445a00176c7fd5','Office Supplies')"
+                      [ngClass]="{'activeClr': productQuery=='606b04b0e6445a00176c7fd5'}"><a><i
+                          class="fa fa-bar-chart fa-lg"></i>Office Supplies</a>
+                    </li>
+                    <li (click)="fetchStores('606b04e7e6445a00176c7fd6','Lifestyle & Accessories')"
+                      [ngClass]="{'activeClr': productQuery=='606b04e7e6445a00176c7fd6'}"><a><i
+                          class="fa fa-puzzle-piece fa-lg"></i>Lifestyle & Accessories</a>
+                    </li>
+                    <li (click)="fetchStores('5e7213613f58470017428b38','Automotive')"
+                      [ngClass]="{'activeClr': productQuery=='5e7213613f58470017428b38'}"><a><i
+                          class="fa fa-plus-square fa-lg"></i>Automotive</a>
+                    </li>
+                    <li (click)="fetchStores('5e7212d83f58470017428b2b','Electronics')"
+                      [ngClass]="{'activeClr': productQuery=='5e7212d83f58470017428b2b'}"><a><i
+                          class="fa fa-briefcase fa-lg"></i>Electronics</a>
+                    </li>
+                    <li (click)="fetchStores('5e7212993f58470017428b23','Home & Garden')"
+                      [ngClass]="{'activeClr': productQuery=='5e7212993f58470017428b23'}"><a><i
+                          class="fa fa-home"></i>Home & Garden</a></li>
+                    <li (click)="fetchStores('5e7212a03f58470017428b24','Baby & Kids')"
+                      [ngClass]="{'activeClr': productQuery=='5e7212a03f58470017428b24'}"><a><i
+                          class="fa fa-life-ring"></i>Baby & Kids</a></li>
+                    <li (click)="fetchStores('606b058ce6445a00176c7fd8','Sports Accessories')"
+                      [ngClass]="{'activeClr': productQuery=='606b058ce6445a00176c7fd8'}"><a><i
+                          class="fa fa-object-group"></i>Sports Accessories</a></li>
+                    <li (click)="fetchStores('606b05bee6445a00176c7fd9','Bed & Bath')"
+                      [ngClass]="{'activeClr': productQuery=='606b05bee6445a00176c7fd9'}"><a><i
+                          class="fa fa-hotel"></i>Bed & Bath</a></li>
+                    <li (click)="fetchStores('606b05e9e6445a00176c7fda','Tech Accessories')"
+                      [ngClass]="{'activeClr': productQuery=='606b05e9e6445a00176c7fda'}"><a><i
+                          class="fa fa-bank"></i>Tech Accessories</a></li>
+                  </ul>
+                  <br>
+                  <br>
+                  <br>
+                  <button type="button" class="btn btn-outline-dark btn-block" routerLink="/categories"
+                    (click)="closeDropDown()">View All
+                    Categories</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 text-center">
+              <p class="display-4 mt-1" style="font-size:3.2em">{{dropDownSelected}}</p>
+              <p class="display-5" style="font-size: 1.8em;font-weight: 200;margin-top: 8vh;"
+                *ngIf="!navStoresArr.length">No store in this
+                Category...</p>
+              <div class="row justify-content-center mb-0 mt-4">
+                <div class="col-md-3 cursor-pointer rounded" *ngFor="let store of navStoresArr | keyvalue"
+                  [routerLink]="['/store', store.value.storeURL]">
+                  <div class="brand-card dropp">
+                    <div class="brand-card-header">
+                      <img [src]="store.value.img" class="rounded-circle2 roundImg" width="100" height="100" />
+                    </div>
+                    <div class="brand-card-body text-center">
+                      <p class="display-5 text-muted" style="font-size: 1.3em;">{{store.value.name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-dark"
+                style="position: absolute;bottom: 0 !important;left: 42%;" [routerLink]="['/category', selectedCatURL]"
+                (click)="closeDropDown()">View All Stores</button>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- <div class="modal-footer text-center" style="justify-content: center;">
+        <i class="fa fa-chevron-up cursor-pointer" aria-hidden="true" style="font-size: 2.4em;color:#20c997"
+          id="closebtn" data-dismiss="modal"></i>
+      </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div *ngIf="!web">
+    <br>
+    <br>
+    <br>
+</div>
+<div class="jumbotron" (click)="closeModal()">
+    <a [routerLink]="['/home']">Home > </a>
+    <a [routerLink]="['/event']">Event </a>
+    <h1 class="display-4 text-center" *ngIf="eventTitle && dealsArray.length"><i
+            class="cui-calendar icons font-5xl mr-3"></i>
+        {{eventTitle}} <br *ngIf="!web"> <span>Promotions</span></h1>
+    <!-- {{eventTitle}} <br *ngIf="!web"> <span>Deals & Coupons</span></h1> -->
+    <hr class="my-4" *ngIf="dataFetched && dealsArray.length" />
+    <div class="lead" style="font-size: 1.2em !important;">
+        <section class="my-5 py-5" *ngIf="dataFetched && !dealsArray.length">
+            <header class="container my-5 py-5">
+                <div class="d-flex align-items-center justify-content-center my-5 py-5">
+                    <div class="d-flex flex-column text-center">
+                        <p style="font-size:2.5em"><b style="color: #20c997;">All caught Up!</b><br><br> Come back later
+                            for more discounts...
+                        </p>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <div class="container p-0" style="max-width: 94%" *ngIf="dealsArray.length && dataFetched">
+            <div class="row justify-content-md-center mb-4">
+                <div class="card col-xs-12 col-md-3 border-0 shadow-none" [ngClass]="{'px-4':web}"
+                    *ngFor="let deal of dealsArray | keyvalue;index as i">
+                    <div class="card-body" [style.border]="'3px solid '+ colorsArray[i]">
+                        <div class="h1 text-muted text-right mb-4">
+                            <img [src]="deal.value.storeId.img" class="rounded-circle mw-20">
+                        </div>
+                        <div class="h3 mb-0">{{deal.value.offerBox | slice:0:46}}</div>
+                        <small class="text-muted text-uppercase font-weight-bold"><b>Expiry Date: </b>&nbsp;
+                            <span>{{deal.value.expDate | date}}</span></small>
+                        <button type="button" (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus"
+                            class="btn btn-success d-block my-2">Get Deal</button>
+                        <button type="button" (click)="openModal2(template2,deal.value)"
+                            *ngIf="!deal.value.activeStatus" class="btn btn-danger d-block my-2">Get Code</button>
+
+                        <div class="progress progress-xs mt-3 mb-0">
+                            <div class="progress-bar"
+                                [ngClass]="{'bg-success': deal.value.activeStatus, 'bg-danger': !deal.value.activeStatus}"
+                                role="progressbar" style="width: 52%" aria-valuenow="52" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h3 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h3>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.5em;">No code required</span><br><br>
+        <button type="button" class="btn btn-success" (click)="window.open(editObj.trackingLink)">
+            Shop Now
+        </button>
+        <br>
+        <br>
+        <span style="font-size: 1.2em;">*No code required. Just click the above button to avail this deal</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
+<ng-template #template2>
+    <div class="modal-header">
+        <h3 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h3>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-size: 1.7em;">Here is the code</span><br><br>
+        <div class="template2">
+            {{editObj.code}}
+        </div>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="copyClipboardFunc()">
+            <span *ngIf="!codeCopied">Copy code & Visit Store</span>
+            <span *ngIf="codeCopied">Code Copied</span>
+        </button>
+        <br>
+        <br>
+        <span style="font-size: 1.2em;">Copy this code and paste it at checkout</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
+    </div>
+</ng-template>
+<input id='copyfrom' [(ngModel)]="hiddenInput" tabindex='-1' aria-hidden='true'>

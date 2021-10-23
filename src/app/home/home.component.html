@@ -1,19 +1,20 @@
-<br>
-<br>
-<div *ngIf="!web">
+<!-- <br>
+<br> -->
+<!-- <div *ngIf="!web">
     <br>
-</div>
-<ngb-carousel *ngIf="slideArray" [ngClass]="{'height87': web}" interval="3000" [pauseOnHover]="false">
+</div> -->
+<br *ngIf="!web">
+<ngb-carousel *ngIf="slideArray" [ngClass]="{'height87': web}" interval="5000" [pauseOnHover]="false">
     <ng-template ngbSlide *ngFor="let slide of slideArray | keyvalue">
         <ng-container>
-            <img [src]="slide.value.img" [ngClass]="{'height87': web, 'chotiImg':!web}" alt="Random first slide">
+            <img [src]="slide.value.img" [ngClass]="{'height87': web}" (click)="openLink(slide.value.link)" class="w100"
+                alt="Random slide picture">
         </ng-container>
     </ng-template>
 </ngb-carousel>
 <div class="text-center m-5" *ngIf="!slideArray">
     <div class="lds-hourglass"></div>
 </div>
-<br>
 <div class="text-center m-5" *ngIf="!storeArray">
     <div class="lds-grid">
         <div></div>
@@ -27,230 +28,334 @@
         <div></div>
     </div>
 </div>
-<div class="row justify-content-md-center mb-0" [ngClass]="{'ifWebBlog': web}" style="margin:auto 5px">
-    <div class="col-md-4 xxzz" *ngFor="let blog of blogArray | keyvalue" [routerLink]="['/blog', blog.value.blogURL]">
-        <div class="card">
-            <img [src]="blog.value.img" class="card-img-top">
-            <div class="card-body">
-                <div class="table">
-                    <h6 class="text-center">
-                        {{blog.value.title | slice:0:30}}
-                    </h6>
+<div style="margin:auto 10px">
+    <h1 class="display-4 text-center my-5" *ngIf="blogArray">Popular Blogs</h1>
+    <div class="row justify-content-md-center mb-0">
+        <div class="col-sm-12 col-lg-4 cursor-pointer mb-2 px-0" *ngFor="let blog of blogArray | keyvalue"
+            [routerLink]="['/blog', blog.value.blogURL]">
+            <div class="brand-card customBorRadius" [ngClass]="{'mx-2': web}">
+                <div class="brand-card-header">
+                    <img [src]="blog.value.img" class="blogImg" />
+                </div>
+                <br>
+                <div class="brand-card-body changeFlex">
+                    <h3 class="blogTitle">{{blog.value.title | slice:0:37}}<span
+                            *ngIf="blog.value.title.length>37">...</span></h3>
                     <br>
-                    <h4 class="card-caption text-center" [innerHTML]="blog.value.shortDes | slice:0:85"></h4>
+                    <!--
+                    <span class="author"><i class="cui-user"
+                            style="vertical-align: middle;font-weight: bold;"></i>&nbsp;&nbsp;&nbsp;<b>By:
+                            &nbsp;</b><span
+                            style="text-transform: capitalize;vertical-align: middle;font-size: 120%;">{{blog.value.author}}</span></span>
+                    <br>
+                    <br> -->
+                    <p class="blogText" [innerHTML]="blog.value.shortDes"></p>
+                    <br>
                     <div class="ftr">
-                        <div class="author">
-                            <img src="../../assets/images/author.png" alt=""
+                        <div class="author pull-left pl-4">
+                            <img src="../../assets/images/author2.png" alt=""
                                 class="avatar img-raised avatar-img rounded-circle">
                             <span class="userNm">{{blog.value.author}}</span>
-                            <div class="ripple-cont">
-                                <div class="ripple ripple-on ripple-out"
-                                    style="left: 574px; top: 364px; background-color: rgb(60, 72, 88); transform: scale(11.875);">
-                                </div>
-                            </div>
                         </div>
-                        <a class="stats onlyL">View more&nbsp;&nbsp;<i class="cui-arrow-right"></i></a>
+                        <a class="stats onlyL pull-right" style="font-size: 1.5em;">View more&nbsp;&nbsp;<i
+                                class="cui-arrow-right"></i></a>
                     </div>
+                    <!-- <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a> -->
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="col-sm-12 col-lg-4 visitCoupon" *ngFor="let blog of blogArray | keyvalue"
-        [routerLink]="['/blog', blog.value.blogURL]">
-        <div class="brand-card" [ngClass]="{'applyMargin': web}">
-            <div class="brand-card-header">
-                <img [src]="blog.value.img" class="blogImg" />
-            </div>
-            <br>
-            <div class="brand-card-body changeFlex">
-                <h3 class="blogTitle">{{blog.value.title | slice:0:38}}</h3>
-                <br>
-                <span class="author"><b><i class="cui-user"></i></b>&nbsp;&nbsp;&nbsp;By: Danish</span>
-                <br>
-                <br>
-                <p class="blogText" [innerHTML]="blog.value.shortDes | slice:0:160"></p>
-                <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a>
-            </div>
-            <br>
-        </div>
-    </div> -->
 </div>
 
-<ul class="tranding_select tabs">
+<ul class="tranding_select tabs" *ngIf="blogArray">
     <li class="tab"><a routerLink="/blogs" class="waves-effect btn active">View all
             Blogs</a></li>
 </ul>
-<br>
-<div class="row justify-content-md-center mb-0" [ngClass]="{'ifWeb': web}" style="margin: auto 5px;">
-    <div class="col-md-3 visitCoupon" *ngFor="let store of storeArray | keyvalue;index as i;"
-        [routerLink]="['/store', store.value.storeURL]">
-        <div class="card profile-card-1" *ngIf="i%2!=0">
-            <img src="../../assets/images/dback.jpeg" alt="profile-sample1" class="background" />
-            <img [src]="store.value.img" alt="profile-image" class="profile" />
-            <div class="card-content">
-                <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2>
-                <br>
-                <!-- <div class="icon-block"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"> <i
-                            class="fa fa-twitter"></i></a><a href="#"> <i class="fa fa-google-plus"></i></a></div> -->
-                <button type="button" class="btn btn-outline-light"
-                    style="padding: 30px auto 30px auto;">Explore</button>
-            </div>
-        </div>
-        <div class="card profile-card-3" *ngIf="i%2==0">
-            <div class="background-block">
-                <img src="../../assets/images/aback2.jpeg" alt="profile-sample1" class="background" />
-            </div>
-            <div class="profile-thumb-block">
-                <img [src]="store.value.img" alt="profile-image" class="profile" />
-            </div>
-            <div class="card-content">
-                <h2>{{store.value.name}}<small>Store</small></h2>
-                <br>
-                <button type="button" class="btn btn-outline-dark"
-                    style="padding: 30px auto 30px auto;">Explore</button>
-            </div>
+
+<div>
+    <h1 class="display-4 text-center mt-3 mb-5" *ngIf="storeArray">Featured Stores</h1>
+    <div class="row mb-0">
+        <div class="col-sm-12 col-md-12" id="infinite_scroll">
+            <ul class="list-group list-group-horizontal list-group-for-store" style="overflow-x: auto;">
+                <li class="list-group-item bg-transparent border-0"
+                    *ngFor="let store of storeArray | keyvalue;index as i">
+                    <div class="card bg-dark text-dark">
+                        <img [src]="store.value.img" [ngClass]="{'storeSliderImg': storeSlideSwitch[i] || !web}"
+                            alt="..." width="350">
+                        <div class="card-img-overlay cursor-pointer" (mouseenter)="storeSlideSwitch[i]=true"
+                            (mouseleave)="storeSlideSwitch[i]=false">
+                            <button type="button" *ngIf="storeSlideSwitch[i] || !web"
+                                class="btn btn-square btn-block btn-dark storeSlideBtn"
+                                (click)="openLink(store.value.trackUrl)">View
+                                Store</button>
+                            <button type="button" *ngIf="storeSlideSwitch[i] || !web"
+                                style="position: relative;top: 67%;"
+                                class="btn btn-square btn-block btn-dark storeSlideBtn"
+                                [routerLink]="['/store', store.value.storeURL, 'products']">View
+                                Products</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <!-- <div class="col-sm-6 col-lg-2 visitCoupon" *ngFor="let store of storeArray | keyvalue"
-        [routerLink]="['/store', store.value.storeURL]">
-        <div class="brand-card">
-            <div class="brand-card-header">
-                <img [src]="store.value.img" class="rounded-circle roundImg" width="100" height="100" />
-            </div>
-            <br>
-            <div class="brand-card-body">
-                <div>
-                    <div class="text-value">
-                        <i class="fa fa-share-square-o storeIcon"></i>
-                    </div>
-                    <div class="text-uppercase text-muted small">Coupons</div>
+    <!-- <div class="row justify-content-md-center mb-0">
+        <div class="col-sm-12 col-lg-2 visitCoupon px-0" [ngClass]="{'mx-3': web, 'mx-5':!web}"
+            *ngFor="let store of storeArray | keyvalue" [routerLink]="['/store', store.value.storeURL]">
+            <div class="brand-card br15">
+                <div class="brand-card-header">
+                    <img [src]="store.value.img" class="rounded-circle roundImg border border-dark" width="100"
+                        height="100" />
+                </div>
+                <br>
+                <div class="brand-card-body text-center">
+                    <button type="button" class="btn btn-outline-dark"
+                        style="max-width: 30%;margin:0 auto">Visit</button>
                 </div>
             </div>
         </div>
     </div> -->
 </div>
 
-<ul class="tranding_select tabs">
+<ul class="tranding_select tabs" *ngIf="storeArray">
     <li class="tab"><a routerLink="/stores" class="waves-effect btn active">View all
             Stores</a></li>
 </ul>
 
-<br>
-
-<section class="min_container min_pages">
+<section class="min_container min_pages" *ngIf="productArray.length">
+    <h1 class="display-4 text-center my-4">Products Around Different Stores</h1>
     <div class="section_row">
-        <div class="col">
-            <div class="right_side_bar">
-                <div class="right_sidebar_iner">
-                    <div class="popular_posts">
-                        <h3 class="categories_tittle">Popular Blogs</h3>
-                        <div class="text-center m-5" *ngIf="!blogArray">
-                            <div class="lds-ripple">
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value.blogURL]"
-                            *ngFor="let blog of blogArray | keyvalue | slice:-6">
-                            <div class="col-3 p_img">
-                                <div class="manAvatar">
-                                    <img [src]="blog.value.img" class="customImgRound">
-                                </div>
-                            </div>
-                            <div class="col s9 p_content">
-                                <a>{{blog.value.title}}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <div class="middle_section" id="infinite_scroll" style="padding:0 !important">
-                <div id="featured">
-                    <div class="card">
-                        <br>
-                        <a class="text-center display-4">Your Favourite Deals And Discounts</a>
-                        <br>
-                        <br>
-                        <table class="table table-responsive-sm table-hover table-outline mb-0">
-                            <tbody>
-                                <tr *ngIf="!dealsArray">
-                                    <div class="text-center m-5">
-                                        <div class="lds-facebook">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
-                                    </div>
-                                </tr>
-                                <tr *ngFor="let deal of dealsArray | keyvalue">
-                                    <td class="text-center">
-                                        <div class="avatar">
-                                            <img src="assets/images/soblue.png" class="img-avatar">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>{{deal.value.offerBox}}</div>
-                                        <div class="small text-muted">
-                                            <span>Validity</span> | <span>{{deal.value.expDate | date}}</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-sm btn-primary active"
-                                            (click)="openModal2(template2,deal.value)"
-                                            *ngIf="!deal.value.activeStatus">Copy
-                                            code</button>
-                                        <button type="button" class="btn btn-sm btn-primary active"
-                                            (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus">Get
-                                            Deal</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-3">
-            <div class="left_side_bar">
+        <div class="col-md-3">
+            <div class="left_side_bar" style="background-color: #EBECF0;">
                 <div class="interests">
                     <h3 class="categories_tittle">Your Interests</h3>
                     <ul class="interests_list">
-                        <li [routerLink]="['/category','fitness']"><a><i class="fa fa-bar-chart"></i>Fitness</a></li>
-                        <li [routerLink]="['/category','apparel-and-clothing']"><a><i
-                                    class="fa fa-shopping-cart fa-lg"></i>Apparel & Clothing</a></li>
-                        <li [routerLink]="['/category','toys']"><a><i class="fa fa-puzzle-piece"></i>Toys</a></li>
-                        <li [routerLink]="['/category','departmental-stores']"><a><i
-                                    class="fa fa-plus-square"></i>Departmental Stores</a></li>
-                        <li [routerLink]="['/category','home-and-garden']"><a><i class="fa fa-home"></i>Home &
-                                Garden</a></li>
-                        <li [routerLink]="['/category','baby-and-kids']"><a><i class="fa fa-life-ring"></i>Baby &
-                                Kids</a></li>
-                        <li [routerLink]="['/category','office-accessories']"><a><i class="fa fa-briefcase"></i>Office
-                                Accessories</a></li>
-                        <li [routerLink]="['/category','hobbie']"><a><i class="fa fa-object-group"></i>Hobbie</a></li>
-                        <li [routerLink]="['/category','travel-and-hotel']"><a><i class="fa fa-hotel"></i>Travel
-                                & Hotel</a></li>
-                        <li [routerLink]="['/category','restaurants']"><a><i class="fa fa-bank"></i>Restaurants</a>
+                        <li (click)="fetchProducts('5e7212be3f58470017428b28')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212be3f58470017428b28'}"><a><i
+                                    class="fa fa-hotel fa-lg"></i>Apparel & Clothing</a>
                         </li>
-                    </ul>
-                </div>
-                <div class="social_Sharing">
-                    <h3 class="categories_tittle">Social Sharing</h3>
-                    <ul class="social_icon">
-                        <li><a><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="googleplus"><i class="fa fa-youtube"></i></a></li>
-                        <li><a class="facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li (click)="fetchProducts('5e7212c53f58470017428b29')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212c53f58470017428b29'}"><a><i
+                                    class="fa fa-shopping-cart fa-lg"></i>Books</a>
+                        </li>
+                        <li (click)="fetchProducts('606b04b0e6445a00176c7fd5')"
+                            [ngClass]="{'activeClr': productQuery=='606b04b0e6445a00176c7fd5'}"><a><i
+                                    class="fa fa-bar-chart fa-lg"></i>Office Supplies</a>
+                        </li>
+                        <li (click)="fetchProducts('606b04e7e6445a00176c7fd6')"
+                            [ngClass]="{'activeClr': productQuery=='606b04e7e6445a00176c7fd6'}"><a><i
+                                    class="fa fa-puzzle-piece fa-lg"></i>Lifestyle & Accessories</a>
+                        </li>
+                        <li (click)="fetchProducts('5e7213613f58470017428b38')"
+                            [ngClass]="{'activeClr': productQuery=='5e7213613f58470017428b38'}"><a><i
+                                    class="fa fa-plus-square fa-lg"></i>Automotive</a>
+                        </li>
+                        <li (click)="fetchProducts('5e7212d83f58470017428b2b')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212d83f58470017428b2b'}"><a><i
+                                    class="fa fa-briefcase fa-lg"></i>Electronics</a>
+                        </li>
+                        <li (click)="fetchProducts('5e7212993f58470017428b23')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212993f58470017428b23'}"><a><i
+                                    class="fa fa-home"></i>Home & Garden</a></li>
+                        <li (click)="fetchProducts('5e7212a03f58470017428b24')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212a03f58470017428b24'}"><a><i
+                                    class="fa fa-life-ring"></i>Baby &
+                                Kids</a></li>
+                        <li (click)="fetchProducts('606b058ce6445a00176c7fd8')"
+                            [ngClass]="{'activeClr': productQuery=='606b058ce6445a00176c7fd8'}"><a><i
+                                    class="fa fa-object-group"></i>Sports Accessories</a></li>
+                        <li (click)="fetchProducts('606b05bee6445a00176c7fd9')"
+                            [ngClass]="{'activeClr': productQuery=='606b05bee6445a00176c7fd9'}"><a><i
+                                    class="fa fa-hotel"></i>Bed & Bath</a></li>
+                        <li (click)="fetchProducts('606b05e9e6445a00176c7fda')"
+                            [ngClass]="{'activeClr': productQuery=='606b05e9e6445a00176c7fda'}"><a><i
+                                    class="fa fa-bank"></i>Tech Accessories</a></li>
+
+
+
+                        <!-- <li (click)="fetchProducts('5e72124d3f58470017428b1e')"
+                            [ngClass]="{'activeClr': productQuery=='5e72124d3f58470017428b1e'}"><a><i
+                                    class="fa fa-bar-chart"></i>Fitness</a></li>
+                        <li (click)="fetchProducts('5e72125f3f58470017428b1f')"
+                            [ngClass]="{'activeClr': productQuery=='5e72125f3f58470017428b1f'}"><a><i
+                                    class="fa fa-puzzle-piece"></i>Toys</a></li>
+                        <li (click)="fetchProducts('5e7212903f58470017428b22')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212903f58470017428b22'}"><a><i
+                                    class="fa fa-plus-square"></i>Departmental Stores</a></li>
+
+                        <li (click)="fetchProducts('5e7212e23f58470017428b2c')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212e23f58470017428b2c'}"><a><i
+                                    class="fa fa-briefcase"></i>Office
+                                Accessories</a></li>
+                        <li (click)="fetchProducts('5e72138a3f58470017428b3c')"
+                            [ngClass]="{'activeClr': productQuery=='5e72138a3f58470017428b3c'}"><a><i
+                                    class="fa fa-object-group"></i>Hobbie</a></li>
+                        <li (click)="fetchProducts('5e7212ce3f58470017428b2a')"
+                            [ngClass]="{'activeClr': productQuery=='5e7212ce3f58470017428b2a'}"><a><i
+                                    class="fa fa-hotel"></i>Travel
+                                & Hotel</a></li>
+                        <li (click)="fetchProducts('5e72126e3f58470017428b20')"
+                            [ngClass]="{'activeClr': productQuery=='5e72126e3f58470017428b20'}"><a><i
+                                    class="fa fa-bank"></i>Restaurants</a>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </div>
+        <div class="col-md-9" id="infinite_scroll" style="padding:0 !important;margin-top: 15px">
+            <ul class="list-group list-group-horizontal" style="overflow-x: auto;">
+                <p class="display-5 text-center mx-auto" style="font-size: 1.4em;margin-top: 5%;"
+                    *ngIf="!productArray.length && !isFetchingProduct">No Product in this Category</p>
+                <li class="list-group-item list-group-item-home" *ngFor="let featured of productArray | keyvalue">
+                    <div class="card">
+                        <img *ngIf="featured.value.img" [src]="featured.value.img" class="card-img-top cursor-pointer"
+                            [routerLink]="['/productdetail', featured.value._id]"
+                            [alt]="featured.value.imageAlt || 'product pic'">
+                        <video *ngIf="featured.value.vid" loop [muted]="true" onloadedmetadata="this.muted = true"
+                            autoplay class="card-img-top cursor-pointer"
+                            [routerLink]="['/productdetail', featured.value._id]">
+                            <source [src]="featured.value.vid" />
+                        </video>
+                        <div class="card-body text-center">
+                            <p class="card-text cursor-pointer" [routerLink]="['/productdetail', featured.value._id]">
+                                {{featured.value.name | slice:0:24}}</p>
+                            <hr />
+                            <button type="button" class="btn btn-danger m-2 rounded"
+                                (click)="goToLinkFeatured(featured.value.externalLink,featured.value._id)">{{featured.value.buttonText}}</button>
+                            <br>
+                            <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                [routerLink]="['/productdetail', featured.value._id]">View Product</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- <div class="row scrollmenu">
+                <span class="text-center xyz" *ngIf="!productArray.length && !isFetchingProduct"><br>No Product in this
+                    Category</span>
+                <div class="col-xs-12 col-md-2 indCard" *ngFor="let featured of productArray | keyvalue">
+                    <div class="card ml-2 mr-2">
+                        <img *ngIf="featured.value.img" [src]="featured.value.img" class="card-img-top"
+                            [routerLink]="['/productdetail', featured.value._id]"
+                            [alt]="featured.value.imageAlt || 'product pic'">
+                        <video *ngIf="featured.value.vid" loop [muted]="true" onloadedmetadata="this.muted = true"
+                            autoplay class="card-img-top" [routerLink]="['/productdetail', featured.value._id]">
+                            <source [src]="featured.value.vid" />
+                        </video>
+                        <div class="card-body text-center">
+                            <p class="card-text" [routerLink]="['/productdetail', featured.value._id]">
+                                {{featured.value.name | slice:0:34}}</p>
+                            <hr />
+                            <button type="button" class="btn btn-danger m-2 rounded"
+                                (click)="goToLinkFeatured(featured.value.externalLink,featured.value._id,featured.key)">{{featured.value.buttonText}}</button>
+                            <br>
+                            <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                [routerLink]="['/store', featured.value.storeId, 3]">View in Store</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div id="featured">
+                <div class="card">
+                    <br>
+                    <a class="text-center display-4">Your Favourite Deals And Discounts</a>
+                    <br>
+                    <br>
+                    <table class="table table-responsive-sm table-hover table-outline mb-0">
+                        <tbody>
+                            <tr *ngIf="!dealsArray">
+                                <div class="text-center m-5">
+                                    <div class="lds-facebook">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </tr>
+                            <tr *ngFor="let deal of dealsArray | keyvalue">
+                                <td class="text-center">
+                                    <div class="avatar">
+                                        <img src="assets/images/so1.jpg" class="img-avatar">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>{{deal.value.offerBox}}</div>
+                                    <div class="small text-muted">
+                                        <span>Validity</span> | <span>{{deal.value.expDate | date}}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary"
+                                        (click)="openModal2(template2,deal.value)" *ngIf="!deal.value.activeStatus">Copy
+                                        code</button>
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                        (click)="openModal(template,deal.value)" *ngIf="deal.value.activeStatus">Get
+                                        Deal</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- <div class="right_side_bar col">
+            <div class="right_sidebar_iner">
+                <div class="popular_posts">
+                    <h3 class="categories_tittle">Featured Blogs</h3>
+                    <div class="text-center m-5" *ngIf="!blogArray">
+                        <div class="lds-ripple">
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value.blogURL]"
+                        *ngFor="let blog of blogArray | keyvalue | slice:-5">
+                        <div class="col-3 p_img">
+                            <div class="manAvatar">
+                                <img [src]="blog.value.img" class="customImgRound">
+                            </div>
+                        </div>
+                        <div class="col s9 p_content">
+                            <a>{{blog.value.title}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 </section>
+<ul class="tranding_select tabs" *ngIf="productArray.length">
+    <li class="tab"><a routerLink="/products" class="waves-effect btn active">View all
+            Products</a></li>
+</ul>
+<h1 class="display-4 text-center my-5 trustedHeading mb-5" style="font-size: 4.2em !important;">Trusted Partners</h1>
+<marquee width="100%" direction="left" behavior="scroll" scrollamount="16"
+    style="margin-bottom: 35px;margin-top: 30px;">
+    <img src="../../assets/partners/admitadImg.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/adpump1.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/partnerizeImg.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/refersion.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/tubebuddy.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/amazon associates.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+    <img src="../../assets/partners/indoleadsImg.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
+</marquee>
+<!-- <div class="row dealsRow mb-0 justify-content-md-center mt-4" [ngClass]="{'mx-1':!web, 'mx-5':web}">
+    <div class="col-xs-12 col-md-3 text-center" *ngFor="let prtnrImg of partnersImgs">
+        <img [src]="prtnrImg" class="partnerImg my-5">
+    </div>
+</div> -->
+<!-- <div [@listAnimation]="partnersImgs.length" class="row dealsRow mb-0 justify-content-md-center"
+    [ngClass]="{'mx-1':!web, 'mx-5':web}">
+    <div class="col-xs-12 col-md-3" *ngFor="let prtnrImg of partnersImgs">
+        <img [src]="prtnrImg" class="partnerImg">
+    </div>
+</div>
+<div [@listAnimation]="partnersImgs.length">
+    <img *ngFor="let prtnrImg of partnersImgs" [src]="prtnrImg" class="partnerImg2">
+</div> -->
 
 
-<ng-template #template>
+<!-- <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
@@ -295,4 +400,4 @@
         <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Close</button>
     </div>
 </ng-template>
-<input id='copyfrom' [(ngModel)]="hiddenInput" tabindex='-1' aria-hidden='true'>
+<input id='copyfrom' [(ngModel)]="hiddenInput" tabindex='-1' aria-hidden='true'> -->

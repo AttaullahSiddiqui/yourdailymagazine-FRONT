@@ -1,0 +1,71 @@
+.display-4,
+.display-4 > i {
+    font-weight: bold;
+    color: #333;
+}
+.display-4 span {
+    font-weight: normal;
+    // font-size: 60%;
+}
+.display-4 {
+    font-size: 3.3em;
+}
+img.rounded-circle {
+    width: 100px;
+    height: 100px;
+    border: 4px solid #20c997;
+}
+.h3 {
+    max-height: 2.4em;
+    height: 2.4em;
+    overflow-y: hidden;
+    color: rgb(75, 70, 70);
+}
+.modal-header {
+    padding: 20px 26px;
+    border-bottom: 1px solid #eee;
+    background-color: #20a8d8;
+    color: white;
+    font-size: 120%;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.modal-header > button > span {
+    color: white !important;
+    font-size: 1.5em !important;
+}
+.modal-header > h3 {
+    max-width: 85%;
+}
+#copyfrom {
+    position: absolute;
+    left: -9999px;
+}
+.template2 {
+    font-weight: 600;
+    font-size: 2em;
+}
+small {
+    font-size: 1.05em;
+    font-weight: 700;
+}
+small > b {
+    // font-size: 1.15em;
+}
+div.card {
+    background: transparent;
+}
+.card-body {
+    border-radius: 15px;
+}
+.jumbotron > a {
+    font-size: 1.55em !important;
+    color: #20c997;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
+}

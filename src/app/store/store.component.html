@@ -1,11 +1,13 @@
-<div *ngIf="mobile">
+<!-- <div *ngIf="mobile">
     <br>
     <br>
     <br>
-</div>
-<div class="jumbotron"><a [routerLink]="['/home']">Home/</a>
-    <a [routerLink]="['/stores']">Stores/</a>
-    <a [routerLink]="['/store',storeURL]">{{storeURLToShow}}/</a>
+</div> -->
+<div class="jumbotron" style="background-color: white;" [ngClass]="{'p-0': mobile}" (click)="closeModal()"><a
+        [routerLink]="['/home']">Home >
+    </a>
+    <a [routerLink]="['/stores']">Stores > </a>
+    <a [routerLink]="['/store',storeURL]">{{storeURLToShow}}</a>
     <h1 class="display-4 text-center">{{storeName}}</h1>
     <div class="lead" style="font-size: 1.2em !important;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
@@ -14,31 +16,38 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <!-- <br> -->
         <h1 class="display-4 text-center">{{storeDate}}</h1>
         <!-- <div class="col-md-8 text-center mx-auto">
-            <span class="text-center xyz">March 2020</span>
-        </div> -->
+        <span class="text-center xyz">March 2020</span>
+    </div> -->
         <!-- <div class="col-md-8 text-center mx-auto">
-            <span [innerHTML]="storeDetail" class="text-center xyz"></span>
-        </div> -->
-        <div class="container">
-            <ul class="tranding_select tabs" style="background:transparent">
-                <li class="tab"><a class="waves-effect btn" (click)="switch=false"
-                        [ngClass]="{'active': !switch}">Coupons</a></li>
-                <li class="tab"><a class="waves-effect btn" (click)="switch=true" [ngClass]="{'active': switch}">Related
+        <span [innerHTML]="storeDetail" class="text-center xyz"></span>
+    </div> -->
+        <div [ngClass]="{'mx-5': !mobile}">
+            <ul class="tranding_select tabs" style="background:transparent !important;height: auto;">
+                <li class="tab"><a class="waves-effect btn" (click)="switch=1"
+                        [ngClass]="{'active': switch==1}">Coupons</a></li>
+                <li class="tab"><a class="waves-effect btn" (click)="fetchStores()"
+                        [ngClass]="{'active': switch==2}">Related
                         Stores</a></li>
+                <li class="tab"><a class="waves-effect btn" (click)="fetchProducts()"
+                        [ngClass]="{'active': switch==3}">Products</a></li>
             </ul>
-            <br>
-            <div class="text-center m-5" *ngIf="!couponsArray && isBusy">
-                <div class="lds-facebook">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <div class="row" *ngIf="switch==1 && !mobile">
+                <div class="d-none d-md-block w-auto mwOwn" *ngIf="banners.length">
+                    <a href="{{banner.value.trackingLink}}" target="_blank"
+                        *ngFor="let banner of banners | keyvalue | sortby"><img class="bannerImgs"
+                            [src]="banner.value.img"></a>
+                    <!-- <img style="width: 300px; height: 500px;" src="../../assets/images/l1.jpg" alt=""> -->
                 </div>
-            </div>
-            <div class="row" *ngIf="!switch">
                 <div class="col">
+                    <div class="text-center m-5" *ngIf="!couponsArray && isBusy">
+                        <div class="lds-facebook">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
                     <section class="notifications_area" *ngIf="couponsArray">
                         <div class="notifications">
                             <div class="hed_notic">Active Coupons</div>
@@ -46,18 +55,22 @@
                                 <li *ngFor="let coupon of couponsArray | keyvalue | sortby">
                                     <a *ngIf="coupon.value.expDate > currentDate">
                                         <div class="media first_child">
-                                            <img [src]="storePic" style="position: relative;top:-10px"
-                                                class="responsive-img">
+                                            <img [src]="storeThumb" *ngIf="storeThumb"
+                                                style="border-radius: 0;border:none;height: auto;width: auto;max-width: 175px;"
+                                                class="rectImg cursor-pointer">
+                                            <img [src]="storePic" *ngIf="!storeThumb"
+                                                style="position: relative;top:-13px;"
+                                                class="responsive-img mt-2 cursor-pointer">
                                             <div class="media_body">
                                                 <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
                                                 <h6><b>Expiry Date: </b>&nbsp;
                                                     <span>{{coupon.value.expDate | date}}</span>
                                                 </h6>
-                                                <div class="btn_group">
+                                                <div class="btn_group" style="margin-top: -10px;">
                                                     <span class="waves-effect confirm"
                                                         (click)="openModal2(template2,coupon.value)"
                                                         *ngIf="!coupon.value.activeStatus">
-                                                        Copy code & Visit Merchant</span>
+                                                        Copy code</span>
                                                     <span class="waves-effect confirm"
                                                         (click)="openModal(template,coupon.value)"
                                                         *ngIf="coupon.value.activeStatus">
@@ -92,21 +105,119 @@
                     </section>
                     <br>
                 </div>
-                <div class="col-sm-12 col-lg-3">
-                    <h4>About this Store</h4>
-                    <br>
-                    <span [innerHTML]="longDes" class="xyz"></span>
+                <div class="w-auto mwOwn text-center">
+                    <div *ngIf="longDes" [ngClass]="{'pl-3 pr-2': !mobile}">
+                        <h2>About</h2>
+                        <br>
+                        <span [innerHTML]="longDes" class="xyz"></span>
+                        <br>
+                        <br>
+                    </div>
+                    <div *ngIf="postImages.length">
+                        <a href="{{postImg.value.trackingLink}}" target="_blank"
+                            *ngFor="let postImg of postImages | keyvalue | sortby"><img class="bannerImgs"
+                                [src]="postImg.value.img"></a>
+                    </div>
                 </div>
             </div>
-            <div class="row" *ngIf="switch">
+            <div class="row" *ngIf="switch==1 && mobile">
+                <div class="col-sm-12">
+                    <div class="text-center m-5" *ngIf="!couponsArray && isBusy">
+                        <div class="lds-facebook">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <section class="notifications_area" *ngIf="couponsArray">
+                        <div class="notifications">
+                            <div class="hed_notic">Active Coupons</div>
+                            <ul class="notifications_content follow">
+                                <li *ngFor="let coupon of couponsArray | keyvalue | sortby">
+                                    <a *ngIf="coupon.value.expDate > currentDate">
+                                        <div class="media first_child">
+                                            <img [src]="storePic" style="position: relative;top:-13px;"
+                                                class="responsive-img">
+                                            <div class="media_body">
+                                                <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
+                                                <h6><b>Expiry Date: </b>&nbsp;
+                                                    <span>{{coupon.value.expDate | date}}</span>
+                                                </h6>
+                                                <div class="btn_group">
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal2(template2,coupon.value)"
+                                                        *ngIf="!coupon.value.activeStatus">
+                                                        Copy code</span>
+                                                    <span class="waves-effect confirm"
+                                                        (click)="openModal(template,coupon.value)"
+                                                        *ngIf="coupon.value.activeStatus">
+                                                        Get Offer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="text-center" *ngIf="banners.length">
+                            <a href="{{banner.value.trackingLink}}" target="_blank"
+                                *ngFor="let banner of banners | keyvalue | sortby"><img class="bannerImgs"
+                                    [src]="banner.value.img"></a>
+                        </div>
+                        <div class="notifications">
+                            <div class="hed_notic">Expired Coupons</div>
+                            <ul class="notifications_content follow">
+                                <li *ngFor="let coupon of couponsArray | keyvalue">
+                                    <a *ngIf="currentDate > coupon.value.expDate">
+                                        <div class="media first_child">
+                                            <img [src]="storePic" style="position: relative;top:-10px"
+                                                class="responsive-img">
+                                            <div class="media_body" style="opacity: 0.45;">
+                                                <p><b class="couponHead">{{coupon.value.offerBox}}</b></p>
+                                                <h6><b>Expiry Date: </b>&nbsp;
+                                                    <span>{{coupon.value.expDate | date}}</span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <br>
+                </div>
+                <div class="col-sm-12 text-center text-center">
+                    <div *ngIf="longDes">
+                        <h3>About</h3>
+                        <br>
+                        <span [innerHTML]="longDes" class="xyz"></span>
+                        <br>
+                        <br>
+                    </div>
+                    <div *ngIf="postImages.length">
+                        <a href="{{postImg.value.trackingLink}}" target="_blank"
+                            *ngFor="let postImg of postImages | keyvalue | sortby"><img class="bannerImgs"
+                                [src]="postImg.value.img"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="switch==2">
                 <div class="col">
-                    <div class="row justify-content-md-center mb-0">
+                    <div class="text-center m-5" *ngIf="!storeArray && isFetchingStores">
+                        <div class="lds-facebook">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="row mb-0">
                         <div class="col-md-8 text-center mx-auto" *ngIf="2>storeArray.length">
                             <span class="text-center xyz"><br>No related stores....</span>
                         </div>
                         <ng-container *ngFor="let store of storeArray | keyvalue">
-                            <div class="col-sm-12 col-lg-3 onlyThis" *ngIf="store.value.storeURL != storeId">
-                                <!-- <div class="brand-card" (click)="loadAnotherStore(store.value.storeURL)">
+                            <div class="col-sm-6 col-lg-3" *ngIf="store.value.storeURL != storeId">
+                                <div class="brand-card" (click)="loadAnotherStore(store.value.storeURL)">
                                     <div class="brand-card-header">
                                         <img src="{{store.value.img}}" class="rounded-circle roundImg" width="100"
                                             height="100" />
@@ -114,21 +225,85 @@
                                     <div class="brand-card-body">
                                         <div class="text-muted small">{{store.value.name | slice:0:15}}</div>
                                     </div>
-                                </div> -->
-                                <div class="card profile-card-1" (click)="loadAnotherStore(store.value.storeURL)">
-                                    <img src="../../assets/images/dback.jpeg" alt="profile-sample1"
-                                        class="background" />
-                                    <img [src]="store.value.img" alt="profile-image" class="profile" />
-                                    <div class="card-content">
-                                        <h2>{{store.value.name | slice:0:10}}</h2>
-                                        <!-- <br>
-                                        <button type="button" class="btn btn-outline-light btn-lg"
-                                            style="padding: 30px auto 30px auto;">Visit</button> -->
-                                    </div>
                                 </div>
                             </div>
                         </ng-container>
                     </div>
+                </div>
+            </div>
+            <div class="row" *ngIf="switch==3">
+                <div class="col">
+                    <div class="text-center m-5" *ngIf="!productsArray && isFetchingProducts">
+                        <div class="lds-facebook">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="row mb-0" *ngIf="!productsArray.length">
+                        <div class="col-md-8 text-center mx-auto">
+                            <span class="text-center xyz"><br>No Products to show....</span>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center customCss">
+                        <div class="col-xs-12 col-md-3" *ngFor="let product of productsArray | keyvalue">
+                            <div class="card ml-1 mr-1">
+                                <img *ngIf="product.value.img" [src]="product.value.img"
+                                    class="card-img-top cursor-pointer"
+                                    [routerLink]="['/productdetail', product.value._id]">
+                                <video *ngIf="product.value.vid" loop [muted]="true"
+                                    onloadedmetadata="this.muted = true" autoplay class="card-img-top cursor-pointer"
+                                    [routerLink]="['/productdetail', product.value._id]">
+                                    <source [src]="product.value.vid" />
+                                </video>
+                                <div class="card-body text-center">
+                                    <p class="card-text cursor-pointer"
+                                        [routerLink]="['/productdetail', product.value._id]">
+                                        {{product.value.name | slice:0:34}}</p>
+                                    <hr />
+                                    <div class="row stats">
+                                        <span class="col-6 border-right">
+                                            <div class="text-value">{{product.value.pricing}}</div>
+                                            <div class="text-uppercase text-muted small">Price</div>
+                                        </span>
+                                        <span class="col-6">
+                                            <div class="text-value">{{product.value.clicks}}</div>
+                                            <div class="text-uppercase text-muted small">Views</div>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="btn btn-danger m-2 rounded"
+                                        (click)="goToLinkFeatured(product.value.externalLink,product.value._id,product.key)">{{product.value.buttonText}}</button>
+                                    <!-- <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                    [routerLink]="['/store', product.value.storeId]">View in Store</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div *ngFor="let product of productsArray | keyvalue">
+                    <div class="row mb-0 productRow">
+                        <div class="colxs-12 col-md-3">
+                            <img *ngIf="product.value.img" [src]="product.value.img" class="w-100">
+                            <video *ngIf="product.value.vid" loop [muted]="true"
+                                onloadedmetadata="this.muted = true" autoplay class="w-100">
+                                <source [src]="product.value.vid" />
+                            </video>
+                        </div>
+                        <div class="colxs-12 col-md-9">
+                            <h2 class="mt-0">{{product.value.name}}</h2>
+                            <br>
+                            <span class="h4"><i class="fa fa-eye text-muted"></i> &nbsp;
+                                {{product.value.clicks}}</span>
+                            <p class="mt-4 desSize" [innerHTML]="product.value.description"></p>
+                            <br>
+                            <div>
+                                <button type="button" class="btn btn-danger mr-4"
+                                    (click)="goToAmazon(product.value.amazonLink,product.value._id)">Check on
+                                    AMAZON</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+                </div> -->
                 </div>
             </div>
         </div>

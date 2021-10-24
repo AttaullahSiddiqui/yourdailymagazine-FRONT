@@ -517,18 +517,18 @@
 
 .ck-content ul li {
     list-style: square;
-    font-family: intervogue !important;
+    font-family: noto !important;
     margin-left: 28px;
     line-height: 2.5em;
     /* font-size: 1.15em !important; */
 }
 .ck-content ul li span{
-    font-family: intervogue !important;
+    font-family: noto !important;
     font-size: 1.1em !important;
 }
 
 .ck-content table td{
     font-size: 1.15em;
-    font-family: intervogue;
+    font-family: noto;
 }
 

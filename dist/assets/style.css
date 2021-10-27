@@ -71,7 +71,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area {
-    background: #354555;
+    /* backgroun#354555555; */
+    background: black;
     border: 0;
     height: 80px;
     line-height: normal;
@@ -3175,7 +3176,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area {
     display: block;
     overflow: hidden;
-    background: #354555
+    background:black
 }
 
 .footer_area .footer_row {
@@ -3494,7 +3495,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .copy_right {
-    background: #283549;
+    background: black;
     font: 400 16px/60px Lato, sans-serif;
     color: #7b8aa3;
     display: block;

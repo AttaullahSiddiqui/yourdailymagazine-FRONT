@@ -3181,7 +3181,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .footer_area .footer_row {
     padding: 25px 20px 0;
-    width: 1590px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 0
 }
@@ -3593,7 +3593,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
         padding-right: 14px
     }
     .footer_area .footer_row {
-        width: 1140px
+        width: 100%
     }
     .your_states .chart_area #chart #bars {
         width: 90%

@@ -1,7 +1,226 @@
-a{
-    font-size: 1.3em;
-    color:#28BAA2
+.jumbotron a:not(.noStyle) {
+    font-size: 1.55em;
+    color: #20c997;
 }
-a:hover{
+.gridA {
+    color: #0066c0;
+    font-size: 1.1em;
+    word-break: break-all;
+}
+.btnA {
+    color: black;
+}
+.btnA:hover {
+    text-decoration: unset;
+    color: black;
+}
+.amazonBtn {
+    background: linear-gradient(to bottom, #f8e6b8 0, #f3d686 6%, #ebb62c 100%);
+    width: 100%;
+}
+a:hover {
     text-decoration: underline;
+}
+.w100m {
+    width: 100% !important;
+}
+.w30m {
+    width: 30% !important;
+}
+.buyBtn {
+    height: auto;
+    // width: 40%;
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+.storeBtn {
+    font-size: 0.75em;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+}
+
+.itemImg {
+    width: 80px;
+    height: 65px;
+}
+.myCustomBtn {
+    // padding: 4% 6%;
+    // font-size: 0.75em;
+    font-size: 0.6em;
+    height: auto;
+}
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+}
+.full {
+    color: #20c997;
+}
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #20c997;
+}
+div.blogJumb table {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+li > .cui-check {
+    color: rgb(35, 150, 35);
+    font-size: 1.15em;
+}
+li > .cui-ban {
+    color: rgb(201, 38, 38);
+    font-size: 1.15em;
+}
+
+::ng-deep .ck-editor__editable {
+    border: none !important;
+}
+::ng-deep .ck-editor__editable table td {
+    border: 1px solid #bfbfbf !important;
+}
+::ng-deep .ck-reset_all {
+    display: none !important;
+}
+::ng-deep .ck-editor__top {
+    display: none !important;
+}
+// ::ng-deep .ck-editor__editable ul {
+// list-style: square !important;
+// }
+
+//Amazon CSS
+
+.amazon,
+.amzn-ad-container {
+    width: 100% !important;
+    height: auto !important;
+}
+.amzn-ad-logo-holder > a > img {
+    width: 72% !important;
+}
+div#title {
+    text-align: center !important;
+}
+span.price {
+    font-size: 1em !important;
+}
+div.amzn-ad-price-block {
+    height: 22px !important;
+}
+span.prime > img {
+    width: 115% !important;
+    margin-right: 10px !important;
+}
+span#amzn_assoc_shop_now {
+    height: 26px !important;
+    font-size: 15.5px !important;
+}
+// .col-md-12 > div > p > span {
+//     font-size: 45% !important;
+// }
+// .ck-content > div > p > span {
+//     font-size: 105% !important;
+// }
+.display-4 {
+    font-weight: bold;
+    color: black;
+    font-family: gothic-bold;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
+}
+ul.list-group > li {
+    background: transparent;
+    font-family: noto;
+    font-size: 1.15em;
+    color: #333;
+}
+ul.list-group > li > i {
+    vertical-align: middle;
+}
+ul.list-group > li.list-group-item-success {
+    background: #4fa24f;
+    color: white;
+}
+ul.list-group > li.list-group-item-danger {
+    background: #ff5c5c;
+    color: white;
+}
+ul.list-group > li:nth-child(2) {
+    border: none;
+}
+// div.col p,
+// div.col ul > li {
+//     font-size: 1.2em !important;
+//     font-family: noto !important;
+//     letter-spacing: 0.03em !important;
+//     line-height: 1.2em !important;
+//     background: transparent !important;
+// }
+p > span {
+    font-size: 1.2em !important;
+    font-family: noto !important;
+    letter-spacing: 0.03em;
+    line-height: 1.2em;
+    background: transparent !important;
+}
+.ck-content {
+    h2 > span,
+    h1 > span,
+    h3 > span,
+    h4 > span,
+    h5 > span,
+    h6 > span {
+        font-size: 1.3em !important;
+        font-family: gothic-bold !important;
+        letter-spacing: 0.03em;
+        line-height: 1.2em;
+        background: transparent !important;
+        color: #333 !important;
+    }
+    p > a > span {
+        font-size: 70% !important;
+        font-weight: bold;
+        font-family: noto !important;
+        letter-spacing: 0.03em;
+        line-height: 1.2em;
+        background: transparent !important;
+    }
+    p > span > strong {
+        font-weight: bold;
+        font-family: gothic-bold !important;
+        color: #333;
+        letter-spacing: 0.03em;
+        font-size: 1.3em !important;
+    }
+}
+
+p.blogText > p > span,
+p.blogText > p > a {
+    font-size: 110% !important;
+    letter-spacing: 0.03em;
+}
+p.blogText > p > span,
+p.blogText > p > a {
+    font-size: 110% !important;
+    letter-spacing: 0.03em;
+}
+
+.maxW90 {
+    max-width: 90% !important;
+}
+.cw80 {
+    width: 84%;
+}
+.cw100 {
+    width: 100%;
 }

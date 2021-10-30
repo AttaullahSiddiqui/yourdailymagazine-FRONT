@@ -3,7 +3,7 @@
     padding: 5px;
 }
 .customBorRadius {
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
 }
 td {
@@ -11,6 +11,7 @@ td {
 }
 .brand-card {
     background: #e5e4e2;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .brand-card-header {
     height: auto !important;
@@ -118,7 +119,7 @@ td {
     margin: auto 15px;
     border: none !important;
     text-overflow: ellipsis;
-    max-height: 5.4em;
+    max-height: 90px;
     line-height: 1.8em;
     overflow: hidden;
 }

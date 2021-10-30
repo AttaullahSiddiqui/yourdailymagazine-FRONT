@@ -31,18 +31,17 @@ export class BlogComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap) => {
       this.blogURL = paramMap.get("id");
       this.isFetching = true;
-      // console.log(this.blogURL)
       this._dataService
         .fetchWithQuery("/userDisplay/fetchSingleBlog", this.blogURL)
         .subscribe((res) => {
           if (res.data) {
             this.titleService.setTitle(res.data["metaTitle"]);
-            document
-              .querySelector('meta[name="description"]')
-              .setAttribute("content", res.data["metaDes"]);
-            document
-              .querySelector('meta[property="og:description"]')
-              .setAttribute("content", res.data["metaDes"]);
+            // document
+            //   .querySelector('meta[name="description"]')
+            //   .setAttribute("content", res.data["metaDes"]);
+            // document
+            //   .querySelector('meta[property="og:description"]')
+            //   .setAttribute("content", res.data["metaDes"]);
             this.blogNode = res.data;
             this.isFetching = false;
           } else this.errorHandler(res.message);

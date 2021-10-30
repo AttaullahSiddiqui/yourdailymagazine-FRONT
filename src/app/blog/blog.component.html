@@ -54,1092 +54,1143 @@
   <a [routerLink]="['/blogs']">Blogs > </a>
   <a [routerLink]="['/blog',blogURL]">{{blogURL}}</a>
   <div class="lead" style="font-size: 1.5em !important;">
-    <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
-      {{responseError}}
-      <button type="button" class="close" (click)="closeError()" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="container" [ngClass]="{'mx-0 px-0': mobile, 'maxW90':!mobile}">
-      <div class="text-center m-5" *ngIf="!blogNode && isFetching">
-        <div class="lds-facebook">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
+          {{responseError}}
+          <button type="button" class="close" (click)="closeError()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
       </div>
-      <div class="col" *ngIf="blogNode">
-        <div *ngIf="blogNode.amazonAdsAdded">
-          <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}" class="my-3">
-          <h1 class="display-4 text-center">{{blogNode.title}}</h1>
-          <div class="row">
-            <div class="col-md-12">
-              <div *ngIf="blogNode.framestartContent" class="pull-right text-center" style="width: 15%;">
-                <img style="display: block;width: 100%;"
-                  src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                  [src]="blogNode.framestartContent.imageLink">
-                <a [href]="blogNode.framestartContent.detailLink" target="_blank"
-                  class="gridA noStyle">{{blogNode.framestartContent.title}}</a>
-                <div class="row">
-                  <div class="col"><span style="font-size: 1.05em;">{{blogNode.framestartContent.price}}</span></div>
-                  <div class="col"><img style="width: 75%;"
-                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                  </div>
-                </div>
-                <div class="amazonBtn py-2 px-2 text-left">
-                  <a [href]="blogNode.framestartContent.detailLink" target="_blank" class="noStyle btnA">
-                    <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                    <span class="ml-2">Shop Now</span>
-                  </a>
-                </div>
+      <div class="container" [ngClass]="{'mx-0 px-0': mobile, 'maxW90':!mobile}">
+          <div class="text-center m-5" *ngIf="!blogNode && isFetching">
+              <div class="lds-facebook">
+                  <div></div>
+                  <div></div>
+                  <div></div>
               </div>
-              <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml"></div>
-            </div>
           </div>
-          <br>
-
-          <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
-            <thead class="thead-light">
-              <tr style="height: 60px !important;">
-                <th></th>
-                <th class="text-center"></th>
-                <th style="width: 30%;" class="text-center">Item</th>
-                <th class="text-center">Rating</th>
-                <th class="text-center">Price</th>
-                <th class="text-center"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
-                <td class="text-center">
-                  <b style="font-weight: 700 !important;">{{i+1}}</b>
-                </td>
-                <td class="text-center px-0 border-left border-right">
-                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
-                </td>
-                <td class="border-right">
-                  <div class="itemName">{{data.value.name}}</div>
-                </td>
-                <td class="p-0 text-center">
-                  <ng-template #t let-fill="fill">
-                    <span class="star" [class.full]="fill === 5">
-                      <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
-                    </span>
-                  </ng-template>
-
-                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true" [max]="5">
-                  </ngb-rating>
-                </td>
-                <td class="pt-3 border-left border-right text-center">
-                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
-                </td>
-                <td class="text-center">
-                  <button type="button" class="btn btn-dark myCustomBtn" (click)="openLink(data.value.externalLink)">
-                    <i class="cui-cart icons mr-3"></i>
-                    <span>{{data.value.buttonText}}</span></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div *ngIf="blogNode.longDesMiddle1">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle1" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle1.imageLink">
-                  <a [href]="blogNode.frameMiddle1.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle1.title}}</a>
+          <div class="col" *ngIf="blogNode">
+              <div *ngIf="blogNode.amazonAdsAdded">
+                  <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}" class="my-3">
+                  <h1 class="display-4 text-center">{{blogNode.title}}</h1>
                   <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle1.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
+                      <div class="col-md-12">
+                          <div *ngIf="blogNode.framestartContent" class="pull-right text-center" style="width: 15%;">
+                              <img style="display: block;width: 100%;"
+                                  src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                              <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                  [src]="blogNode.framestartContent.imageLink">
+                              <a [href]="blogNode.framestartContent.detailLink" target="_blank"
+                                  class="gridA noStyle">{{blogNode.framestartContent.title}}</a>
+                              <div class="row">
+                                  <div class="col"><span
+                                          style="font-size: 1.05em;">{{blogNode.framestartContent.price}}</span></div>
+                                  <div class="col"><img style="width: 75%;"
+                                          src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                  </div>
+                              </div>
+                              <div class="amazonBtn py-2 px-2 text-left">
+                                  <a [href]="blogNode.framestartContent.detailLink" target="_blank"
+                                      class="noStyle btnA">
+                                      <img style="width: 18%;"
+                                          src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                      <span class="ml-2">Shop Now</span>
+                                  </a>
+                              </div>
+                          </div>
+                          <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml"></div>
+                      </div>
                   </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle1.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
+                  <br>
+
+                  <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
+                      <thead class="thead-light">
+                          <tr style="height: 60px !important;">
+                              <th></th>
+                              <th class="text-center"></th>
+                              <th style="width: 30%;" class="text-center">Item</th>
+                              <th class="text-center">Rating</th>
+                              <th class="text-center">Price</th>
+                              <th class="text-center"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
+                              <td class="text-center">
+                                  <b style="font-weight: 700 !important;">{{i+1}}</b>
+                              </td>
+                              <td class="text-center px-0 border-left border-right">
+                                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
+                              </td>
+                              <td class="border-right">
+                                  <div class="itemName">{{data.value.name}}</div>
+                              </td>
+                              <td class="p-0 text-center">
+                                  <ng-template #t let-fill="fill">
+                                      <span class="star" [class.full]="fill === 5">
+                                          <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
+                                      </span>
+                                  </ng-template>
+
+                                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true"
+                                      [max]="5">
+                                  </ngb-rating>
+                              </td>
+                              <td class="pt-3 border-left border-right text-center">
+                                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
+                              </td>
+                              <td class="text-center">
+                                  <button type="button" class="btn btn-dark myCustomBtn"
+                                      (click)="openLink(data.value.externalLink)">
+                                      <i class="cui-cart icons mr-3"></i>
+                                      <span>{{data.value.buttonText}}</span></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+                  <div *ngIf="blogNode.longDesMiddle1">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle1" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle1.imageLink">
+                                  <a [href]="blogNode.frameMiddle1.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle1.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle1.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle1.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid1">
+                          <br>
+                          <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink1)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
                   </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml"></div>
+
+                  <div *ngIf="blogNode.longDesMiddle2">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle2" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle2.imageLink">
+                                  <a [href]="blogNode.frameMiddle2.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle2.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle2.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle2.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid2">
+                          <br>
+                          <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink2)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle3">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle3" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle3.imageLink">
+                                  <a [href]="blogNode.frameMiddle3.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle3.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle3.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle3.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid3">
+                          <br>
+                          <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink3)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle4">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle4" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle4.imageLink">
+                                  <a [href]="blogNode.frameMiddle4.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle4.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle4.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle4.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid4">
+                          <br>
+                          <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink4)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle5">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle5" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle5.imageLink">
+                                  <a [href]="blogNode.frameMiddle5.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle5.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle5.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle5.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid5">
+                          <br>
+                          <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink5)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle6">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle6" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle6.imageLink">
+                                  <a [href]="blogNode.frameMiddle6.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle6.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle6.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle6.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid6">
+                          <br>
+                          <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink6)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle7">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle7" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle7.imageLink">
+                                  <a [href]="blogNode.frameMiddle7.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle7.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle7.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle7.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid7">
+                          <br>
+                          <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink7)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle8">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle8" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle8.imageLink">
+                                  <a [href]="blogNode.frameMiddle8.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle8.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle8.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle8.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid8">
+                          <br>
+                          <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink8)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle9">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle9" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle9.imageLink">
+                                  <a [href]="blogNode.frameMiddle9.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle9.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle9.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle9.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid9">
+                          <br>
+                          <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink9)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle10">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <div *ngIf="blogNode.frameMiddle10" class="pull-right text-center" style="width: 15%;">
+                                  <img style="display: block;width: 100%;"
+                                      src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
+                                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
+                                      [src]="blogNode.frameMiddle10.imageLink">
+                                  <a [href]="blogNode.frameMiddle10.detailLink" target="_blank"
+                                      class="gridA noStyle">{{blogNode.frameMiddle10.title}}</a>
+                                  <div class="row">
+                                      <div class="col"><span
+                                              style="font-size: 1.05em;">{{blogNode.frameMiddle10.price}}</span>
+                                      </div>
+                                      <div class="col"><img style="width: 75%;"
+                                              src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
+                                      </div>
+                                  </div>
+                                  <div class="amazonBtn py-2 px-2 text-left">
+                                      <a [href]="blogNode.frameMiddle10.detailLink" target="_blank"
+                                          class="noStyle btnA">
+                                          <img style="width: 18%;"
+                                              src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
+                                          <span class="ml-2">Shop Now</span>
+                                      </a>
+                                  </div>
+                              </div>
+                              <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml"></div>
+                          </div>
+                      </div>
+                      <div *ngIf="blogNode.imgGrid10">
+                          <br>
+                          <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w30m">
+                          <br>
+                          <button type="button" (click)="openLink(blogNode.amazonLink10)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                          <br>
+                      </div>
+                      <br>
+                  </div>
+
+
+                  <div class="mb-5 text-left" [innerHTML]="blogNode.longDesLast | sanitizeHtml"
+                      *ngIf="blogNode.longDesLast">
+                  </div>
               </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid1">
-              <br>
-              <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink1)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle2">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle2" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle2.imageLink">
-                  <a [href]="blogNode.frameMiddle2.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle2.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle2.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
+              <div *ngIf="!blogNode.showVertically && !blogNode.amazonAdsAdded">
+                  <div class="w-100 text-center my-3">
+                      <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}">
                   </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle2.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid2">
-              <br>
-              <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink2)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle3">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle3" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle3.imageLink">
-                  <a [href]="blogNode.frameMiddle3.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle3.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle3.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle3.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid3">
-              <br>
-              <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink3)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle4">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle4" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle4.imageLink">
-                  <a [href]="blogNode.frameMiddle4.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle4.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle4.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle4.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid4">
-              <br>
-              <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink4)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle5">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle5" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle5.imageLink">
-                  <a [href]="blogNode.frameMiddle5.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle5.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle5.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle5.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid5">
-              <br>
-              <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink5)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle6">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle6" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle6.imageLink">
-                  <a [href]="blogNode.frameMiddle6.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle6.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle6.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle6.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid6">
-              <br>
-              <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink6)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle7">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle7" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle7.imageLink">
-                  <a [href]="blogNode.frameMiddle7.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle7.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle7.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle7.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid7">
-              <br>
-              <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink7)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle8">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle8" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle8.imageLink">
-                  <a [href]="blogNode.frameMiddle8.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle8.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle8.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle8.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid8">
-              <br>
-              <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink8)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle9">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle9" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle9.imageLink">
-                  <a [href]="blogNode.frameMiddle9.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle9.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle9.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle9.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid9">
-              <br>
-              <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink9)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle10">
-            <div class="row">
-              <div class="col-md-12">
-                <div *ngIf="blogNode.frameMiddle10" class="pull-right text-center" style="width: 15%;">
-                  <img style="display: block;width: 100%;"
-                    src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/a-logo-amazon.png">
-                  <img style="display: block;width: 100%;margin-top: 17px;margin-bottom: 10px;"
-                    [src]="blogNode.frameMiddle10.imageLink">
-                  <a [href]="blogNode.frameMiddle10.detailLink" target="_blank"
-                    class="gridA noStyle">{{blogNode.frameMiddle10.title}}</a>
-                  <div class="row">
-                    <div class="col"><span style="font-size: 1.05em;">{{blogNode.frameMiddle10.price}}</span>
-                    </div>
-                    <div class="col"><img style="width: 75%;"
-                        src="//wms-na.amazon-adsystem.com/panda/20070822/US/img/prime.png">
-                    </div>
-                  </div>
-                  <div class="amazonBtn py-2 px-2 text-left">
-                    <a [href]="blogNode.frameMiddle10.detailLink" target="_blank" class="noStyle btnA">
-                      <img style="width: 18%;" src="https://wms-na.amazon-adsystem.com/panda/20070822/US/img/cart.gif">
-                      <span class="ml-2">Shop Now</span>
-                    </a>
-                  </div>
-                </div>
-                <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml"></div>
-              </div>
-            </div>
-            <div *ngIf="blogNode.imgGrid10">
-              <br>
-              <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w30m">
-              <br>
-              <button type="button" (click)="openLink(blogNode.amazonLink10)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-              <br>
-            </div>
-            <br>
-          </div>
-
-
-          <div class="mb-5 text-left" [innerHTML]="blogNode.longDesLast | sanitizeHtml" *ngIf="blogNode.longDesLast">
-          </div>
-        </div>
-        <div *ngIf="!blogNode.showVertically && !blogNode.amazonAdsAdded">
-          <div class="w-100 text-center my-3">
-            <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}">
-          </div>
-          <!-- <div [innerHTML]="iFrameObj"></div> -->
-          <br>
-          <h1 class="display-4 text-center">{{blogNode.title}}</h1>
-          <br>
-          <br>
-          <div class="ck-content">
-            <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml"></div>
-            <!-- <ckeditor [editor]="Editor" [(ngModel)]="blogNode.longDesFirst" name="longDesFirst"
+                  <!-- <div [innerHTML]="iFrameObj"></div> -->
+                  <br>
+                  <h1 class="display-4 text-center">{{blogNode.title}}</h1>
+                  <br>
+                  <br>
+                  <div class="ck-content">
+                      <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml"></div>
+                      <!-- <ckeditor [editor]="Editor" [(ngModel)]="blogNode.longDesFirst" name="longDesFirst"
                           [disabled]="true">
                       </ckeditor> -->
-          </div>
-          <br>
-          <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
-            <thead class="thead-light">
-              <tr style="height: 60px !important;">
-                <th></th>
-                <th class="text-center"></th>
-                <th style="width: 30%;" class="text-center">Item</th>
-                <th class="text-center">Rating</th>
-                <th class="text-center">Price</th>
-                <th class="text-center"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
-                <td class="text-center">
-                  <b style="font-weight: 700 !important;">{{i+1}}</b>
-                </td>
-                <td class="text-center px-0 border-left border-right">
-                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
-                </td>
-                <td class="border-right">
-                  <div class="itemName">{{data.value.name}}</div>
-                </td>
-                <td class="p-0 text-center">
-                  <ng-template #t let-fill="fill">
-                    <span class="star" [class.full]="fill === 5">
-                      <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
-                    </span>
-                  </ng-template>
+                  </div>
+                  <br>
+                  <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
+                      <thead class="thead-light">
+                          <tr style="height: 60px !important;">
+                              <th></th>
+                              <th class="text-center"></th>
+                              <th style="width: 30%;" class="text-center">Item</th>
+                              <th class="text-center">Rating</th>
+                              <th class="text-center">Price</th>
+                              <th class="text-center"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
+                              <td class="text-center">
+                                  <b style="font-weight: 700 !important;">{{i+1}}</b>
+                              </td>
+                              <td class="text-center px-0 border-left border-right">
+                                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
+                              </td>
+                              <td class="border-right">
+                                  <div class="itemName">{{data.value.name}}</div>
+                              </td>
+                              <td class="p-0 text-center">
+                                  <ng-template #t let-fill="fill">
+                                      <span class="star" [class.full]="fill === 5">
+                                          <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
+                                      </span>
+                                  </ng-template>
 
-                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true" [max]="5">
-                  </ngb-rating>
-                </td>
-                <td class="pt-3 border-left border-right text-center">
-                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
-                </td>
-                <td class="text-center">
-                  <button type="button" class="btn btn-dark myCustomBtn" (click)="openLink(data.value.externalLink)">
-                    <i class="cui-cart icons mr-3"></i>
-                    <span>{{data.value.buttonText}}</span></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true"
+                                      [max]="5">
+                                  </ngb-rating>
+                              </td>
+                              <td class="pt-3 border-left border-right text-center">
+                                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
+                              </td>
+                              <td class="text-center">
+                                  <button type="button" class="btn btn-dark myCustomBtn"
+                                      (click)="openLink(data.value.externalLink)">
+                                      <i class="cui-cart icons mr-3"></i>
+                                      <span>{{data.value.buttonText}}</span></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
 
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle1">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros1 && blogNode.cons1">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros1 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons1 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle1">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros1 && blogNode.cons1">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros1 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons1 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink1)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle2">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros2 && blogNode.cons2">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros2 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons2 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink2)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle3">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros3 && blogNode.cons3">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros3 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons3 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink3)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle4">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros4 && blogNode.cons4">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros4 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons4 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink4)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle5">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros5 && blogNode.cons5">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros5 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons5 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink5)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle6">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros6 && blogNode.cons6">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros6 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons6 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink6)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle7">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros7 && blogNode.cons7">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros7 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons7 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink7)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle8">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros8 && blogNode.cons8">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros8 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons8 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink8)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle9">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros9 && blogNode.cons9">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros9 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons9 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w100m">
+
+                          <button type="button" (click)="openLink(blogNode.amazonLink9)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+                  <div class="row my-4" *ngIf="blogNode.longDesMiddle10">
+                      <div class="col-xs-12 col-lg-8">
+                          <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml"></div>
+                          <br>
+                          <div class="row" *ngIf="blogNode.pros10 && blogNode.cons10">
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li
+                                          class="list-group-item list-group-item-success text-center font-weight-bold">
+                                          PROS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.pros10 | keyvalue"><i
+                                              class="cui-check icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6 col-xs-12 border px-0">
+                                  <ul class="list-group list-group-flush">
+                                      <li class="list-group-item list-group-item-danger text-center font-weight-bold">
+                                          CONS</li>
+                                      <li class="list-group-item"></li>
+                                      <li class="list-group-item list-group-item-light border-0"
+                                          *ngFor="let data of blogNode.cons10 | keyvalue"><i
+                                              class="cui-ban icons mr-3"></i>{{data.value}}</li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-lg-4 text-center">
+                          <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w100m">
+
+                          <!-- <a class="btn btn-success" (click)="openLink(blogNode.amazonLink10)">{{blogNode.buttonTxt}}</a> -->
+                          <button type="button" (click)="openLink(blogNode.amazonLink10)"
+                              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="mb-5" [innerHTML]="blogNode.longDesLast | sanitizeHtml" *ngIf="blogNode.longDesLast">
+                  </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w100m">
 
-              <button type="button" (click)="openLink(blogNode.amazonLink1)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
 
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle2">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros2 && blogNode.cons2">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros2 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons2 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
+              <div *ngIf="blogNode.showVertically" class="text-center">
+                  <br>
+                  <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}">
+                  <br>
+                  <br>
+                  <h1 class="display-4 text-center">{{blogNode.title}}</h1>
+                  <br>
+                  <br>
+                  <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml" class="text-left"></div>
+                  <br>
+
+                  <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
+                      <thead class="thead-light">
+                          <tr style="height: 60px !important;">
+                              <th></th>
+                              <th class="text-center"></th>
+                              <th style="width: 30%;" class="text-center">Item</th>
+                              <th class="text-center">Rating</th>
+                              <th class="text-center">Price</th>
+                              <th class="text-center"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
+                              <td class="text-center">
+                                  <b style="font-weight: 700 !important;">{{i+1}}</b>
+                              </td>
+                              <td class="text-center px-0 border-left border-right">
+                                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
+                              </td>
+                              <td class="border-right">
+                                  <div class="itemName">{{data.value.name}}</div>
+                              </td>
+                              <td class="p-0 text-center">
+                                  <ng-template #t let-fill="fill">
+                                      <span class="star" [class.full]="fill === 5">
+                                          <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
+                                      </span>
+                                  </ng-template>
+
+                                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true"
+                                      [max]="5">
+                                  </ngb-rating>
+                              </td>
+                              <td class="pt-3 border-left border-right text-center">
+                                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
+                              </td>
+                              <td class="text-center">
+                                  <button type="button" class="btn btn-dark myCustomBtn"
+                                      (click)="openLink(data.value.externalLink)">
+                                      <i class="cui-cart icons mr-3"></i>
+                                      <span>{{data.value.buttonText}}</span></button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+                  <div *ngIf="blogNode.longDesMiddle1">
+                      <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink1)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle2">
+                      <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink2)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle3">
+                      <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink3)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle4">
+                      <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink4)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle5">
+                      <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink5)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle6">
+                      <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink6)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle7">
+                      <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink7)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle8">
+                      <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink8)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle9">
+                      <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink9)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+                  <div *ngIf="blogNode.longDesMiddle">
+                      <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml" class="text-left"></div>
+                      <br>
+                      <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w30m">
+                      <br>
+                      <button type="button" (click)="openLink(blogNode.amazonLink10)"
+                          class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
+                      </button>
+                      <br>
+                      <br>
+                  </div>
+
+
+                  <div class="mb-5 text-left" [innerHTML]="blogNode.longDesLast | sanitizeHtml"
+                      *ngIf="blogNode.longDesLast">
+                  </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w100m">
 
-              <button type="button" (click)="openLink(blogNode.amazonLink2)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
+              <button type="button" class="btn btn-danger mx-3 mb-2 active storeBtn"
+                  *ngFor="let obj of blogNode.relatedStores | keyvalue"
+                  [routerLink]="['/store', obj.value]">{{obj.value}}</button>
           </div>
-
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle3">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros3 && blogNode.cons3">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros3 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons3 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink3)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle4">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros4 && blogNode.cons4">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros4 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons4 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink4)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle5">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros5 && blogNode.cons5">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros5 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons5 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink5)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle6">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros6 && blogNode.cons6">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros6 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons6 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink6)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle7">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros7 && blogNode.cons7">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros7 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons7 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink7)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle8">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros8 && blogNode.cons8">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros8 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons8 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink8)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle9">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros9 && blogNode.cons9">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros9 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons9 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w100m">
-
-              <button type="button" (click)="openLink(blogNode.amazonLink9)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-          <div class="row my-4" *ngIf="blogNode.longDesMiddle10">
-            <div class="col-xs-12 col-lg-8">
-              <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml"></div>
-              <br>
-              <div class="row" *ngIf="blogNode.pros10 && blogNode.cons10">
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-success text-center font-weight-bold">
-                      PROS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.pros10 | keyvalue"><i class="cui-check icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-6 col-xs-12 border px-0">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-danger text-center font-weight-bold">
-                      CONS</li>
-                    <li class="list-group-item"></li>
-                    <li class="list-group-item list-group-item-light border-0"
-                      *ngFor="let data of blogNode.cons10 | keyvalue"><i class="cui-ban icons mr-3"></i>{{data.value}}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-lg-4 text-center">
-              <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w100m">
-
-              <!-- <a class="btn btn-success" (click)="openLink(blogNode.amazonLink10)">{{blogNode.buttonTxt}}</a> -->
-              <button type="button" (click)="openLink(blogNode.amazonLink10)"
-                class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-              </button>
-            </div>
-          </div>
-
-          <div class="mb-5" [innerHTML]="blogNode.longDesLast | sanitizeHtml" *ngIf="blogNode.longDesLast">
-          </div>
-        </div>
-
-
-        <div *ngIf="blogNode.showVertically" class="text-center">
-          <br>
-          <img [src]="blogNode.img" [ngClass]="{'cw80': !mobile,'cw100':mobile}">
-          <br>
-          <br>
-          <h1 class="display-4 text-center">{{blogNode.title}}</h1>
-          <br>
-          <br>
-          <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml" class="text-left"></div>
-          <br>
-
-          <table class="table table-responsive-sm table-striped table-outline mb-5" *ngIf="blogItems">
-            <thead class="thead-light">
-              <tr style="height: 60px !important;">
-                <th></th>
-                <th class="text-center"></th>
-                <th style="width: 30%;" class="text-center">Item</th>
-                <th class="text-center">Rating</th>
-                <th class="text-center">Price</th>
-                <th class="text-center"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of blogItems | keyvalue;index as i" class="cursor-pointer">
-                <td class="text-center">
-                  <b style="font-weight: 700 !important;">{{i+1}}</b>
-                </td>
-                <td class="text-center px-0 border-left border-right">
-                  <img [src]="data.value.img" class="itemImg" [alt]="data.value.imgAlt">
-                </td>
-                <td class="border-right">
-                  <div class="itemName">{{data.value.name}}</div>
-                </td>
-                <td class="p-0 text-center">
-                  <ng-template #t let-fill="fill">
-                    <span class="star" [class.full]="fill === 5">
-                      <span class="half" [style.width.%]="fill">&#9733;;</span>&#9733;
-                    </span>
-                  </ng-template>
-
-                  <ngb-rating [(rate)]="data.value.rating" [starTemplate]="t" [readonly]="true" [max]="5">
-                  </ngb-rating>
-                </td>
-                <td class="pt-3 border-left border-right text-center">
-                  <strong style="font-size: 1em;font-weight: 600">{{data.value.pricing}}</strong>
-                </td>
-                <td class="text-center">
-                  <button type="button" class="btn btn-dark myCustomBtn" (click)="openLink(data.value.externalLink)">
-                    <i class="cui-cart icons mr-3"></i>
-                    <span>{{data.value.buttonText}}</span></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div *ngIf="blogNode.longDesMiddle1">
-            <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink1)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle2">
-            <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink2)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle3">
-            <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink3)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle4">
-            <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink4)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle5">
-            <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink5)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle6">
-            <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink6)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle7">
-            <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink7)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle8">
-            <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink8)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle9">
-            <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink9)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-          <div *ngIf="blogNode.longDesMiddle">
-            <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml" class="text-left"></div>
-            <br>
-            <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w30m">
-            <br>
-            <button type="button" (click)="openLink(blogNode.amazonLink10)"
-              class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
-            </button>
-            <br>
-            <br>
-          </div>
-
-
-          <div class="mb-5 text-left" [innerHTML]="blogNode.longDesLast | sanitizeHtml" *ngIf="blogNode.longDesLast">
-          </div>
-        </div>
-
-        <button type="button" class="btn btn-danger mx-3 mb-2 active storeBtn"
-          *ngFor="let obj of blogNode.relatedStores | keyvalue"
-          [routerLink]="['/store', obj.value]">{{obj.value}}</button>
       </div>
-    </div>
   </div>
 </div>

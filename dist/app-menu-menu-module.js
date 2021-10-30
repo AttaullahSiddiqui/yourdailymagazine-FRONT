@@ -5268,8 +5268,8 @@ var BlogsComponent = /** @class */ (function () {
         this.fetchBlogs();
     };
     BlogsComponent.prototype.openLink = function (blogURL) {
-        window.open("http://localhost:4000/blog/" + blogURL, "_blank");
-        // window.open("https://www.buymedeal.com/blog/" + blogURL, "_blank");
+        // window.open("http://localhost:4000/blog/" + blogURL, "_blank");
+        window.open("https://www.buymedeal.com/blog/" + blogURL, "_blank");
     };
     BlogsComponent.prototype.errorHandler = function (err) {
         this.toastr.error(err, "Error");

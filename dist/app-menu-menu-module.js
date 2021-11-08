@@ -5873,7 +5873,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.titleService.setTitle("BuyMeDeal");
+        // this.titleService.setTitle("BuyMeDeal");
         if (window.screen.width < 450)
             this.web = false;
         else

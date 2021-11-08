@@ -111,12 +111,12 @@ export class AuthService implements CanActivate {
           this.metaService.updateTag({
             name: "description",
             content:
-              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com. ",
+              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com.",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com. ",
+              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com.",
           });
           this.metaService.updateTag({
             property: "og:title",

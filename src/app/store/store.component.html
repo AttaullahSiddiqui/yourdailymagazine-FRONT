@@ -3,8 +3,7 @@
     <br>
     <br>
 </div> -->
-<div class="jumbotron" style="background-color: white;" [ngClass]="{'p-0': mobile}" (click)="closeModal()"><a
-        [routerLink]="['/home']">Home >
+<div class="jumbotron" [ngClass]="{'p-0': mobile}" (click)="closeModal()"><a [routerLink]="['/home']">Home >
     </a>
     <a [routerLink]="['/stores']">Stores > </a>
     <a [routerLink]="['/store',storeURL]">{{storeURLToShow}}</a>
@@ -50,7 +49,7 @@
                     </div>
                     <section class="notifications_area" *ngIf="couponsArray">
                         <div class="notifications">
-                            <div class="hed_notic">Active Coupons</div>
+                            <div class="hed_notic text-center">Active Coupons</div>
                             <ul class="notifications_content follow">
                                 <li *ngFor="let coupon of couponsArray | keyvalue | sortby">
                                     <a *ngIf="coupon.value.expDate > currentDate">
@@ -84,7 +83,7 @@
                         </div>
                         <br>
                         <div class="notifications">
-                            <div class="hed_notic">Expired Coupons</div>
+                            <div class="hed_notic text-center">Expired Coupons</div>
                             <ul class="notifications_content follow">
                                 <li *ngFor="let coupon of couponsArray | keyvalue">
                                     <a *ngIf="currentDate > coupon.value.expDate">

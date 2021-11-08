@@ -1,6 +1,14 @@
 img.blogsImg {
     width: 100%;
 }
+.blogsPage .row a h2 {
+    font-family: gothic-bold;
+    color: #444444;
+    font-size: 1.9em;
+}
+.blogsPage b {
+    font-weight: 500 !important;
+}
 .container {
     max-width: 100%;
 }
@@ -8,6 +16,7 @@ img.blogsImg {
     font-size: 1.4em !important;
     font-family: noto !important;
     letter-spacing: 0.03em;
+    color: #2d3438 !important;
 }
 .row a:hover {
     cursor: pointer;
@@ -22,17 +31,17 @@ b {
 }
 .jumbotron > a {
     font-size: 1.55em !important;
-    color: #20c997;
+    color: #316b83;
 }
 a.viewMore:hover {
-    color: #20c997 !important;
+    color: #316b83 !important;
 }
 button.btn-outline-primary {
-    border-color: #20c997 !important;
-    color: #20c997 !important;
+    border-color: #316b83 !important;
+    color: #316b83 !important;
 }
 button.btn-outline-primary:hover {
-    background-color: #20c997 !important;
+    background-color: #316b83 !important;
     color: #fff !important;
 }
 .display-4 {

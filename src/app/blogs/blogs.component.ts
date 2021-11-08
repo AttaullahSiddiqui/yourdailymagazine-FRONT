@@ -65,8 +65,8 @@ export class BlogsComponent implements OnInit {
     this.fetchBlogs();
   }
   openLink(blogURL) {
-    // window.open("http://localhost:4000/blog/" + blogURL, "_blank");
-    window.open("https://www.buymedeal.com/blog/" + blogURL, "_blank");
+    window.open("http://localhost:4000/blog/" + blogURL, "_blank");
+    // window.open("https://www.buymedeal.com/blog/" + blogURL, "_blank");
   }
   errorHandler(err) {
     this.toastr.error(err, "Error");

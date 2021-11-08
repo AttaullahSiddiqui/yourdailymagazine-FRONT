@@ -13,7 +13,7 @@ a {
     text-decoration: underline;
 }
 a.breadcrumbs {
-    color: #20c997 !important;
+    color: #316b83 !important;
     font-size: 1.55em !important;
 }
 
@@ -66,14 +66,14 @@ a.breadcrumbs {
 }
 
 .card-green {
-    border-top: 4px solid #137d5e;
+    border-top: 4px solid #316b83;
     :before {
-        color: #137d5e;
+        color: #316b83;
         content: "\f2a1";
         font-family: "FontAwesome";
     }
     .card-separator {
-        border: 1px solid #137d5e;
+        border: 1px solid #316b83;
     }
 }
 .display-4 {

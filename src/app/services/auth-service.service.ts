@@ -20,118 +20,129 @@ export class AuthService implements CanActivate {
       switch (state.url) {
         case "/categories": {
           this.titleService.setTitle(
-            "Don’t Look Any Further For Your Essentials BuyMeDeal Offers You Everything"
+            "Home decor to office supplies BuyMeDeal covers every aspect of desired products."
           );
           this.metaService.updateTag({
             property: "og:title",
-            content: "Categories",
+            content:
+              "Home decor to office supplies BuyMeDeal covers every aspect of desired products.",
           });
           // document.querySelector('meta[name="og:title"]').setAttribute("content", "Categories");
-          // document.querySelector('meta[name="description"]').setAttribute("content", "You can get anything on DIGMYCART from your office supplies to your bedroom makeover. Rock your professional and personal life at the same time with DIGMYCART");
-          // document.querySelector('meta[property="og:description"]').setAttribute("content", "You can get anything on DIGMYCART from your office supplies to your bedroom makeover. Rock your professional and personal life at the same time with DIGMYCART");
+          // document.querySelector('meta[name="description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.");
+          // document.querySelector('meta[property="og:description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.");
           this.metaService.updateTag({
             name: "description",
             content:
-              "You can get anything on DigMyCart from your office supplies to your bedroom makeover. Rock your professional and personal life at the same time with DigMyCart",
+              "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "You can get anything on DigMyCart from your office supplies to your bedroom makeover. Rock your professional and personal life at the same time with DigMyCart",
+              "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.",
           });
           break;
         }
         case "/stores": {
           this.titleService.setTitle(
-            "The Best Stores At Your Favourite Place BuyMeDeal"
+            "Meet uncountable astounding and spectacular stores at BuyMeDeal."
           );
           this.metaService.updateTag({
             property: "og:title",
-            content: "Stores",
+            content:
+              "Meet uncountable astounding and spectacular stores at BuyMeDeal.",
           });
           this.metaService.updateTag({
             name: "description",
             content:
-              "Many Stores that provide you just according to your style. Embrace your style with our stores. Embrace your class with DigMyCart",
+              "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with buymedeal.com.",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "Many Stores that provide you just according to your style. Embrace your style with our stores. Embrace your class with DigMyCart",
+              "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with buymedeal.com.",
           });
           break;
         }
         case "/blogs": {
-          this.titleService.setTitle("BuyMeDeal Brings The Top Trends For You");
+          this.titleService.setTitle(
+            "Let’s upgrade yourself from our latest trendy blogs only at BuyMeDeal."
+          );
           this.metaService.updateTag({
             name: "description",
             content:
-              "Getting your hands on the latest trends is a fundamental task to compete in the race and know what's best for you. DigMyCart is here to update you with the newest vogue",
+              "Let’s get trendy with buymedeal.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "Getting your hands on the latest trends is a fundamental task to compete in the race and know what's best for you. DigMyCart is here to update you with the newest vogue",
+              "Let’s get trendy with buymedeal.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
           });
           this.metaService.updateTag({
             property: "og:title",
-            content: "DIGMYCART Brings Latest Trends On Your Screens",
+            content:
+              "Let’s upgrade yourself from our latest trendy blogs only at BuyMeDeal.",
           });
           break;
         }
         case "/products": {
           this.titleService.setTitle(
-            "Explore The Best Products From Around The World At BuyMeDeal"
+            "All your desires come to fulfill at BuyMeDeal."
           );
           this.metaService.updateTag({
             name: "description",
             content:
-              "From décor to apparel and healthy diet supplements. You can check out mind-blowing products at DigMyCart and make yourself stand out from others in no time",
+              "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website buymedeal.com.",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "From décor to apparel and healthy diet supplements. You can check out mind-blowing products at DigMyCart and make yourself stand out from others in no time",
+              "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website buymedeal.com.",
           });
           this.metaService.updateTag({
             property: "og:title",
-            content: "Products on DigMyCart",
+            content: "All your desires come to fulfill at BuyMeDeal.",
           });
           break;
         }
         case "/home": {
-          this.titleService.setTitle("BuyMeDeal | Home");
-          this.metaService.updateTag({
-            name: "description",
-            content:
-              "Find all the latest coupons and promo codes of thousands of online stores for a hassle-free and convenient online shopping experience with digmycart.com. We provide the best ongoing deals to our global customers and strive hard to satisfy them in finding what they are searching for. Take a seat, sit back and relax while browsing through our website and get enlightened to massive discounts on luxurious brands. We have further categorized the website to make your shopping experience better. Shop high-end brands with coupons and promo codes with digmycart.com and see your dreams come true",
-          });
-          this.metaService.updateTag({
-            property: "og:description",
-            content:
-              "Find all the latest coupons and promo codes of thousands of online stores for a hassle-free and convenient online shopping experience with digmycart.com. We provide the best ongoing deals to our global customers and strive hard to satisfy them in finding what they are searching for. Take a seat, sit back and relax while browsing through our website and get enlightened to massive discounts on luxurious brands. We have further categorized the website to make your shopping experience better. Shop high-end brands with coupons and promo codes with digmycart.com and see your dreams come true",
-          });
-          this.metaService.updateTag({ property: "og:title", content: "Home" });
-          break;
-        }
-        case "/event": {
           this.titleService.setTitle(
-            "Enjoy exquisite discount offers at special events only at DigMyCart."
+            "BuyMeDeal | Relish the acute deals & offers at home solely from BuyMeDeal."
           );
           this.metaService.updateTag({
             name: "description",
             content:
-              "Do you want to make the best out of the special days of the year? DigMyCart is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com. ",
           });
           this.metaService.updateTag({
             property: "og:description",
             content:
-              "Do you want to make the best out of the special days of the year? DigMyCart is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+              "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com. ",
           });
           this.metaService.updateTag({
             property: "og:title",
             content:
-              "Enjoy exquisite discount offers at special events only at DigMyCart.",
+              "Relish the acute deals & offers at home solely from BuyMeDeal.",
+          });
+          break;
+        }
+        case "/event": {
+          this.titleService.setTitle(
+            "Enjoy exquisite discount offers at special events only at BuymeDeal."
+          );
+          this.metaService.updateTag({
+            name: "description",
+            content:
+              "Do you want to make the best out of the special days of the year? BuymeDeal is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+          });
+          this.metaService.updateTag({
+            property: "og:description",
+            content:
+              "Do you want to make the best out of the special days of the year? BuymeDeal is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+          });
+          this.metaService.updateTag({
+            property: "og:title",
+            content:
+              "Enjoy exquisite discount offers at special events only at BuymeDeal.",
           });
           break;
         }

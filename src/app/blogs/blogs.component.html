@@ -15,7 +15,7 @@
         </button>
     </div> -->
     <br>
-    <div class="lead" style="font-size: 1.2em !important;">
+    <div class="lead blogsPage" style="font-size: 1.2em !important;">
         <div class="container" [ngClass]="{'px-0': mobile}">
             <div class="text-center m-5" *ngIf="!blogsArr.length && isFetching">
                 <div class="lds-facebook">
@@ -30,10 +30,13 @@
                         <a (click)="openLink(blog.value.blogURL)">
                             <h2 [ngClass]="{'mt-2': mobile}">{{blog.value.title}}</h2>
                         </a>
-                        <span><b>Date:</b>&nbsp; {{blog.value.CreatedAt | date}}</span>&nbsp;&nbsp;
-                        <span><b>By: </b> <span style="text-transform: capitalize;">{{blog.value.author}}</span>
+                        <span style="font-size: 1.2em;"><b>Date:</b>&nbsp; {{blog.value.CreatedAt |
+                            date}}</span>&nbsp;&nbsp;
+                        <span style="font-size: 1.2em;"><b>By: </b> <span
+                                style="text-transform: capitalize;">{{blog.value.author}}</span>
                         </span>&nbsp;&nbsp;
-                        <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
+                        <span style="font-size: 1.2em;"><i class="fa fa-eye"></i> &nbsp; {{blog.value.views ||
+                            0}}</span>
                         <br>
                         <br>
                         <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">

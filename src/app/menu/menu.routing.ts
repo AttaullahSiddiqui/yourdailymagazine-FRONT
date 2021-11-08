@@ -11,8 +11,8 @@ import { BlogsComponent } from "../blogs/blogs.component";
 import { CategoryComponent } from "../category/category.component";
 import { StoreComponent } from "../store/store.component";
 import { BlogComponent } from "../blog/blog.component";
-import { ProductsComponent } from "../products/products.component";
-import { ProductDetailComponent } from "../product-detail/product-detail.component";
+// import { ProductsComponent } from "../products/products.component";
+// import { ProductDetailComponent } from "../product-detail/product-detail.component";
 import { EventPageComponent } from "../event-page/event-page.component";
 import { SitemapComponent } from "../sitemap/sitemap.component";
 
@@ -32,21 +32,21 @@ export const MenuRoutes: Routes = [
   },
   { path: "stores", component: StoresComponent, canActivate: [AuthService] },
   { path: "blogs", component: BlogsComponent, canActivate: [AuthService] },
-  {
-    path: "products",
-    component: ProductsComponent,
-    canActivate: [AuthService],
-  },
-  {
-    path: "products",
-    component: ProductsComponent,
-    canActivate: [AuthService],
-  },
-  {
-    path: "productdetail/:id",
-    component: ProductDetailComponent,
-    canActivate: [AuthService],
-  },
+  // {
+  //   path: "products",
+  //   component: ProductsComponent,
+  //   canActivate: [AuthService],
+  // },
+  // {
+  //   path: "products",
+  //   component: ProductsComponent,
+  //   canActivate: [AuthService],
+  // },
+  // {
+  //   path: "productdetail/:id",
+  //   component: ProductDetailComponent,
+  //   canActivate: [AuthService],
+  // },
   {
     path: "category/:id",
     component: CategoryComponent,

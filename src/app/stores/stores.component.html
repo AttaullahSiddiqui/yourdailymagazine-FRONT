@@ -6,7 +6,8 @@
 <div class="jumbotron">
     <a [routerLink]="['/home']">Home/</a>
     <a [routerLink]="['/stores']">Stores/</a>
-    <h1 class="display-4 text-center" *ngIf="storeArray">BROWSE STORES FOR EXCITING DEALS</h1>
+    <h1 class="display-4 text-center" style="font-family: gothic-bold;" *ngIf="storeArray">BROWSE STORES FOR EXCITING
+        DEALS</h1>
     <hr class="my-4" />
     <div style="font-size: 1.2em !important;margin-top: 20px;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">

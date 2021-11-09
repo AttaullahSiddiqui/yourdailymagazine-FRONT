@@ -103,7 +103,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li a {
-    font: 400 18px/80px Lato, sans-serif;
+    font: 400 20px/80px Lato, sans-serif;
     color: white;
     background-color: transparent;
     position: relative
@@ -512,7 +512,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul .search_min .search_from input {
-    font: 400 15px/48px Lato, sans-serif;
+    font: 400 19px/48px Lato, sans-serif;
     color: #7b8aa3;
     width: 435px;
     display: inline-block;

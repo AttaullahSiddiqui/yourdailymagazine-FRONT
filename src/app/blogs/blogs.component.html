@@ -30,9 +30,9 @@
                         <a [routerLink]="['/blog',blog.value.blogURL]">
                             <h2 [ngClass]="{'mt-2': mobile}">{{blog.value.title}}</h2>
                         </a>
-                        <span style="font-size: 1.2em;"><b>Date:</b>&nbsp; {{blog.value.CreatedAt |
+                        <span style="font-size: 1.4em;"><b>Date:</b>&nbsp; {{blog.value.CreatedAt |
                             date}}</span>&nbsp;&nbsp;
-                        <span style="font-size: 1.2em;"><b>By: </b> <span
+                        <span style="font-size: 1.4em;"><b>By: </b> <span
                                 style="text-transform: capitalize;">{{blog.value.author}}</span>
                         </span>&nbsp;&nbsp;
                         <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
@@ -40,7 +40,7 @@
                         <br>
                         <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">
                         </div>
-                        <a class="viewMore" [routerLink]="['/blog',blog.value.blogURL]"
+                        <a class="viewMore" ([routerLink]="['/blog',blog.value.blogURL]" )
                             *ngIf="blog.value.shortDes.length > 799">View
                             More</a>
                     </div>

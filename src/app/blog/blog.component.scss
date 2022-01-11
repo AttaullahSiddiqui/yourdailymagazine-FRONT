@@ -1,4 +1,4 @@
-.jumbotron a:not(.noStyle) {
+.blogJumb a:not(.noStyle) {
     font-size: 1.55em;
     color: #20c997;
 }
@@ -138,7 +138,7 @@ span#amzn_assoc_shop_now {
     color: black;
     font-family: gothic-bold;
 }
-.jumbotron {
+.blogJumb {
     padding: 1rem 1rem !important;
 }
 ul.list-group > li {
@@ -169,7 +169,7 @@ ul.list-group > li:nth-child(2) {
 //     line-height: 1.2em !important;
 //     background: transparent !important;
 // }
-p > span {
+.blogJumb p > span {
     font-size: 1.2em !important;
     font-family: futura !important;
     letter-spacing: 0.03em;

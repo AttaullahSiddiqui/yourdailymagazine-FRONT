@@ -44,7 +44,7 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 }
 
 body p {
-    font-family: Lato, sans-serif;
+    font-family: futura;
     line-height: 30px;
     color: #758690;
     margin: 0
@@ -134,7 +134,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     width: 22px;
     border-radius: 50%;
     text-align: center;
-    font: 900 13px/19px Lato, sans-serif;
+    font: 900 13px/19px futura;
     height: 22px;
     color: #fff;
     background: #ecbe13;
@@ -230,7 +230,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.user_dropdown .dropdown-content li a {
-    font: 700 15px/37px Lato, sans-serif;
+    font: 700 15px/37px futura;
     display: block;
     padding: 0 10px;
     color: #758690;
@@ -325,12 +325,12 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     color: #fff;
     text-transform: uppercase;
     text-align: center;
-    font: 900 17px/60px Lato, sans-serif;
+    font: 900 17px/60px futura;
     border-radius: 0 0 5px 5px
 }
 
 .header_area ul li.notifications .dropdown-content li.hed_notic {
-    font: 400 14px/42px Lato, sans-serif;
+    font: 400 14px/42px futura;
     color: #758690;
     min-height: auto;
     padding: 0 20px
@@ -366,23 +366,23 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.notifications .dropdown-content li .media .media_body p {
-    font: 400 15px/22px Lato, sans-serif;
+    font: 400 15px/22px futura;
     color: #758690;
     margin-top: -2px
 }
 
 .header_area ul li.notifications .dropdown-content li .media .media_body p b {
     color: #263843;
-    font: 400 15px/22px Lato, sans-serif
+    font: 400 15px/22px futura
 }
 
 .header_area ul li.notifications .dropdown-content li .media .media_body p small {
     color: #ecbe13;
-    font: 400 15px/22px Lato, sans-serif
+    font: 400 15px/22px futura
 }
 
 .header_area ul li.notifications .dropdown-content li .media .media_body h6 {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #758690;
     padding-top: 10px
 }
@@ -396,7 +396,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.messages .dropdown-content .media .media_body h4 {
-    font: 400 15px/1 Lato, sans-serif;
+    font: 400 15px/1 futura;
     color: #263843;
     padding-bottom: 10px
 }
@@ -443,7 +443,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     padding: 0 15px;
     display: inline-block;
     background: #c0c9d0;
-    font: 900 11px/25px Lato, sans-serif;
+    font: 900 11px/25px futura;
     color: #fff;
     border-radius: 5px;
     text-transform: uppercase;
@@ -516,7 +516,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul .search_min .search_from input {
-    font: 400 19px/48px Lato, sans-serif;
+    font: 400 19px/48px futura;
     color: #7b8aa3;
     width: 435px;
     display: inline-block;
@@ -590,7 +590,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .tranding_select li a {
-    font: 400 14px/25px Lato, sans-serif;
+    font: 400 14px/25px futura;
     color: #758690;
     height: auto;
     width: auto;
@@ -672,7 +672,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .banner_area .profile_picture .media_body a {
-    font: 700 26px/1 Lato, sans-serif;
+    font: 700 26px/1 futura;
     color: #fff
 }
 
@@ -681,7 +681,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .banner_area .profile_picture .media_body h6 {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #fff;
     padding-top: 10px
 }
@@ -711,7 +711,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .author_profile .profile_menu li a {
-    font: 400 16px/28px Lato, sans-serif;
+    font: 400 16px/28px futura;
     color: #758690;
     padding-right: 30px
 }
@@ -745,7 +745,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .author_profile .profile_menu .post_d .dropdown-content li a {
-    font: 400 15px/50px Lato, sans-serif;
+    font: 400 15px/50px futura;
     display: block;
     padding: 0 20px;
     border-bottom: 1px solid #e0e9ed;
@@ -759,7 +759,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .author_profile .post_follow li {
     display: inline-block;
     padding: 0 30px;
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #758690;
     position: relative
 }
@@ -799,7 +799,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .author_profile .follow_messages li a {
-    font: 900 12px/36px Lato, sans-serif;
+    font: 900 12px/36px futura;
     color: #fff;
     text-transform: uppercase;
     background: #44d775;
@@ -828,13 +828,13 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .error_area h1 {
-    font: 900 300px/1 Lato, sans-serif;
+    font: 900 300px/1 futura;
     color: #fff;
     text-shadow: 0 9px 0 rgba(6, 53, 86, .07)
 }
 
 .error_area p {
-    font: 400 18px/28px Lato, sans-serif;
+    font: 400 18px/28px futura;
     padding-top: 12px;
     padding-bottom: 30px;
     color: #263843
@@ -846,7 +846,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .error_area .visit_homepage {
-    font: 900 14px/54px Lato, sans-serif;
+    font: 900 14px/54px futura;
     color: #fff;
     text-transform: uppercase;
     background: #ecbe13;
@@ -896,7 +896,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .categories_tittle {
-    font: 700 15px/28px Lato, sans-serif;
+    font: 700 15px/28px futura;
     text-transform: uppercase;
     border-bottom: 2px solid #edf4f7;
     padding-bottom: 8px;
@@ -915,7 +915,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar p {
-    font: 400 16px/25px Lato, sans-serif;
+    font: 400 16px/25px futura;
     color: #758690;
     padding-top: 10px
 }
@@ -983,7 +983,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .interests .interests_list li a {
-    font: 400 18px/35px Lato, sans-serif;
+    font: 400 18px/35px futura;
     color: #758690
 }
 
@@ -1124,7 +1124,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border-radius: 50%;
     border: 3px solid #fff;
     color: #fff;
-    font: 700 11px Lato, sans-serif;
+    font: 700 11px futura;
     background: #ff6b6b
 }
 
@@ -1150,14 +1150,14 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .calendar_widget .calendar .calendar-container .calendar-labels span {
-    font: 700 13px/1 Lato, sans-serif;
+    font: 700 13px/1 futura;
     color: #445a66;
     text-transform: uppercase
 }
 
 .min_container .section_row .left_side_bar .calendar_widget .calendar .calendar-container .calendar-dates .date a {
     padding: 0;
-    font: 700 13px/25px Lato, sans-serif;
+    font: 700 13px/25px futura;
     color: #c1d0d5;
     border: 0
 }
@@ -1250,7 +1250,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .categories_tittle {
-    font: 700 15px/28px Lato, sans-serif;
+    font: 700 15px/28px futura;
     text-transform: uppercase;
     border-bottom: 2px solid #edf4f7;
     padding-bottom: 8px;
@@ -1283,7 +1283,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content a {
     display: block;
-    font: 400 18px/24px Lato, sans-serif;
+    font: 400 18px/24px futura;
     color: #263843;
     margin-top: -16px
 }
@@ -1297,7 +1297,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content .black_text {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     padding-top: 8px;
     display: block;
     color: #758690
@@ -1340,7 +1340,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-header {
-    font: 400 16px/50px Lato, sans-serif;
+    font: 400 16px/50px futura;
     color: #758690;
     padding: 0;
     border-color: #edf4f7
@@ -1377,7 +1377,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_l b {
-    font: 900 26px/1 Lato, sans-serif;
+    font: 900 26px/1 futura;
     color: #758690;
     display: block
 }
@@ -1411,7 +1411,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b p {
-    font: 400 15px/25px Lato, sans-serif;
+    font: 400 15px/25px futura;
     color: #263843;
     position: relative
 }
@@ -1426,7 +1426,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #758690;
     padding-top: 10px
 }
@@ -1479,7 +1479,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .author .media_body a {
-    font: 700 16px/1 Lato, sans-serif;
+    font: 700 16px/1 futura;
     color: #263843;
     display: block;
     padding-top: 8px
@@ -1490,7 +1490,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .author .media_body span {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #758690
 }
 
@@ -1516,7 +1516,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .middle_section .post .post_content .author_area .like_user .like_img li a {
     display: block;
-    font: 400 14px/44px Lato, sans-serif;
+    font: 400 14px/44px futura;
     color: #beced7
 }
 
@@ -1576,7 +1576,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .like_user .like_img .post_d .dropdown-content li a {
-    font: 400 15px/50px Lato, sans-serif;
+    font: 400 15px/50px futura;
     display: block;
     padding: 0 20px;
     border-bottom: 1px solid #e0e9ed;
@@ -1599,7 +1599,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     left: 20px;
     text-transform: uppercase;
     text-shadow: 0 0 20px rgba(6, 53, 86, .65);
-    font: 700 13px/1 Lato, sans-serif;
+    font: 700 13px/1 futura;
     color: #fff
 }
 
@@ -1608,7 +1608,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_heding {
-    font: 700 26px/36px Lato, sans-serif;
+    font: 700 26px/36px futura;
     color: #263843
 }
 
@@ -1618,7 +1618,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .middle_section .post p {
     color: #758690;
-    font: 400 16px/25px Lato, sans-serif;
+    font: 400 16px/25px futura;
     padding-top: 15px
 }
 
@@ -1647,7 +1647,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .like_comment_area .btn_floating h6 {
-    font: 900 16px/28px Lato, sans-serif;
+    font: 900 16px/28px futura;
     color: #758690;
     display: inline-block;
     border: 1px solid #e2e6ed;
@@ -1691,7 +1691,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .like_comment_area .updown_btn .count_n {
-    font: 900 16px/33px Lato, sans-serif;
+    font: 900 16px/33px futura;
     color: #758690;
     padding-left: 15px
 }
@@ -1715,7 +1715,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .middle_section .post .submit_open_list {
     display: block;
-    font: 700 14px/50px Lato, sans-serif;
+    font: 700 14px/50px futura;
     color: #758690;
     text-align: center;
     background: #f2f6f8;
@@ -1764,7 +1764,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container_2 .middle_section .post_details .next_btn_col .next_btn {
     display: block;
-    font: 900 14px/55px Lato, sans-serif;
+    font: 900 14px/55px futura;
     color: #fff;
     border-radius: 5px;
     background: #ecbe13;
@@ -1808,7 +1808,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .min_container_2 .middle_section .post_details .post_content .author_area .add_btn_col .add_btn {
     border-radius: 6px;
     background: #51b6ff;
-    font: 900 14px/45px Lato, sans-serif;
+    font: 900 14px/45px futura;
     min-width: 170px;
     text-align: center;
     display: inline-block;
@@ -1827,7 +1827,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .post_content .post_heding_aea .by_author {
-    font: 400 16px/30px Lato, sans-serif;
+    font: 400 16px/30px futura;
     color: #758690;
     padding-top: 18px
 }
@@ -1897,7 +1897,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .post_content .socail_share_area .socail_share .share_count {
-    font: 900 48px/1 Lato, sans-serif;
+    font: 900 48px/1 futura;
     color: #e74c3c;
     position: relative;
     top: 15px;
@@ -1952,7 +1952,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .comment_input_box .comment_input input {
-    font: 400 14px/48px Lato, sans-serif;
+    font: 400 14px/48px futura;
     color: #758690;
     height: auto;
     border-radius: 5px;
@@ -1990,7 +1990,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container_2 .middle_section .post_details .like_comment_area .comment_input_box .comment_input span {
     color: #fff;
-    font: 900 14px/50px Lato, sans-serif;
+    font: 900 14px/50px futura;
     text-transform: uppercase;
     text-align: center;
     width: 100px;
@@ -2010,7 +2010,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body .view_mor_r {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #758690;
     display: block;
     padding-top: 15px
@@ -2021,7 +2021,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body h4 {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #758690
 }
 
@@ -2044,7 +2044,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body span {
-    font: 900 14px/1 Lato, sans-serif;
+    font: 900 14px/1 futura;
     color: #758690;
     display: inline-block
 }
@@ -2065,7 +2065,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body .replay_btn {
-    font: 400 15px/28px Lato, sans-serif;
+    font: 400 15px/28px futura;
     color: #263843;
     text-decoration: underline;
     padding-left: 40px
@@ -2076,7 +2076,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .view_mor_c {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #263843;
     display: block;
     padding-top: 25px
@@ -2094,7 +2094,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container_2 .middle_section .post_details .like_comment_area .load_more {
     display: block;
-    font: 900 14px/45px Lato, sans-serif;
+    font: 900 14px/45px futura;
     color: #fff;
     border-radius: 5px;
     background: #c3ccd3;
@@ -2119,7 +2119,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .sponsored_stories .sponsored_tittle {
-    font: 700 26px/1 Lato, sans-serif;
+    font: 700 26px/1 futura;
     color: #263843;
     display: block;
     padding-bottom: 22px;
@@ -2129,7 +2129,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container_2 .sponsored_stories .sponsored_tittle span {
     text-align: right;
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #758690;
     float: right
 }
@@ -2150,7 +2150,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container_2 .sponsored_stories .sponsored a {
     display: block;
-    font: 700 18px/28px Lato, sans-serif;
+    font: 700 18px/28px futura;
     color: #263843;
     padding: 8px 0
 }
@@ -2160,7 +2160,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .sponsored_stories .sponsored h6 {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #758690
 }
 
@@ -2179,7 +2179,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .post_c_img h6 {
     text-align: center;
     display: block;
-    font: 400 12px/30px Lato, sans-serif;
+    font: 400 12px/30px futura;
     color: #758690;
     text-transform: uppercase;
     padding-bottom: 28px
@@ -2196,7 +2196,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .socail_share_area .some_people li {
     position: relative;
-    font: 400 16px/25px Lato, sans-serif;
+    font: 400 16px/25px futura;
     color: #758690
 }
 
@@ -2237,7 +2237,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .pagination_area .pagination li a {
-    font: 700 16px/40px Lato, sans-serif;
+    font: 700 16px/40px futura;
     width: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 36, 90, .07);
     background: #fff;
@@ -2260,7 +2260,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row h4 {
-    font: 400 18px/1 Lato, sans-serif;
+    font: 400 18px/1 futura;
     color: #263843;
     padding: 25px 0
 }
@@ -2271,7 +2271,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row h6 {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #263843
 }
 
@@ -2316,7 +2316,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border: 1px solid #e0e5e8;
     border-radius: 3px;
     background: #fff;
-    font: 400 14px/42px Lato, sans-serif;
+    font: 400 14px/42px futura;
     color: #758690;
     box-shadow: none;
     padding: 0 20px;
@@ -2329,7 +2329,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row .input_group p label {
-    font: 400 15px/21px Lato, sans-serif;
+    font: 400 15px/21px futura;
     color: #263843;
     padding-left: 27px;
     width: 100%
@@ -2340,7 +2340,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row .input_group p label a {
-    font: 400 15px/1 Lato, sans-serif;
+    font: 400 15px/1 futura;
     color: #263843;
     text-decoration: underline;
     float: right
@@ -2353,7 +2353,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .login_popup_aera .login_popup_row .input_group button {
     background: #ecbe13;
     color: #fff;
-    font: 900 14px/42px Lato, sans-serif;
+    font: 900 14px/42px futura;
     text-transform: uppercase;
     border: 0;
     border-radius: 3px;
@@ -2390,7 +2390,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .add_post h2 {
-    font: 700 30px/1 Lato, sans-serif;
+    font: 700 30px/1 futura;
     color: #263843;
     padding-bottom: 10px
 }
@@ -2399,7 +2399,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border: 1px solid #e0e5e8!important;
     border-radius: 5px;
     background: #fff;
-    font: 400 24px/62px Lato, sans-serif;
+    font: 400 24px/62px futura;
     color: #758690;
     box-shadow: none!important;
     padding: 0 20px;
@@ -2425,7 +2425,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border: 1px solid #e0e5e8;
     border-radius: 5px;
     background: #fff;
-    font: 400 18px/30px Lato, sans-serif;
+    font: 400 18px/30px futura;
     color: #758690;
     box-shadow: none;
     min-height: 160px;
@@ -2461,7 +2461,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .add_post .input_group .upload_photo .tab_nav li a {
-    font: 400 14px/37px Lato, sans-serif;
+    font: 400 14px/37px futura;
     color: #758690;
     text-transform: uppercase;
     padding: 0 20px;
@@ -2494,7 +2494,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .add_post .input_group .upload_photo .tabs_content .photo_u h4 {
-    font: 400 18px/24px Lato, sans-serif;
+    font: 400 18px/24px futura;
     color: #263843;
     padding-top: 5px
 }
@@ -2576,7 +2576,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .add_post .input_group .submit_btn_area button {
-    font: 900 14px/50px Lato, sans-serif;
+    font: 900 14px/50px futura;
     color: #758690;
     border: 1px solid #e0e5e8;
     border-radius: 3px;
@@ -2607,7 +2607,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .add_post .input_group .yes_no h4 {
-    font: 700 20px/38px Lato, sans-serif;
+    font: 700 20px/38px futura;
     color: #263843;
     float: left;
     display: inline-block;
@@ -2631,7 +2631,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 36px!important;
     background: #fff;
     text-transform: uppercase;
-    font-family: Lato, sans-serif;
+    font-family: futura;
     font-weight: 700;
     margin-left: 2px
 }
@@ -2682,7 +2682,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .notifications .hed_notic {
-    font: 700 22px/55px Lato, sans-serif;
+    font: 700 22px/55px futura;
     color: #ecbe13;
     min-height: auto;
     background: #E5E4E2;
@@ -2733,24 +2733,24 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .notifications .notifications_content li .media .media_body p {
-    font: 400 15px/22px Lato, sans-serif;
+    font: 400 15px/22px futura;
     color: #758690;
     margin-top: -2px
 }
 
 .notifications .notifications_content li .media .media_body p b {
     color: #263843;
-    font: 400 15px/22px Lato, sans-serif
+    font: 400 15px/22px futura
 }
 
 .notifications .notifications_content li .media .media_body p small {
     color: #ecbe13;
-    font: 400 15px/22px Lato, sans-serif
+    font: 400 15px/22px futura
 }
 
 .notifications .notifications_content li .media .media_body h6 {
-    font: 400 14px/1 Lato, sans-serif;
-    color: #758690;
+    font: 400 17px/1 futura;
+    color: #454b4e;
     padding-top: 10px
 }
 
@@ -2778,7 +2778,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     padding: 0 15px;
     display: inline-block;
     background: #c0c9d0;
-    font: 900 11px/25px Lato, sans-serif;
+    font: 900 11px/25px futura;
     color: #fff;
     border-radius: 5px;
     text-transform: uppercase;
@@ -2876,7 +2876,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .messages_heder h2 {
-    font: 700 18px/36px Lato, sans-serif;
+    font: 700 18px/36px futura;
     color: #263843;
     display: inline-block
 }
@@ -2891,7 +2891,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .messages_heder .mg_btn li a {
-    font: 400 14px/35px Lato, sans-serif;
+    font: 400 14px/35px futura;
     text-transform: uppercase;
     display: inline-block;
     padding: 0 15px;
@@ -2916,7 +2916,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     background: #ecbe13;
     border-radius: 4px;
     color: #fff;
-    font: 900 12px/35px Lato, sans-serif
+    font: 900 12px/35px futura
 }
 
 .messages_area .messages_row .messages_heder .mg_btn li a.active:focus, .messages_area .messages_row .messages_heder .mg_btn li a.active:hover {
@@ -2953,7 +2953,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .messages_area .messages_row .search_area .input-field input {
     margin: 0;
     border: 0;
-    font: 400 15px/40px Lato, sans-serif;
+    font: 400 15px/40px futura;
     color: #758690
 }
 
@@ -3025,7 +3025,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .tab_list li a .media .media_body h4 {
-    font: 400 16px/1 Lato, sans-serif;
+    font: 400 16px/1 futura;
     color: #263843;
     display: block;
     text-transform: capitalize
@@ -3038,7 +3038,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .tab_list li a .media .media_body p {
-    font: 400 15px/22px Lato, sans-serif;
+    font: 400 15px/22px futura;
     color: #758690;
     text-transform: initial;
     padding-top: 12px
@@ -3067,7 +3067,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .profile .media_body a {
-    font: 700 20px/1 Lato, sans-serif;
+    font: 700 20px/1 futura;
     color: #263843;
     display: block
 }
@@ -3077,7 +3077,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .profile .media_body p {
-    font: 400 15px/22px Lato, sans-serif;
+    font: 400 15px/22px futura;
     color: #758690;
     padding-top: 10px
 }
@@ -3098,7 +3098,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .messages_date h4 {
-    font: 400 18px/1 Lato, sans-serif;
+    font: 400 18px/1 futura;
     color: #b4c1c9;
     background: #fff;
     display: inline-block;
@@ -3113,7 +3113,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .sms p, .messages_area .messages_row .all_messages .sms_right p {
-    font: 400 15px/22px Lato, sans-serif;
+    font: 400 15px/22px futura;
     color: #9a8681;
     background: #ffe7e0;
     display: inline-block;
@@ -3123,7 +3123,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .sms h6, .messages_area .messages_row .all_messages .sms_right h6 {
-    font: 400 13px/1 Lato, sans-serif;
+    font: 400 13px/1 futura;
     color: #b4c1c9;
     padding-top: 6px
 }
@@ -3162,7 +3162,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     resize: none;
     border: 0;
     box-shadow: none;
-    font: 400 15px/40px Lato, sans-serif;
+    font: 400 15px/40px futura;
     color: #beced7;
     width: 80%
 }
@@ -3218,7 +3218,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .categories_tittle {
-    font: 700 20px/1 Lato, sans-serif;
+    font: 700 20px/1 futura;
     text-transform: uppercase;
     border-bottom: 2px solid #2b394f;
     padding-bottom: 8px;
@@ -3257,7 +3257,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content .black_text {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     padding-top: 8px;
     display: block;
     color: #586479
@@ -3270,7 +3270,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-header {
-    font: 400 16px/50px Lato, sans-serif;
+    font: 400 16px/50px futura;
     color: #7b8aa3;
     padding: 0;
     background-color: transparent;
@@ -3307,7 +3307,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_l b {
-    font: 900 26px/1 Lato, sans-serif;
+    font: 900 26px/1 futura;
     color: #7b8aa3;
     display: block
 }
@@ -3341,7 +3341,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b p {
-    font: 400 15px/25px Lato, sans-serif;
+    font: 400 15px/25px futura;
     color: #586479;
     position: relative
 }
@@ -3356,7 +3356,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 {
-    font: 400 14px/1 Lato, sans-serif;
+    font: 400 14px/1 futura;
     color: #586479;
     padding-top: 10px
 }
@@ -3472,7 +3472,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     border-radius: 50%;
     border: 3px solid #232f42;
     color: #fff;
-    font: 700 11px Lato, sans-serif;
+    font: 700 11px futura;
     background: #ff6b6b
 }
 
@@ -3523,7 +3523,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .footer_area .copy_right {
     background: #233e60;
-    font: 400 16px/60px Lato, sans-serif;
+    font: 400 16px/60px futura;
     color: #7b8aa3;
     display: block;
     overflow: hidden;

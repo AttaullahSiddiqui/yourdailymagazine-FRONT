@@ -1,7 +1,7 @@
 .couponHead {
     font-size: 1.7em !important;
     text-transform: capitalize;
-    font-family: gothic-bold !important;
+    font-weight: 900 !important;
 }
 .notifications_area {
     padding-top: 0;
@@ -15,7 +15,9 @@
 }
 .text-muted {
     margin-top: 20px;
-    font-size: 1.35em;
+    font-size: 1.45em;
+    font-family: futura;
+    font-weight: 800;
 }
 .brand-card:hover {
     cursor: pointer;

@@ -106,10 +106,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li a {
-    font: 400 20px/80px Lato, sans-serif;
+    font: 400 22px/80px futura;
     color: white;
     background-color: transparent;
-    position: relative
+    position: relative;
+    font-weight: 900;
 }
 
 .header_area ul li a.active, .header_area ul li a:focus, .header_area ul li a:hover {
@@ -525,7 +526,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     margin: 0;
     box-shadow: none!important;
     /* border: 1px solid #2e3d55; */
-    border: 1px solid #ecbe13;
+    border: 1px solid #233e60;
     height: auto
 }
 
@@ -3245,9 +3246,10 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a {
     display: block;
-    font: 400 18px/24px Lato, sans-serif;
+    font: 400 21px/24px futura;
     color: white;
-    margin-top: -16px
+    margin-top: -16px;
+    font-weight: 900;
 }
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a:focus, .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a:hover {

@@ -15,7 +15,6 @@ export class BlogComponent implements OnInit {
   iFrameObj = null;
   responseError = "";
   blogNode = null;
-  blogItems = null;
   isFetching = false;
   blogURL: string = "";
   mobile: boolean = false;
@@ -43,22 +42,22 @@ export class BlogComponent implements OnInit {
             //   .querySelector('meta[property="og:description"]')
             //   .setAttribute("content", res.data["metaDes"]);
             this.blogNode = res.data;
+            console.log(this.blogNode);
             this.isFetching = false;
           } else this.errorHandler(res.message);
         });
       this._dataService
         .postAPI("/userDisplay/increaseBlogViews", { id: this.blogURL })
         .subscribe((res) => {});
-      this.loadBlogImages(this.blogURL);
     });
   }
-  loadBlogImages(id) {
-    this._dataService
-      .fetchWithQuery("/userDisplay/fetchBlogItems", id)
-      .subscribe((res) => {
-        if (res.data) this.blogItems = res.data;
-      });
-  }
+  // loadBlogImages(id) {
+  //   this._dataService
+  //     .fetchWithQuery("/userDisplay/fetchBlogItems", id)
+  //     .subscribe((res) => {
+  //       if (res.data) this.blogItems = res.data;
+  //     });
+  // }
   loadBlog(id) {
     this.isFetching = true;
     this._dataService

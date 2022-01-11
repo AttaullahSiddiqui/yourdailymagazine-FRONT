@@ -15,7 +15,7 @@
         </button>
     </div> -->
     <br>
-    <div class="lead blogsPage" style="font-size: 1.2em !important;">
+    <div class="lead" style="font-size: 1.2em !important;">
         <div class="container" [ngClass]="{'px-0': mobile}">
             <div class="text-center m-5" *ngIf="!blogsArr.length && isFetching">
                 <div class="lds-facebook">
@@ -24,48 +24,10 @@
                     <div></div>
                 </div>
             </div>
-            <div class="row justify-content-md-between">
-                <div class="col-md-4 mb-4 px-4" *ngFor="let blog of blogsArr | keyvalue">
-                    <!-- <p><span class="txtWithTheme">{{blog.value.author}}</span><span class="text-muted">
-                            &nbsp;wrote on </span><span class="dateSpan">{{blog.value.CreatedAt | date}}</span>
-                        <span class="pull-right views text-muted mr-4"><i class="fa fa-eye"></i> {{blog.value.views ||
-                            0}}</span>
-                    </p> -->
-                    <div class="card text-center catCard mx-3">
-                        <div class="card-body p-0 text-center">
-                            <img [src]="blog.value.img" class="cursor-pointer"
-                                [routerLink]="['/blog', blog.value.blogURL]">
-                            <br>
-                            <br>
-                            <div style="max-width: 80%;margin: 0 auto;">
-                                <h1 [routerLink]="['/blog', blog.value.blogURL]" class="cursor-pointer">
-                                    {{blog.value.title}}</h1>
-                                <p class="text-left" style="font-size:1.3em"><span
-                                        class="dateSpan mr-5">{{blog.value.CreatedAt | date}}</span>
-                                    <span class="views text-muted mr-3"><i class="fa fa-eye"></i> {{blog.value.views ||
-                                        0}}</span>
-                                </p>
-                                <br>
-                                <br>
-                                <p [innerHTML]="blog.value.shortDes | slice:0:272"></p>
-                                <br>
-                                <span class="exploreIt d-block cursor-pointer"
-                                    [routerLink]="['/blog', blog.value.blogURL]">Read more <i
-                                        class="cui-arrow-right icons font-2xl"
-                                        style="vertical-align: middle;"></i></span>
-                                <br>
-                                <br>
-                            </div>
-                            <br>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div *ngFor="let blog of blogsArr | keyvalue" [ngClass]="{'mb-5': mobile}">
+            <div *ngFor="let blog of blogsArr | keyvalue" [ngClass]="{'mb-5': mobile}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
-                        <a (click)="openLink(blog.value.blogURL)">
+                        <a [routerLink]="['/blog',blog.value.blogURL]">
                             <h2 [ngClass]="{'mt-2': mobile}">{{blog.value.title}}</h2>
                         </a>
                         <span style="font-size: 1.2em;"><b>Date:</b>&nbsp; {{blog.value.CreatedAt |
@@ -73,25 +35,23 @@
                         <span style="font-size: 1.2em;"><b>By: </b> <span
                                 style="text-transform: capitalize;">{{blog.value.author}}</span>
                         </span>&nbsp;&nbsp;
-                        <span style="font-size: 1.2em;"><i class="fa fa-eye"></i> &nbsp; {{blog.value.views ||
-                            0}}</span>
+                        <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
                         <br>
                         <br>
                         <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">
                         </div>
-                        <a class="viewMore" (click)="openLink(blog.value.blogURL)"
+                        <a class="viewMore" [routerLink]="['/blog',blog.value.blogURL]"
                             *ngIf="blog.value.shortDes.length > 799">View
                             More</a>
                     </div>
-                    <div class="col-md-6 col-xs-12" (click)="openLink(blog.value.blogURL)">
+                    <div class="col-md-6 col-xs-12" [routerLink]="['/blog',blog.value.blogURL]">
                         <a><img class="blogsImg" [src]="blog.value.img"></a>
                     </div>
                 </div>
                 <hr class="my-4" />
-            </div> -->
+            </div>
         </div>
         <button type="button" class="btn btn-outline-primary" (click)="loadPrev()">Previous</button>
         <button type="button" class="btn btn-outline-primary pull-right" (click)="loadNext()">Next</button>
     </div>
-    <br>
 </div>

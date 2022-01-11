@@ -1,6 +1,9 @@
 .jumbotron a:not(.noStyle) {
     font-size: 1.55em;
-    color: #316b83;
+    color: #20c997;
+}
+.blogJumb .display-4 {
+    color: black;
 }
 .gridA {
     color: #0066c0;
@@ -25,7 +28,7 @@ a:hover {
     width: 100% !important;
 }
 .w30m {
-    width: 30% !important;
+    width: 40% !important;
 }
 .buyBtn {
     height: auto;
@@ -59,13 +62,13 @@ a:hover {
     color: #d3d3d3;
 }
 .full {
-    color: #316b83;
+    color: #20c997;
 }
 .half {
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    color: #316b83;
+    color: #20c997;
 }
 div.blogJumb table {
     max-width: 80%;
@@ -140,7 +143,7 @@ span#amzn_assoc_shop_now {
 }
 ul.list-group > li {
     background: transparent;
-    font-family: noto;
+    font-family: futura;
     font-size: 1.15em;
     color: #333;
 }
@@ -161,19 +164,19 @@ ul.list-group > li:nth-child(2) {
 // div.col p,
 // div.col ul > li {
 //     font-size: 1.2em !important;
-//     font-family: noto !important;
+//     font-family: futura !important;
 //     letter-spacing: 0.03em !important;
 //     line-height: 1.2em !important;
 //     background: transparent !important;
 // }
 p > span {
     font-size: 1.2em !important;
-    font-family: noto !important;
+    font-family: futura !important;
     letter-spacing: 0.03em;
     line-height: 1.2em;
     background: transparent !important;
 }
-.ck-content {
+.blogJumb {
     h2 > span,
     h1 > span,
     h3 > span,
@@ -181,16 +184,17 @@ p > span {
     h5 > span,
     h6 > span {
         font-size: 1.3em !important;
-        font-family: gothic-bold !important;
+        font-family: futura !important;
         letter-spacing: 0.03em;
         line-height: 1.2em;
         background: transparent !important;
         color: #333 !important;
+        font-weight: 900 !important;
     }
     p > a > span {
         font-size: 70% !important;
         font-weight: bold;
-        font-family: noto !important;
+        font-family: futura !important;
         letter-spacing: 0.03em;
         line-height: 1.2em;
         background: transparent !important;

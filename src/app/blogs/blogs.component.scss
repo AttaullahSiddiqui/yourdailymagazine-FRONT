@@ -1,76 +1,24 @@
-// img.blogsImg {
-//     width: 100%;
-// }
-// .blogsPage .row a h2 {
-//     font-family: gothic-bold;
-//     color: #444444;
-//     font-size: 1.9em;
-// }
-// .blogsPage b {
-//     font-weight: 500 !important;
-// }
-// .container {
-//     max-width: 100%;
-// }
-// .blogTxt > p {
-//     font-size: 1.4em !important;
-//     font-family: noto !important;
-//     letter-spacing: 0.03em;
-//     color: #2d3438 !important;
-// }
-// .row a:hover {
-//     cursor: pointer;
-//     text-decoration: underline;
-//     color: #741fa2;
-// }
-// .row a {
-//     color: black;
-// }
-// b {
-//     font-size: 1.1em;
-// }
-// .jumbotron > a {
-//     font-size: 1.55em !important;
-//     color: #316b83;
-// }
-// a.viewMore:hover {
-//     color: #316b83 !important;
-// }
-// button.btn-outline-primary {
-//     border-color: #316b83 !important;
-//     color: #316b83 !important;
-// }
-// button.btn-outline-primary:hover {
-//     background-color: #316b83 !important;
-//     color: #fff !important;
-// }
-// .display-4 {
-//     font-weight: bold;
-//     color: #333;
-//     font-family: gothic-bold;
-// }
-// a > h3 {
-//     font-family: gothic-bold;
-// }
-// .jumbotron {
-//     padding: 1rem 1rem !important;
-// }
-
-div.blogsPage div.card-body > img {
-    width: 78%;
-    border-radius: 6em/6em;
-    margin-top: 10%;
+img.blogsImg {
+    width: 100%;
+}
+.blogsPage h2 {
+    // color: #ecbe13 !important;
+    font-family: futura;
+    font-weight: 900;
+    font-size: 2.1em;
 }
 .container {
     max-width: 100%;
 }
-.blogTxt {
-    font-size: 1.15em;
+.blogTxt > p {
+    font-size: 1.4em !important;
+    font-family: futura !important;
+    letter-spacing: 0.03em;
 }
-.row a.navLink:hover {
+.row a:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: #741fa2;
+    color: #ecbe13;
 }
 .row a {
     color: black;
@@ -80,72 +28,27 @@ b {
 }
 .jumbotron > a {
     font-size: 1.55em !important;
-    color: #316b83;
+    color: #ecbe13;
 }
 a.viewMore:hover {
-    color: #316b83 !important;
+    color: #ecbe13 !important;
 }
 button.btn-outline-primary {
-    border-color: #316b83 !important;
-    color: #316b83 !important;
+    border-color: #ecbe13 !important;
+    color: #ecbe13 !important;
 }
 button.btn-outline-primary:hover {
-    background-color: #316b83 !important;
+    background-color: #ecbe13 !important;
     color: #fff !important;
 }
-
-.card {
-    border-radius: 30px;
-    overflow: hidden;
-    background-color: #ececec;
-}
-.card-body > div > h1 {
-    color: #316b83;
-    font-size: 2.7em;
-    // max-width: 90%;
-    text-align: left;
-    line-height: 60px;
-    max-height: 180px;
-    overflow-y: hidden;
-}
-.card-body > div > p {
-    color: rgb(83, 78, 78);
-    font-size: 1.8em;
-    text-align: left;
-    font-family: noto;
-    line-height: 40px;
-    max-height: 215px;
-    overflow-y: hidden;
-    font-weight: 500;
-}
-.card-body > div > .exploreIt {
-    font-size: 1.5em;
-    color: white;
-    background: #48a068;
-    font-family: gothic-bold;
-    padding: 12px 16px;
-    max-width: 90%;
-    border: 2px solid #48a068;
-    text-align: left;
-    border-radius: 10px;
-    float: right;
-}
-.card-body > div > .exploreIt:hover {
-    color: #48a068;
-    background: white;
-}
-.txtWithTheme {
-    font-size: 2em;
-    text-decoration: underline;
-    color: #d33a2c;
-    font-weight: 800;
-    text-transform: capitalize;
-    margin-left: 35px;
-}
-span.dateSpan {
-    font-size: 1.5em;
+.display-4 {
+    font-weight: bold;
     color: #333;
+    font-family: gothic-bold;
 }
-span.views {
-    font-size: 1.5em;
+a > h3 {
+    font-family: gothic-bold;
+}
+.jumbotron {
+    padding: 1rem 1rem !important;
 }

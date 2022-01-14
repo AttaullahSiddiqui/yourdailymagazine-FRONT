@@ -35,13 +35,14 @@
                         <span style="font-size: 1.4em;"><b>By: </b> <span
                                 style="text-transform: capitalize;">{{blog.value.author}}</span>
                         </span>&nbsp;&nbsp;
-                        <span><i class="fa fa-eye"></i> &nbsp; {{blog.value.views || 0}}</span>
+                        <span style="font-size: 1.4em;"><i class="fa fa-eye"></i> &nbsp; {{blog.value.views ||
+                            0}}</span>
                         <br>
                         <br>
-                        <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">
+                        <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:700">
                         </div>
                         <a class="viewMore" [routerLink]="['/blog',blog.value.blogURL]"
-                            *ngIf="blog.value.shortDes.length > 799">View
+                            *ngIf="blog.value.shortDes.length > 699">View
                             More &nbsp;<i class="fa fa-arrow-right"></i></a>
                     </div>
                     <div class="col-md-6 col-xs-12" [routerLink]="['/blog',blog.value.blogURL]">

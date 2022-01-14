@@ -95,7 +95,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .header_area {
     /* backgroun#354555555; */
-    background: #233e60;
+    background: #0b0c1f;
     border: 0;
     height: 80px;
     line-height: normal;
@@ -530,7 +530,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     margin: 0;
     box-shadow: none!important;
     /* border: 1px solid #2e3d55; */
-    border: 1px solid #233e60;
+    border: 1px solid #0b0c1f;
     height: auto
 }
 
@@ -3206,7 +3206,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area {
     display: block;
     overflow: hidden;
-    background:#233e60
+    background:#0b0c1f
 }
 
 .footer_area .footer_row {
@@ -3526,7 +3526,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .copy_right {
-    background: #233e60;
+    background: #0b0c1f;
     font: 400 16px/60px futura;
     color: #7b8aa3;
     display: block;

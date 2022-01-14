@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div *ngFor="let blog of blogsArr | keyvalue" [ngClass]="{'mb-5': mobile}">
-                <div class="row">
+                <div class="row cursor-pointer">
                     <div class="col-md-6 col-xs-12">
                         <a [routerLink]="['/blog',blog.value.blogURL]">
                             <h2 [ngClass]="{'mt-2': mobile}">{{blog.value.title}}</h2>
@@ -40,9 +40,9 @@
                         <br>
                         <div class="blogTxt" [innerHTML]="blog.value.shortDes | slice:0:800">
                         </div>
-                        <a class="viewMore" ([routerLink]="['/blog',blog.value.blogURL]" )
+                        <a class="viewMore" [routerLink]="['/blog',blog.value.blogURL]"
                             *ngIf="blog.value.shortDes.length > 799">View
-                            More</a>
+                            More &nbsp;<i class="fa fa-arrow-right"></i></a>
                     </div>
                     <div class="col-md-6 col-xs-12" [routerLink]="['/blog',blog.value.blogURL]">
                         <a><img class="blogsImg" [src]="blog.value.img"></a>

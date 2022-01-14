@@ -41,6 +41,7 @@ export class BlogsComponent implements OnInit {
           // this.blogsArr = this.blogsArr.concat(res.data);
           this.blogsArr = null;
           this.blogsArr = res.data;
+          console.log(this.blogsArr);
           this.isFetching = false;
           window.scrollTo(0, 0);
         } else {

@@ -24,6 +24,10 @@
     font-family: 'futura';
     src: url('./fonts/futura/FuturaPTLight.otf');
 }
+@font-face {
+    font-family: 'futuraHeading';
+    src: url('./fonts/futura/FuturaPTMedium.otf');
+}
 
 
 .jscroll-loading {
@@ -595,10 +599,10 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: auto;
     width: auto;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     text-transform: uppercase;
     box-shadow: none;
-    padding: 0 20px!important
+    padding: 7px 26px!important
 }
 
 .tranding_select li a.active, .tranding_select li a:focus, .tranding_select li a:hover {
@@ -2683,7 +2687,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .notifications .hed_notic {
     font: 700 22px/55px futura;
-    color: #ecbe13;
+    color: black;
     min-height: auto;
     background: #E5E4E2;
     border:3px solid #263843;
@@ -3246,7 +3250,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a {
     display: block;
-    font: 400 21px/24px futura;
+    font: 400 22px/24px futura;
     color: white;
     margin-top: -16px;
     font-weight: 900;

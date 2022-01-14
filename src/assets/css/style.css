@@ -220,7 +220,6 @@ modal-container {
     }
 }
 .display-4{
-    color:#ecbe13;
-    font-family: futura !important;
-    font-weight: 900;
+    font-family: futuraHeading !important;
+    font-weight: 600 !important;
 }

@@ -30,8 +30,11 @@ b {
     font-size: 1.55em !important;
     color: #ecbe13;
 }
-a.viewMore:hover {
-    color: #ecbe13 !important;
+a.viewMore {
+    font-size: 1.3em;
+    // color: rgb(74, 74, 189);
+    font-weight: 500;
+    color: #c5a01b;
 }
 button.btn-outline-primary {
     border-color: #ecbe13 !important;

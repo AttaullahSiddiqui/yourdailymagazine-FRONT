@@ -3251,7 +3251,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a {
     display: block;
     font: 400 22px/24px futura;
-    color: white;
+    color: #7b8aa3;
     margin-top: -16px;
     font-weight: 900;
 }
@@ -3527,8 +3527,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .footer_area .copy_right {
     background: #0b0c1f;
-    font: 400 16px/60px futura;
-    color: #7b8aa3;
+    font: 800 20px/60px futura;
+    color: white;
     display: block;
     overflow: hidden;
     text-align: center

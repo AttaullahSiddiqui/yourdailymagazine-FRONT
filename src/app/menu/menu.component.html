@@ -16,9 +16,9 @@
     <div class="nav-wrapper">
       <a class="brand-logo d-block d-sm-none mobileSearch" (click)="showMobSearch=!showMobSearch"><i
           [ngClass]="{'colorGreen': showMobSearch}" class="icon-magnifier d-block"></i></a>
-      <a class="brand-logo d-none d-md-block cursor-pointer" routerLink="/home"><img src="assets/img/brand/bmd_new.jpg"
-          class="logoImg" /></a>
-      <a style="margin-left: 13%;" class="brand-logo d-block d-sm-none"><img src="assets/img/brand/bmd_new.jpg"
+      <a class="brand-logo d-none d-md-block cursor-pointer" routerLink="/home"><img
+          src="assets/img/brand/bmd_latest.jpg" class="logoImg" /></a>
+      <a style="margin-left: 13%;" class="brand-logo d-block d-sm-none"><img src="assets/img/brand/bmd_latest.jpg"
           class="logoImg" /></a>
       <a href="" class="button-collapse" (click)="openNav($event)">
         <i class="fa fa-bars"></i></a>
@@ -243,11 +243,11 @@
                 class="fa fa-instagram"></i></a></li>
           <li><a class="facebook" href="https://www.facebook.com/Buymedeal-104706475339144" target="_blank"><i
                 class="fa fa-facebook"></i></a></li>
-          <br *ngIf="!mobile">
-          <li><a class="pinterest" href="https://www.pinterest.com/dig_mycart/" target="_blank"><i
+          <!-- <br *ngIf="!mobile"> -->
+          <!-- <li><a class="pinterest" href="https://www.pinterest.com/dig_mycart/" target="_blank"><i
                 class="fa fa-pinterest"></i></a></li>
           <li><a class="tumblr" href="https://www.tumblr.com/blog/digmycart" target="_blank"><i
-                class="fa fa-tumblr"></i></a></li>
+                class="fa fa-tumblr"></i></a></li> -->
         </ul>
       </div>
       <br>
@@ -255,6 +255,7 @@
       <br>
       <div class="social_Sharing text-center" style="padding:0 20px 0 20px">
         <h3 class="categories_tittle">Connect With Us</h3>
+        <br>
         <br>
         <br>
         <form #emailForm="ngForm" novalidate (ngSubmit)="addEmailToDB(contactEmail)">

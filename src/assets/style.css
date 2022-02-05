@@ -3524,6 +3524,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 .footer_area .footer_row .footer_col .social_Sharing .social_icon li .facebook {
     background: #39559b
 }
+.footer_area .footer_row .footer_col .social_Sharing .social_icon li .instagram {
+    background: #E1306C
+}
 
 .footer_area .copy_right {
     background: #0b0c1f;

@@ -466,7 +466,8 @@
                     <div *ngIf="blogNode.longDesMiddle1">
                         <div [innerHTML]="blogNode.longDesMiddle1 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid1" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink1)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -478,7 +479,8 @@
                     <div *ngIf="blogNode.longDesMiddle2">
                         <div [innerHTML]="blogNode.longDesMiddle2 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid2" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink2)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -490,7 +492,8 @@
                     <div *ngIf="blogNode.longDesMiddle3">
                         <div [innerHTML]="blogNode.longDesMiddle3 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid3" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink3)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -502,7 +505,8 @@
                     <div *ngIf="blogNode.longDesMiddle4">
                         <div [innerHTML]="blogNode.longDesMiddle4 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid4" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink4)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -514,7 +518,8 @@
                     <div *ngIf="blogNode.longDesMiddle5">
                         <div [innerHTML]="blogNode.longDesMiddle5 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid5" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink5)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -526,7 +531,8 @@
                     <div *ngIf="blogNode.longDesMiddle6">
                         <div [innerHTML]="blogNode.longDesMiddle6 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid6" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink6)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -538,7 +544,8 @@
                     <div *ngIf="blogNode.longDesMiddle7">
                         <div [innerHTML]="blogNode.longDesMiddle7 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid7" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink7)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -550,7 +557,8 @@
                     <div *ngIf="blogNode.longDesMiddle8">
                         <div [innerHTML]="blogNode.longDesMiddle8 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid8" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink8)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -562,7 +570,8 @@
                     <div *ngIf="blogNode.longDesMiddle9">
                         <div [innerHTML]="blogNode.longDesMiddle9 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid9" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink9)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}
@@ -574,7 +583,8 @@
                     <div *ngIf="blogNode.longDesMiddle10">
                         <div [innerHTML]="blogNode.longDesMiddle10 | sanitizeHtml" class="text-left"></div>
                         <br>
-                        <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded mx-3 w30m">
+                        <img [src]="blogNode.imgGrid10" alt="xyz" class="rounded"
+                            [ngClass]="{'w30m': !mobile, 'w100m': mobile}">
                         <br>
                         <button type="button" *ngIf="blogNode.buttonTxt" (click)="openLink(blogNode.amazonLink10)"
                             class="mt-4 btn btn-danger rounded buyBtn">{{blogNode.buttonTxt}}

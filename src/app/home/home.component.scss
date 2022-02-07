@@ -272,23 +272,23 @@ ul.list-group-for-store > li img {
     //      -o-filter: grayscale(100%);
     //     -ms-filter: grayscale(100%);
     //         filter: grayscale(100%);
-    filter: gray;
-    -webkit-filter: grayscale(100%);
-    -webkit-transition: all 0.6s ease;
-    -webkit-backface-visibility: hidden;
+    // filter: gray;
+    // -webkit-filter: grayscale(100%);
+    // -webkit-transition: all 0.6s ease;
+    // -webkit-backface-visibility: hidden;
 }
-ul.list-group-for-store > li > div.card > img:hover {
-    filter: none;
-    -webkit-filter: grayscale(0%);
-    cursor: pointer;
-}
+// ul.list-group-for-store > li > div.card > img:hover {
+//     filter: none;
+//     -webkit-filter: grayscale(0%);
+//     cursor: pointer;
+// }
 // ul.list-group-for-store > li div.card-img-overlay:hover{
 
 // }
-ul.list-group-for-store > li > div.card > img.storeSliderImg {
-    filter: none !important;
-    -webkit-filter: grayscale(0%) !important;
-}
+// ul.list-group-for-store > li > div.card > img.storeSliderImg {
+//     filter: none !important;
+//     -webkit-filter: grayscale(0%) !important;
+// }
 button.storeSlideBtn {
     height: 50px;
     width: 66%;

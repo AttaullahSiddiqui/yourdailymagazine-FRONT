@@ -1,44 +1,36 @@
-<div id="mySidenav" class="sidenav">
+<!-- <div id="mySidenav" class="sidenav">
   <a class="closebtn" (click)="closeNav($event)">&times;</a>
   <ul class="list-group">
-    <li class="list-group-item" routerLink="/home" (click)="closeNav($event)">Home</li>
+    <li class="list-group-item" routerLink="/" (click)="closeNav($event)">Home</li>
     <li class="list-group-item" routerLink="/stores" (click)="closeNav($event)">Stores</li>
     <li class="list-group-item" routerLink="/categories" (click)="closeNav($event)">Categories</li>
     <li class="list-group-item" routerLink="/blogs" (click)="closeNav($event)">Blogs</li>
-    <!-- <li class="list-group-item" routerLink="/products" (click)="closeNav($event)">Products</li> -->
+    
     <li class="list-group-item" routerLink="/about" (click)="closeNav($event)">About</li>
     <li class="list-group-item" routerLink="/privacy" (click)="closeNav($event)">Privacy</li>
     <li class="list-group-item" routerLink="/termsandconditions" (click)="closeNav($event)">Terms & Conditions</li>
   </ul>
-</div>
-<nav class="header_area" (click)="closeDropDown()">
+</div> -->
+<!-- <nav class="header_area" (click)="closeDropDown()">
   <div class="custom_container">
     <div class="nav-wrapper">
       <a class="brand-logo d-block d-sm-none mobileSearch" (click)="showMobSearch=!showMobSearch"><i
           [ngClass]="{'colorGreen': showMobSearch}" class="icon-magnifier d-block"></i></a>
-      <a class="brand-logo d-none d-md-block cursor-pointer" routerLink="/home"><img
-          src="assets/img/brand/bmd_latest.jpg" class="logoImg" /></a>
-      <a style="margin-left: 13%;" class="brand-logo d-block d-sm-none"><img src="assets/img/brand/bmd_latest.jpg"
-          class="logoImg" /></a>
       <a href="" class="button-collapse" (click)="openNav($event)">
         <i class="fa fa-bars"></i></a>
       <ul class="left_menu hide-on-med-and-down">
-        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/categories" routerLinkActive="active">Categories</a>
         </li>
         <li><a routerLink="/stores" routerLinkActive="active">Stores</a></li>
         <li><a routerLink="/blogs" routerLinkActive="active">Blogs</a></li>
-        <!-- <li><a routerLink="/products" routerLinkActive="active">Products</a></li> -->
-        <!-- <li (mouseenter)="openDropDown()"><a><i class="cui-chevron-bottom icons font-2xl navListIcon"></i></a> -->
-        <!-- </li> -->
       </ul>
       <ul class="right right_menu hide-on-med-and-down">
         <li class="search_min">
           <ul class="search_from">
             <li class="notifications follow">
-              <input style="border-radius: 2rem;" (input)="searchFunc(searchBox)" (focus)="switch=true"
-                (focusout)="focusOutFunc()" [(ngModel)]="searchBox" placeholder="Search By Brand Name Or Website"
-                type="text">
+              <input (input)="searchFunc(searchBox)" (focus)="switch=true" (focusout)="focusOutFunc()"
+                [(ngModel)]="searchBox" placeholder="Search By Store or Blog Name.." type="text">
               <div class="dropdown-menu" style="width: 100%;max-height: 80vh;overflow-y:auto;"
                 *ngIf="searchBox && switch">
                 <table class="table table-responsive-sm table-hover table-striped table-outline mb-0">
@@ -71,13 +63,12 @@
                 </table>
               </div>
             </li>
-            <li><a class="search_icon" style="border-radius: 0 2rem 2rem 0;"><i class="icon-magnifier"></i></a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <div class="alert alert-secondary text-center cursor-pointer" [ngClass]="{'largeAlert': mobile}"
   [routerLink]="['/event']" role="alert" *ngIf="eventBarText">
@@ -121,8 +112,8 @@
 
 <div class="app-body mt-0" (click)="closeDropDown()">
   <main class="main">
-    <div class="container-fluid px-0" [ngClass]="{'addMarginTop': !eventBarText && !showMobSearch}"
-      style="background-color: #EBECF0">
+    <div class="container-fluid px-0" style="background-color: white"
+      [ngClass]="{'addMarginTop': !eventBarText && !showMobSearch}">
       <router-outlet></router-outlet>
     </div>
   </main>
@@ -130,53 +121,6 @@
 
 <footer class="footer_area">
   <div class="footer_row row" style="padding:25px 20px auto !important">
-    <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
-      <h3 class="categories_tittle text-center">Navigate</h3>
-      <br>
-      <br>
-      <div class="popular_posts">
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/home">Home</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/stores">Stores</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/categories">Categories</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/blogs">Blogs</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/about">About</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/privacy">Privacy & Policy</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/termsandconditions">Terms & Conditions</a>
-          </div>
-        </div>
-        <div class="row valign-wrapper popular_item">
-          <div class="col s9 p_content">
-            <a routerLink="/sitemap">SiteMap</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="col-xs-12 col-md-4 l3 m6 footer_col">
       <div class="popular_posts">
         <h3 class="categories_tittle text-center">Popular Blogs</h3>
@@ -232,6 +176,54 @@
         </div> -->
       </div>
     </div>
+    <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
+      <h3 class="categories_tittle text-center">Navigate</h3>
+      <br>
+      <br>
+      <div class="popular_posts">
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/home">Home</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/stores">Stores</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/categories">Categories</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/blogs">Blogs</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/about">About</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/privacy">Privacy & Policy</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/termsandconditions">Terms & Conditions</a>
+          </div>
+        </div>
+        <div class="row valign-wrapper popular_item">
+          <div class="col s9 p_content">
+            <a routerLink="/sitemap">SiteMap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="col-xs-12 col-md-4 l3 m6 footer_col footer_trending text-center">
       <div class="social_Sharing" style="padding-top: 0;">
         <h3 class="categories_tittle">Social Sharing</h3>
@@ -261,12 +253,12 @@
         <form #emailForm="ngForm" novalidate (ngSubmit)="addEmailToDB(contactEmail)">
           <div class="input-group mb-3">
             <input type="email"
-              style="background:transparent;color:white;font-size: 1.2em;height: 50px;width: 70%;border:1px solid #ecbe13;border-top-left-radius: 25px;border-bottom-left-radius: 25px;"
+              style="background:transparent;color:white;font-size: 1.2em;height: 50px;width: 70%;border:1px solid #066163;"
               name="email" [email]="true" required [(ngModel)]="contactEmail" class="form-control pl-3"
               placeholder="Enter your email.." />
             <div class="input-group-append">
               <button class="btn btn-secondary" type="submit"
-                style="height: 53px;margin-top: -1px;background-color: #ecbe13 !important;color:white;border-top-right-radius: 20px;border-bottom-right-radius: 20px;padding-right: 25px !important;padding-left: 25px !important;"
+                style="height: 53px;margin-top: -1px;background-color: #066163 !important;color:white;padding-right: 25px !important;padding-left: 25px !important;"
                 [disabled]="!emailForm.form.valid">Send</button>
             </div>
           </div>
@@ -282,7 +274,7 @@
   aria-labelledby="exampleModalLongTitle" aria-hidden="true"
   style="max-height: 100vh !important;width: 70%;height:fit-content;overflow-y:scroll;background-color:#EBECF0;margin-top: 80px !important;">
   <div class="modal-dialog my-0" role="document" style="max-width: 100%;width: 100%;">
-    <div class="modal-content" style="background-color: #EBECF0;" (mouseleave)="closeDropDown()">
+    <div class="modal-content" (mouseleave)="closeDropDown()">
       <!-- <div class="modal-header">
         <h4 class="modal-title">Delete Coupon</h4>
         <button type="button" class="close" id="closebtn" data-dismiss="modal" aria-label="Close">
@@ -293,7 +285,7 @@
         <section class="min_container min_pages">
           <div class="section_row">
             <div class="col-md-3 px-0">
-              <div class="left_side_bar pb-0 mt-0" style="background-color: #EBECF0;">
+              <div class="left_side_bar pb-0 mt-0">
                 <div class="interests pt-0">
                   <ul class="interests_list pt-0">
                     <li (click)="fetchStores('5e7212be3f58470017428b28','Apparel And Clothing')"
@@ -371,7 +363,7 @@
         </section>
       </div>
       <!-- <div class="modal-footer text-center" style="justify-content: center;">
-        <i class="fa fa-chevron-up cursor-pointer" aria-hidden="true" style="font-size: 2.4em;color:#ecbe13"
+        <i class="fa fa-chevron-up cursor-pointer" aria-hidden="true" style="font-size: 2.4em;color:#066163"
           id="closebtn" data-dismiss="modal"></i>
       </div> -->
     </div>

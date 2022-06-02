@@ -12,6 +12,33 @@
         </ng-container>
     </ng-template>
 </ngb-carousel>
+<div class="container mt-3" style="max-width:85%;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center" style="height: 80px;border-radius: 8px;">
+        <a class="navbar-brand" href=""><img src="../../assets/img/brand/bmd_latest.jpg" alt="Brnad Logo"
+                width="75"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item" routerLink="/" routerLinkActive="active">
+                    <a class="nav-link">Home</a>
+                </li>
+                <li class="nav-item" routerLink="/categories" routerLinkActive="active">
+                    <a class="nav-link">Categories </a>
+                </li>
+                <li class="nav-item" routerLink="/stores" routerLinkActive="active">
+                    <a class="nav-link">Stores </a>
+                </li>
+                <li class="nav-item" routerLink="/blogs" routerLinkActive="active">
+                    <a class="nav-link">Blogs </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
 <div class="text-center m-5" *ngIf="!slideArray">
     <div class="lds-hourglass"></div>
 </div>
@@ -29,18 +56,25 @@
     </div>
 </div>
 <div style="margin:auto 10px">
-    <h1 class="display-4 text-center my-5" *ngIf="blogArray">Popular Blogs</h1>
-    <div class="row justify-content-md-center mb-0">
-        <div class="col-sm-12 col-lg-4 cursor-pointer mb-2 px-0" *ngFor="let blog of blogArray | keyvalue"
+    <!-- <h1 class="display-4 text-center my-5" *ngIf="blogArray">Popular Blogs</h1> -->
+    <div class="row justify-content-md-center mb-0 mt-3 mx-4">
+        <div class="col-sm-12 col-lg-6 cursor-pointer mb-2 px-3" *ngFor="let blog of blogArray | keyvalue"
             [routerLink]="['/blog', blog.value.blogURL]">
-            <div class="brand-card customBorRadius" [ngClass]="{'mx-2': web}">
+            <div class="brand-card" [ngClass]="{'mx-2': web}">
                 <div class="brand-card-header">
                     <img [src]="blog.value.img" class="blogImg" />
                 </div>
-                <br>
-                <div class="brand-card-body changeFlex">
-                    <h3 class="blogTitle">{{blog.value.title | slice:0:37}}<span
-                            *ngIf="blog.value.title.length>37">...</span></h3>
+                <div class="brand-card-body changeFlex text-left px-5 pb-4">
+                    <!-- <img src="../../assets/images/author2.png" class="avatar img-raised avatar-img rounded-circle">
+                    <span class="userNm">{{blog.value.author}} <span
+                            style="color: #e50863 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
+                    <br>-->
+                    <br>
+                    <br>
+                    <br>
+                    <h3 class="blogTitle">{{blog.value.title | slice:0:41}}<span
+                            *ngIf="blog.value.title.length>41">...</span></h3>
+                    <br>
                     <br>
                     <!--
                     <span class="author"><i class="cui-user"
@@ -51,55 +85,58 @@
                     <br> -->
                     <p class="blogText" [innerHTML]="blog.value.shortDes"></p>
                     <br>
+                    <br>
                     <div class="ftr">
                         <div class="author pull-left pl-4">
-                            <img src="../../assets/images/author2.png" alt=""
+                            <img src="../../assets/images/author3.png"
                                 class="avatar img-raised avatar-img rounded-circle">
-                            <span class="userNm">{{blog.value.author}}</span>
+                            <span class="userNm">{{blog.value.author}} <span
+                                    style="text-transform:lowercase;font-weight:lighter">wrote on
+                                </span><span>{{blog.value.CreatedAt | date}}</span></span>
+                            <!-- <a class="stats onlyL pull-right" style="font-size: 1.5em;">View more&nbsp;&nbsp;<i
+                                class="cui-arrow-right"></i></a> -->
                         </div>
-                        <a class="stats onlyL pull-right" style="font-size: 1.5em;">View more&nbsp;&nbsp;<i
-                                class="cui-arrow-right"></i></a>
+                        <!-- <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a> -->
                     </div>
-                    <!-- <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a> -->
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<ul class="tranding_select tabs" *ngIf="blogArray">
-    <li class="tab"><a routerLink="/blogs" class="waves-effect btn active">View all
-            Blogs</a></li>
-</ul>
+    <ul class="tranding_select tabs" *ngIf="blogArray">
+        <li class="tab"><a routerLink="/blogs" class="waves-effect btn active">View all
+                Blogs</a></li>
+    </ul>
 
-<div>
-    <h1 class="display-4 text-center mt-3 mb-5" *ngIf="storeArray">Featured Stores</h1>
-    <div class="row mb-0">
-        <div class="col-sm-12 col-md-12" id="infinite_scroll">
-            <ul class="list-group list-group-horizontal list-group-for-store" style="overflow-x: auto;">
-                <li class="list-group-item bg-transparent border-0"
-                    *ngFor="let store of storeArray | keyvalue;index as i">
-                    <div class="card bg-dark text-dark">
-                        <img [src]="store.value.img" [ngClass]="{'storeSliderImg': storeSlideSwitch[i] || !web}"
-                            alt="..." width="350">
-                        <div class="card-img-overlay cursor-pointer" (mouseenter)="storeSlideSwitch[i]=true"
-                            (mouseleave)="storeSlideSwitch[i]=false">
-                            <button type="button" *ngIf="storeSlideSwitch[i] || !web"
-                                class="btn btn-square btn-block btn-dark storeSlideBtn"
-                                (click)="openLink(store.value.trackUrl)">View
-                                Store</button>
-                            <button type="button" *ngIf="storeSlideSwitch[i] || !web"
-                                style="position: relative;top: 67%;"
-                                class="btn btn-square btn-block btn-dark storeSlideBtn"
-                                [routerLink]="['/store', store.value.storeURL, 'products']">View
-                                Products</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+    <div>
+        <h1 class="display-4 text-center mt-3 mb-5" *ngIf="storeArray">Trending Stores</h1>
+        <div class="row mb-0 px-5 mx-5">
+            <div class="col-sm-12 col-md-4 px-5" *ngFor="let store of storeArray | keyvalue;index as i">
+                <div class="card mx-3 border-0">
+                    <img [src]="store.value.img" [ngClass]="{'storeSliderImg': storeSlideSwitch[i] || !web}"
+                        alt="Store Image">
+                    <!-- <div class="card-img-overlay cursor-pointer" (mouseenter)="storeSlideSwitch[i]=true"
+                                (mouseleave)="storeSlideSwitch[i]=false">
+                                <button type="button" *ngIf="storeSlideSwitch[i] || !web"
+                                    class="btn btn-square btn-block btn-dark storeSlideBtn"
+                                    (click)="openLink(store.value.trackUrl)">View
+                                    Store</button>
+                                <button type="button" *ngIf="storeSlideSwitch[i] || !web"
+                                    style="position: relative;top: 67%;"
+                                    class="btn btn-square btn-block btn-dark storeSlideBtn"
+                                    [routerLink]="['/store', store.value.storeURL, 'products']">View
+                                    Products</button>
+                            </div> -->
+                </div>
+                <p style="border-left: 3px solid #ff7227;margin-left: 20px;font-size: 1.2em;">&nbsp;&nbsp;&nbsp;Store
+                </p>
+                <br>
+                <h2 class="storeName">{{store.value.name}}</h2>
+                <br>
+                <br>
+            </div>
         </div>
-    </div>
-    <!-- <div class="row justify-content-md-center mb-0">
+        <!-- <div class="row justify-content-md-center mb-0">
         <div class="col-sm-12 col-lg-2 visitCoupon px-0" [ngClass]="{'mx-3': web, 'mx-5':!web}"
             *ngFor="let store of storeArray | keyvalue" [routerLink]="['/store', store.value.storeURL]">
             <div class="brand-card br15">
@@ -115,65 +152,65 @@
             </div>
         </div>
     </div> -->
-</div>
+    </div>
 
-<ul class="tranding_select tabs" *ngIf="storeArray">
-    <li class="tab"><a routerLink="/stores" class="waves-effect btn active">View all
-            Stores</a></li>
-</ul>
+    <ul class="tranding_select tabs" *ngIf="storeArray">
+        <li class="tab"><a routerLink="/stores" class="waves-effect btn active">View all
+                Stores</a></li>
+    </ul>
 
-<section class="min_container min_pages" *ngIf="productArray.length">
-    <h1 class="display-4 text-center my-4">Products Around Different Stores</h1>
-    <div class="section_row">
-        <div class="col-md-3">
-            <div class="left_side_bar" style="background-color: #EBECF0;">
-                <div class="interests">
-                    <h3 class="categories_tittle">Your Interests</h3>
-                    <ul class="interests_list">
-                        <li (click)="fetchProducts('5e7212be3f58470017428b28')"
-                            [ngClass]="{'activeClr': productQuery=='5e7212be3f58470017428b28'}"><a><i
-                                    class="fa fa-hotel fa-lg"></i>Apparel & Clothing</a>
-                        </li>
-                        <li (click)="fetchProducts('5e7212c53f58470017428b29')"
-                            [ngClass]="{'activeClr': productQuery=='5e7212c53f58470017428b29'}"><a><i
-                                    class="fa fa-shopping-cart fa-lg"></i>Books</a>
-                        </li>
-                        <li (click)="fetchProducts('606b04b0e6445a00176c7fd5')"
-                            [ngClass]="{'activeClr': productQuery=='606b04b0e6445a00176c7fd5'}"><a><i
-                                    class="fa fa-bar-chart fa-lg"></i>Office Supplies</a>
-                        </li>
-                        <li (click)="fetchProducts('606b04e7e6445a00176c7fd6')"
-                            [ngClass]="{'activeClr': productQuery=='606b04e7e6445a00176c7fd6'}"><a><i
-                                    class="fa fa-puzzle-piece fa-lg"></i>Lifestyle & Accessories</a>
-                        </li>
-                        <li (click)="fetchProducts('5e7213613f58470017428b38')"
-                            [ngClass]="{'activeClr': productQuery=='5e7213613f58470017428b38'}"><a><i
-                                    class="fa fa-plus-square fa-lg"></i>Automotive</a>
-                        </li>
-                        <li (click)="fetchProducts('5e7212d83f58470017428b2b')"
-                            [ngClass]="{'activeClr': productQuery=='5e7212d83f58470017428b2b'}"><a><i
-                                    class="fa fa-briefcase fa-lg"></i>Electronics</a>
-                        </li>
-                        <li (click)="fetchProducts('5e7212993f58470017428b23')"
-                            [ngClass]="{'activeClr': productQuery=='5e7212993f58470017428b23'}"><a><i
-                                    class="fa fa-home"></i>Home & Garden</a></li>
-                        <li (click)="fetchProducts('5e7212a03f58470017428b24')"
-                            [ngClass]="{'activeClr': productQuery=='5e7212a03f58470017428b24'}"><a><i
-                                    class="fa fa-life-ring"></i>Baby &
-                                Kids</a></li>
-                        <li (click)="fetchProducts('606b058ce6445a00176c7fd8')"
-                            [ngClass]="{'activeClr': productQuery=='606b058ce6445a00176c7fd8'}"><a><i
-                                    class="fa fa-object-group"></i>Sports Accessories</a></li>
-                        <li (click)="fetchProducts('606b05bee6445a00176c7fd9')"
-                            [ngClass]="{'activeClr': productQuery=='606b05bee6445a00176c7fd9'}"><a><i
-                                    class="fa fa-hotel"></i>Bed & Bath</a></li>
-                        <li (click)="fetchProducts('606b05e9e6445a00176c7fda')"
-                            [ngClass]="{'activeClr': productQuery=='606b05e9e6445a00176c7fda'}"><a><i
-                                    class="fa fa-bank"></i>Tech Accessories</a></li>
+    <section class="min_container min_pages" *ngIf="productArray.length">
+        <h1 class="display-4 text-center my-4">Products Around Different Stores</h1>
+        <div class="section_row">
+            <div class="col-md-3">
+                <div class="left_side_bar">
+                    <div class="interests">
+                        <h3 class="categories_tittle">Your Interests</h3>
+                        <ul class="interests_list">
+                            <li (click)="fetchProducts('5e7212be3f58470017428b28')"
+                                [ngClass]="{'activeClr': productQuery=='5e7212be3f58470017428b28'}"><a><i
+                                        class="fa fa-hotel fa-lg"></i>Apparel & Clothing</a>
+                            </li>
+                            <li (click)="fetchProducts('5e7212c53f58470017428b29')"
+                                [ngClass]="{'activeClr': productQuery=='5e7212c53f58470017428b29'}"><a><i
+                                        class="fa fa-shopping-cart fa-lg"></i>Books</a>
+                            </li>
+                            <li (click)="fetchProducts('606b04b0e6445a00176c7fd5')"
+                                [ngClass]="{'activeClr': productQuery=='606b04b0e6445a00176c7fd5'}"><a><i
+                                        class="fa fa-bar-chart fa-lg"></i>Office Supplies</a>
+                            </li>
+                            <li (click)="fetchProducts('606b04e7e6445a00176c7fd6')"
+                                [ngClass]="{'activeClr': productQuery=='606b04e7e6445a00176c7fd6'}"><a><i
+                                        class="fa fa-puzzle-piece fa-lg"></i>Lifestyle & Accessories</a>
+                            </li>
+                            <li (click)="fetchProducts('5e7213613f58470017428b38')"
+                                [ngClass]="{'activeClr': productQuery=='5e7213613f58470017428b38'}"><a><i
+                                        class="fa fa-plus-square fa-lg"></i>Automotive</a>
+                            </li>
+                            <li (click)="fetchProducts('5e7212d83f58470017428b2b')"
+                                [ngClass]="{'activeClr': productQuery=='5e7212d83f58470017428b2b'}"><a><i
+                                        class="fa fa-briefcase fa-lg"></i>Electronics</a>
+                            </li>
+                            <li (click)="fetchProducts('5e7212993f58470017428b23')"
+                                [ngClass]="{'activeClr': productQuery=='5e7212993f58470017428b23'}"><a><i
+                                        class="fa fa-home"></i>Home & Garden</a></li>
+                            <li (click)="fetchProducts('5e7212a03f58470017428b24')"
+                                [ngClass]="{'activeClr': productQuery=='5e7212a03f58470017428b24'}"><a><i
+                                        class="fa fa-life-ring"></i>Baby &
+                                    Kids</a></li>
+                            <li (click)="fetchProducts('606b058ce6445a00176c7fd8')"
+                                [ngClass]="{'activeClr': productQuery=='606b058ce6445a00176c7fd8'}"><a><i
+                                        class="fa fa-object-group"></i>Sports Accessories</a></li>
+                            <li (click)="fetchProducts('606b05bee6445a00176c7fd9')"
+                                [ngClass]="{'activeClr': productQuery=='606b05bee6445a00176c7fd9'}"><a><i
+                                        class="fa fa-hotel"></i>Bed & Bath</a></li>
+                            <li (click)="fetchProducts('606b05e9e6445a00176c7fda')"
+                                [ngClass]="{'activeClr': productQuery=='606b05e9e6445a00176c7fda'}"><a><i
+                                        class="fa fa-bank"></i>Tech Accessories</a></li>
 
 
 
-                        <!-- <li (click)="fetchProducts('5e72124d3f58470017428b1e')"
+                            <!-- <li (click)="fetchProducts('5e72124d3f58470017428b1e')"
                             [ngClass]="{'activeClr': productQuery=='5e72124d3f58470017428b1e'}"><a><i
                                     class="fa fa-bar-chart"></i>Fitness</a></li>
                         <li (click)="fetchProducts('5e72125f3f58470017428b1f')"
@@ -198,38 +235,40 @@
                             [ngClass]="{'activeClr': productQuery=='5e72126e3f58470017428b20'}"><a><i
                                     class="fa fa-bank"></i>Restaurants</a>
                         </li> -->
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-9" id="infinite_scroll" style="padding:0 !important;margin-top: 15px">
-            <ul class="list-group list-group-horizontal" style="overflow-x: auto;">
-                <p class="display-5 text-center mx-auto" style="font-size: 1.4em;margin-top: 5%;"
-                    *ngIf="!productArray.length && !isFetchingProduct">No Product in this Category</p>
-                <li class="list-group-item list-group-item-home" *ngFor="let featured of productArray | keyvalue">
-                    <div class="card">
-                        <img *ngIf="featured.value.img" [src]="featured.value.img" class="card-img-top cursor-pointer"
-                            [routerLink]="['/productdetail', featured.value._id]"
-                            [alt]="featured.value.imageAlt || 'product pic'">
-                        <video *ngIf="featured.value.vid" loop [muted]="true" onloadedmetadata="this.muted = true"
-                            autoplay class="card-img-top cursor-pointer"
-                            [routerLink]="['/productdetail', featured.value._id]">
-                            <source [src]="featured.value.vid" />
-                        </video>
-                        <div class="card-body text-center">
-                            <p class="card-text cursor-pointer" [routerLink]="['/productdetail', featured.value._id]">
-                                {{featured.value.name | slice:0:24}}</p>
-                            <hr />
-                            <button type="button" class="btn btn-danger m-2 rounded"
-                                (click)="goToLinkFeatured(featured.value.externalLink,featured.value._id)">{{featured.value.buttonText}}</button>
-                            <br>
-                            <button type="button" class="btn btn-outline-dark m-2 rounded"
-                                [routerLink]="['/productdetail', featured.value._id]">View Product</button>
+            <div class="col-md-9" id="infinite_scroll" style="padding:0 !important;margin-top: 15px">
+                <ul class="list-group list-group-horizontal" style="overflow-x: auto;">
+                    <p class="display-5 text-center mx-auto" style="font-size: 1.4em;margin-top: 5%;"
+                        *ngIf="!productArray.length && !isFetchingProduct">No Product in this Category</p>
+                    <li class="list-group-item list-group-item-home" *ngFor="let featured of productArray | keyvalue">
+                        <div class="card">
+                            <img *ngIf="featured.value.img" [src]="featured.value.img"
+                                class="card-img-top cursor-pointer"
+                                [routerLink]="['/productdetail', featured.value._id]"
+                                [alt]="featured.value.imageAlt || 'product pic'">
+                            <video *ngIf="featured.value.vid" loop [muted]="true" onloadedmetadata="this.muted = true"
+                                autoplay class="card-img-top cursor-pointer"
+                                [routerLink]="['/productdetail', featured.value._id]">
+                                <source [src]="featured.value.vid" />
+                            </video>
+                            <div class="card-body text-center">
+                                <p class="card-text cursor-pointer"
+                                    [routerLink]="['/productdetail', featured.value._id]">
+                                    {{featured.value.name | slice:0:24}}</p>
+                                <hr />
+                                <button type="button" class="btn btn-danger m-2 rounded"
+                                    (click)="goToLinkFeatured(featured.value.externalLink,featured.value._id)">{{featured.value.buttonText}}</button>
+                                <br>
+                                <button type="button" class="btn btn-outline-dark m-2 rounded"
+                                    [routerLink]="['/productdetail', featured.value._id]">View Product</button>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
-            <!-- <div class="row scrollmenu">
+                    </li>
+                </ul>
+                <!-- <div class="row scrollmenu">
                 <span class="text-center xyz" *ngIf="!productArray.length && !isFetchingProduct"><br>No Product in this
                     Category</span>
                 <div class="col-xs-12 col-md-2 indCard" *ngFor="let featured of productArray | keyvalue">
@@ -254,7 +293,7 @@
                     </div>
                 </div>
             </div> -->
-            <!-- <div id="featured">
+                <!-- <div id="featured">
                 <div class="card">
                     <br>
                     <a class="text-center display-4">Your Favourite Deals And Discounts</a>
@@ -296,9 +335,9 @@
                     </table>
                 </div>
             </div> -->
-        </div>
+            </div>
 
-        <!-- <div class="right_side_bar col">
+            <!-- <div class="right_side_bar col">
             <div class="right_sidebar_iner">
                 <div class="popular_posts">
                     <h3 class="categories_tittle">Featured Blogs</h3>
@@ -322,14 +361,14 @@
                 </div>
             </div>
         </div> -->
-    </div>
-</section>
-<ul class="tranding_select tabs" *ngIf="productArray.length">
-    <li class="tab"><a routerLink="/products" class="waves-effect btn active">View all
-            Products</a></li>
-</ul>
-<h1 class="display-4 text-center my-5 trustedHeading mb-5" style="font-size: 4.2em !important;">Honorable Partners</h1>
-<marquee width="100%" direction="left" behavior="scroll" scrollamount="16"
+        </div>
+    </section>
+    <ul class="tranding_select tabs" *ngIf="productArray.length">
+        <li class="tab"><a routerLink="/products" class="waves-effect btn active">View all
+                Products</a></li>
+    </ul>
+    <!-- <h1 class="display-4 text-center my-5 trustedHeading mb-5" style="font-size: 4.2em !important;">Honorable Partners</h1> -->
+    <!-- <marquee width="100%" direction="left" behavior="scroll" scrollamount="16"
     style="margin-bottom: 35px;margin-top: 30px;">
     <img src="../../assets/partners/admitad.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
     <img src="../../assets/partners/adtraction.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
@@ -339,13 +378,13 @@
     <img src="../../assets/partners/linkbux.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
     <img src="../../assets/partners/partnerize.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
     <img src="../../assets/partners/pepperjam.png" [ngClass]="{'partnerImg2': web, 'partnerImgMobile':!web}">
-</marquee>
-<!-- <div class="row dealsRow mb-0 justify-content-md-center mt-4" [ngClass]="{'mx-1':!web, 'mx-5':web}">
+</marquee> -->
+    <!-- <div class="row dealsRow mb-0 justify-content-md-center mt-4" [ngClass]="{'mx-1':!web, 'mx-5':web}">
     <div class="col-xs-12 col-md-3 text-center" *ngFor="let prtnrImg of partnersImgs">
         <img [src]="prtnrImg" class="partnerImg my-5">
     </div>
 </div> -->
-<!-- <div [@listAnimation]="partnersImgs.length" class="row dealsRow mb-0 justify-content-md-center"
+    <!-- <div [@listAnimation]="partnersImgs.length" class="row dealsRow mb-0 justify-content-md-center"
     [ngClass]="{'mx-1':!web, 'mx-5':web}">
     <div class="col-xs-12 col-md-3" *ngFor="let prtnrImg of partnersImgs">
         <img [src]="prtnrImg" class="partnerImg">
@@ -356,7 +395,7 @@
 </div> -->
 
 
-<!-- <ng-template #template>
+    <!-- <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Coupon: <span>{{editObj.offerBox}}</span></h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">

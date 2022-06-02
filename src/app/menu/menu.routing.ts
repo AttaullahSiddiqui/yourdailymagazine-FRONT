@@ -17,7 +17,7 @@ import { EventPageComponent } from "../event-page/event-page.component";
 import { SitemapComponent } from "../sitemap/sitemap.component";
 
 export const MenuRoutes: Routes = [
-  { path: "home", component: HomeComponent, canActivate: [AuthService] },
+  { path: "", component: HomeComponent, canActivate: [AuthService] },
   { path: "about", component: AboutComponent, canActivate: [AuthService] },
   { path: "privacy", component: PrivacyComponent, canActivate: [AuthService] },
   {
@@ -63,7 +63,7 @@ export const MenuRoutes: Routes = [
   { path: "sitemap", component: SitemapComponent, canActivate: [AuthService] },
   {
     path: "",
-    redirectTo: "/home",
+    redirectTo: "/",
     pathMatch: "full",
   },
 ];

@@ -21,27 +21,32 @@
             <div class="col-md-3" *ngFor="let store of storeArray | keyvalue;index as i;"
                 [routerLink]="['/store', store.value.storeURL]">
                 <div class="card profile-card-1" *ngIf="i%2!=0">
-                    <img src="../../assets/images/dback.jpeg" alt="profile-sample1" class="background" />
+                    <img src="../../assets/images/storebg1.jpg" alt="profile-sample1" class="background" />
                     <img [src]="store.value.img" alt="profile-image" class="profile" />
                     <div class="card-content pb-0">
-                        <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2>
+                        <h2>{{store.value.name | slice:0:10}}</h2>
+                        <!-- <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2> -->
+                        <br>
                         <br>
                         <button type="button" class="btn btn-outline-light btn-lg"
-                            style="padding: 30px auto 30px auto;">Visit</button>
+                            style="padding: 30px auto 30px auto;">View Coupons</button>
                     </div>
                 </div>
                 <div class="card profile-card-3" *ngIf="i%2==0">
                     <div class="background-block">
-                        <img src="../../assets/images/aback2.jpeg" alt="profile-sample1" class="background" />
+                        <img src="../../assets/images/storebg1.jpg" alt="profile-sample1" class="background" />
                     </div>
                     <div class="profile-thumb-block">
                         <img [src]="store.value.img" alt="profile-image" class="profile" />
                     </div>
                     <div class="card-content pb-0">
-                        <h2>{{store.value.name}}<small>Store</small></h2>
+                        <h2>{{store.value.name}}</h2>
+                        <!-- <h2>{{store.value.name}}<small>Store</small></h2> -->
                         <br>
-                        <button type="button" class="btn btn-outline-dark btn-lg"
-                            style="padding: 30px auto 30px auto;">Visit</button>
+                        <br>
+                        <button type="button" class="btn btn-outline-dark btn-lg px-4 py-2"
+                            style="text-transform: capitalize;font-weight: bold;height:auto">View
+                            Coupons</button>
                     </div>
                 </div>
             </div>

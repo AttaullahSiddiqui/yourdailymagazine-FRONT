@@ -16,7 +16,7 @@
     </div> -->
     <br>
     <div class="lead" style="font-size: 1.2em !important;">
-        <div class="container" [ngClass]="{'px-0': mobile}">
+        <div class="container mx-3 mw-100" [ngClass]="{'px-0': mobile}">
             <div class="text-center m-5" *ngIf="!blogsArr.length && isFetching">
                 <div class="lds-facebook">
                     <div></div>
@@ -24,7 +24,65 @@
                     <div></div>
                 </div>
             </div>
-            <div *ngFor="let blog of blogsArr | keyvalue" [ngClass]="{'mb-5': mobile}">
+            <!-- <div class="row m-0">
+                <div class="col-md-6" *ngFor="let blog of blogsArr | keyvalue">
+                    <div class="card mb-3 rounded" [routerLink]="['/blog',blog.value.blogURL]">
+                        <div class="row m-0 no-gutters">
+                            <div class="col-md-6">
+                                <img [routerLink]="['/blog',blog.value.blogURL]" [src]="blog.value.img" class="card-img"
+                                    alt="Blog Image">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{blog.value.title}}</h5>
+                                    <p class="card-text" [innerHTML]="blog.value.shortDes | slice:0:700"></p>
+                                    <p class="card-text"><small class="text-muted">{{blog.value.CreatedAt |
+                                            date}}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row justify-content-md-center mb-0">
+                <div class="col-sm-12 col-md-6 cursor-pointer mb-2 px-3" *ngFor="let blog of blogsArr | keyvalue"
+                    [routerLink]="['/blog', blog.value.blogURL]">
+                    <div class="brand-card customBorRadius" [ngClass]="{'mx-2': web}">
+                        <div class="brand-card-header">
+                            <img [src]="blog.value.img" class="blogImg" />
+                        </div>
+                        <div class="brand-card-body changeFlex">
+                            <img src="../../assets/images/author2.png"
+                                class="avatar img-raised avatar-img rounded-circle">
+                            <span class="userNm">{{blog.value.author}} <span
+                                    style="color: #e50863 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
+                            <br>
+                            <br>
+                            <h3 class="blogTitle">{{blog.value.title | slice:0:40}}<span
+                                    *ngIf="blog.value.title.length>40">...</span></h3>
+                            <br>
+                            <!--
+                            <span class="author"><i class="cui-user"
+                                    style="vertical-align: middle;font-weight: bold;"></i>&nbsp;&nbsp;&nbsp;<b>By:
+                                    &nbsp;</b><span
+                                    style="text-transform: capitalize;vertical-align: middle;font-size: 120%;">{{blog.value.author}}</span></span>
+                            <br>
+                            <br> -->
+                            <p class="blogText" [innerHTML]="blog.value.shortDes"></p>
+                            <br>
+                            <div class="ftr">
+                                <div class="author pull-left pl-4">
+
+                                </div>
+                                <a class="stats onlyL pull-right" style="font-size: 1.5em;">Read Full Blog
+                                    &nbsp;&nbsp;<i class="cui-arrow-right"></i></a>
+                            </div>
+                            <!-- <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div *ngFor="let blog of blogsArr | keyvalue" [ngClass]="{'mb-5': mobile}">
                 <div class="row cursor-pointer">
                     <div class="col-md-6 col-xs-12">
                         <a [routerLink]="['/blog',blog.value.blogURL]">
@@ -50,7 +108,7 @@
                     </div>
                 </div>
                 <hr class="my-4" />
-            </div>
+            </div> -->
         </div>
         <button type="button" class="btn btn-outline-primary" (click)="loadPrev()">Previous</button>
         <button type="button" class="btn btn-outline-primary pull-right" (click)="loadNext()">Next</button>

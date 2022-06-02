@@ -1,57 +1,114 @@
-img.blogsImg {
+// img.blogsImg {
+//     width: 100%;
+// }
+// .blogsPage h2,
+// h5.card-title {
+//     // color: #066163 !important;
+//     font-family: gothic-light;
+//     font-weight: 900;
+//     font-size: 2.2em;
+// }
+// .container {
+//     max-width: 100%;
+// }
+// .blogTxt > p {
+//     font-size: 1.7em !important;
+//     font-family: futura !important;
+//     letter-spacing: 0.03em;
+// }
+// .row a:hover {
+//     cursor: pointer;
+//     text-decoration: underline;
+//     color: #066163;
+// }
+// .row a {
+//     color: black;
+// }
+// b {
+//     font-size: 1.1em;
+// }
+// .jumbotron > a {
+//     font-size: 1.55em !important;
+//     color: #066163;
+// }
+// a.viewMore {
+//     font-size: 1.3em;
+//     // color: rgb(74, 74, 189);
+//     font-weight: 500;
+//     color: #c5a01b;
+// }
+// button.btn-outline-primary {
+//     border-color: #066163 !important;
+//     color: #066163 !important;
+// }
+// button.btn-outline-primary:hover {
+//     background-color: #066163 !important;
+//     color: #fff !important;
+// }
+// .display-4 {
+//     font-weight: bold;
+//     color: #333;
+//     font-family: gothic-bold;
+// }
+// a > h3 {
+//     font-family: gothic-bold;
+// }
+// .jumbotron {
+//     padding: 1rem 1rem !important;
+// }
+
+.brand-card {
+    background: #e5e4e2;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.brand-card-header {
+    height: auto !important;
+}
+.blogImg {
     width: 100%;
+    height: 100%;
 }
-.blogsPage h2 {
-    // color: #ecbe13 !important;
-    font-family: futura;
+.blogTitle {
     font-weight: 900;
-    font-size: 2.2em;
+    margin: auto 10px;
+    margin-top: -20px;
+    border: none !important;
+    font-family: gothic-light;
+    font-size: 1.8rem !important;
 }
-.container {
-    max-width: 100%;
+
+.blogText {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: auto 15px;
+    border: none !important;
+    text-overflow: ellipsis;
+    max-height: 180px;
+    line-height: 1.8em;
+    overflow: hidden;
+    font-family: gothic-light;
 }
-.blogTxt > p {
-    font-size: 1.7em !important;
-    font-family: futura !important;
-    letter-spacing: 0.03em;
+.changeFlex {
+    display: block !important;
 }
-.row a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: #ecbe13;
+
+.changeFlex a {
+    color: #e50863 !important;
+    font-size: 1.25em;
+    margin-right: 20px;
+    letter-spacing: 0.05em;
 }
-.row a {
-    color: black;
+
+.changeFlex a:hover {
+    color: #25cbb0 !important;
 }
-b {
-    font-size: 1.1em;
+.customBorRadius {
+    border-radius: 20px;
+    overflow: hidden;
 }
-.jumbotron > a {
-    font-size: 1.55em !important;
-    color: #ecbe13;
-}
-a.viewMore {
-    font-size: 1.3em;
-    // color: rgb(74, 74, 189);
-    font-weight: 500;
-    color: #c5a01b;
-}
-button.btn-outline-primary {
-    border-color: #ecbe13 !important;
-    color: #ecbe13 !important;
-}
-button.btn-outline-primary:hover {
-    background-color: #ecbe13 !important;
-    color: #fff !important;
-}
-.display-4 {
+.userNm {
+    margin-left: 10px;
+    font-size: 1.45em;
+    text-transform: capitalize;
     font-weight: bold;
-    color: #333;
-    font-family: gothic-bold;
-}
-a > h3 {
-    font-family: gothic-bold;
-}
-.jumbotron {
-    padding: 1rem 1rem !important;
 }

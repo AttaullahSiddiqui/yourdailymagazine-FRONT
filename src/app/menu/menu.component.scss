@@ -17,7 +17,7 @@ a:hover {
     margin-top: 15px;
 }
 .addMarginTop {
-    margin-top: 70px;
+    // margin-top: 70px;
 }
 nav {
     position: fixed;
@@ -132,10 +132,10 @@ table.searchTable td > .avatar2 {
 }
 nav tr,
 table.searchTable tr {
-    border-bottom: 1px solid #ecbe13;
+    border-bottom: 1px solid #066163;
 }
 nav tr:hover {
-    background-color: #ecbe13;
+    background-color: #066163;
     td {
         color: white;
     }
@@ -224,7 +224,7 @@ nav tr:hover {
 //     margin-left: 10px;
 // }
 // li#eventBtn > a {
-//     background-color: #ecbe13;
+//     background-color: #066163;
 //     color: white;
 //     width: fit-content;
 //     text-align: center;
@@ -257,7 +257,7 @@ div.largeAlert {
     padding: 1rem 1rem !important;
 }
 i.navListIcon {
-    color: #ecbe13;
+    color: #066163;
 }
 a.mobileSearch {
     margin-left: 60%;

@@ -7,6 +7,10 @@
     font-family: 'gothic-bold';
     src: url('./fonts/Mija_Bold.woff2');
 }
+@font-face {
+    font-family: 'gothic-light';
+    src: url('./fonts/Raleway-Light.ttf');
+}
 /* @font-face {
     font-family: 'noto';
     src: url('./fonts/Noto-Sans-Mono-Regular.ttf.woff');
@@ -22,11 +26,19 @@
 
 @font-face {
     font-family: 'futura';
-    src: url('./fonts/futura/FuturaPTLight.otf');
+    src: url('./fonts/muli/Muli-ExtraLight.ttf');
 }
 @font-face {
+    font-family: 'poppins';
+    src: url('./fonts/poppins/Poppins-Regular.ttf');
+}
+/* @font-face {
+    font-family: 'futura';
+    src: url('./fonts/futura/FuturaPTLight.otf');
+} */
+@font-face {
     font-family: 'futuraHeading';
-    src: url('./fonts/futura/FuturaPTMedium.otf');
+    src: url('./fonts/muli/Muli.ttf');
 }
 
 
@@ -110,7 +122,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li a {
-    font: 400 22px/80px futura;
+    font: 400 20px/80px gothic-light;
     color: white;
     background-color: transparent;
     position: relative;
@@ -118,7 +130,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li a.active, .header_area ul li a:focus, .header_area ul li a:hover {
-    color: #ecbe13
+    color: #56d4d7
 }
 
 .header_area ul li a i {
@@ -141,13 +153,13 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     font: 900 13px/19px futura;
     height: 22px;
     color: #fff;
-    background: #ecbe13;
+    background: #066163;
     border: 2px solid #232f42
 }
 
 .header_area ul li .post_btn {
     min-width: 152px;
-    background: #ecbe13;
+    background: #066163;
     border-radius: 6px;
     font-weight: 700;
     line-height: 45px;
@@ -187,7 +199,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     line-height: 40px;
     padding: 0;
     padding-left: 20px;
-    color: #ecbe13
+    color: #066163
 }
 
 .header_area ul li.user_dropdown {
@@ -249,7 +261,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.user_dropdown .dropdown-content li a.active, .header_area ul li.user_dropdown .dropdown-content li a:focus, .header_area ul li.user_dropdown .dropdown-content li a:hover {
-    background: #ecbe13;
+    background: #066163;
     color: #fff;
     padding: 0 20px
 }
@@ -325,7 +337,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.notifications .dropdown-content li a.chack_all_btn {
-    background: #ecbe13;
+    background: #066163;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -381,7 +393,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.notifications .dropdown-content li .media .media_body p small {
-    color: #ecbe13;
+    color: #066163;
     font: 400 15px/22px futura
 }
 
@@ -456,7 +468,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul li.follow .dropdown-content .media .media_body .btn_group span.follow_b {
-    background: #ecbe13
+    background: #066163
 }
 
 .header_area ul li.follow .dropdown-content .media .media_body .btn_group span i {
@@ -520,14 +532,15 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul .search_min .search_from input {
-    font: 400 19px/48px futura;
+    font: 400 18px/48px gothic-light;
     color: #7b8aa3;
     width: 435px;
     display: inline-block;
     border: 0;
     background: #2e3d55;
-    padding: 0 20px;
+    padding: 1px 20px;
     margin: 0;
+    margin-top: -1px;
     box-shadow: none!important;
     /* border: 1px solid #2e3d55; */
     border: 1px solid #0b0c1f;
@@ -547,7 +560,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul .search_min .search_from input:focus, .header_area ul .search_min .search_from input:hover {
-    border: 1px solid #ecbe13
+    border: 1px solid #066163
 }
 
 .header_area ul .search_min .search_from .search_icon {
@@ -556,7 +569,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     right: 0;
     padding-top: 2px;
     height: 50px;
-    background: #ecbe13
+    background: #066163
 }
 
 .header_area ul .search_min .search_from .search_icon i {
@@ -566,7 +579,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .header_area ul .search_min .search_from .search_icon:focus, .header_area ul .search_min .search_from .search_icon:hover {
-    background: #ecbe13
+    background: #066163
 }
 
 .header_area ul .search_min .search_from .search_icon:focus i, .header_area ul .search_min .search_from .search_icon:hover i {
@@ -578,6 +591,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .tranding_select {
+    height: auto;
     text-align: center;
     display: block;
     overflow: hidden;
@@ -606,7 +620,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .tranding_select li a.active, .tranding_select li a:focus, .tranding_select li a:hover {
-    background: #ecbe13!important;
+    background: #066163!important;
     color: #fff!important
 }
 
@@ -635,11 +649,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     margin: 0;
     left: -160px;
     opacity: 0;
-    border-bottom: 1px solid #ecbe13
+    border-bottom: 1px solid #066163
 }
 
 .tranding_select li.search_here .search_from:focus, .tranding_select li.search_here .search_from:hover {
-    border-color: #ecbe13
+    border-color: #066163
 }
 
 .tranding_select li.search_here .search_from.show {
@@ -721,7 +735,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .author_profile .profile_menu li a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .author_profile .profile_menu .post_d {
@@ -845,7 +859,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .error_area p a {
-    color: #ecbe13;
+    color: #066163;
     text-decoration: none
 }
 
@@ -853,7 +867,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     font: 900 14px/54px futura;
     color: #fff;
     text-transform: uppercase;
-    background: #ecbe13;
+    background: #066163;
     border-radius: 3px;
     min-width: 210px;
     padding: 0 20px;
@@ -915,7 +929,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .categories_tittle span:focus, .min_container .section_row .left_side_bar .categories_tittle span:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .left_side_bar p {
@@ -959,8 +973,8 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .min_container .section_row .left_side_bar .categories .categories_icon li a:focus, .min_container .section_row .left_side_bar .categories .categories_icon li a:hover {
     color: #fff;
-    background: #ecbe13;
-    border-color: #ecbe13
+    background: #066163;
+    border-color: #066163
 }
 
 .min_container .section_row .left_side_bar .categories .categories_icon li .tooltip:before {
@@ -997,7 +1011,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .left_side_bar .interests .interests_list li a:focus, .min_container .section_row .left_side_bar .interests .interests_list li a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .left_side_bar .profile {
@@ -1269,7 +1283,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .categories_tittle span:focus, .min_container .section_row .right_side_bar .right_sidebar_iner .categories_tittle span:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item {
@@ -1293,11 +1307,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content a:focus, .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content a span {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .popular_posts .popular_item .p_content .black_text {
@@ -1411,7 +1425,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b .close_btn:focus, .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b .close_btn:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b p {
@@ -1440,7 +1454,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 a:focus, .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container .section_row .right_side_bar .right_sidebar_iner .trending_area .trending_collaps li .collapsible-body .collaps_2 {
@@ -1490,7 +1504,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .author .media_body a:focus, .middle_section .post .post_content .author_area .author .media_body a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .middle_section .post .post_content .author_area .author .media_body span {
@@ -1503,7 +1517,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .btn_floating a {
-    background: #ecbe13;
+    background: #066163;
     height: 40px;
     line-height: 40px;
     font-size: 20px
@@ -1530,11 +1544,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_content .author_area .like_user .like_img li a:focus, .middle_section .post .post_content .author_area .like_user .like_img li a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .middle_section .post .post_content .author_area .like_user .like_img li a:focus i, .middle_section .post .post_content .author_area .like_user .like_img li a:hover i {
-    color: #ecbe13
+    color: #066163
 }
 
 .middle_section .post .post_content .author_area .like_user .like_img li .single_l {
@@ -1617,7 +1631,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .post_heding:focus, .middle_section .post .post_heding:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .middle_section .post p {
@@ -1637,7 +1651,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .middle_section .post .like_comment_area .btn_floating a {
-    background: #ecbe13;
+    background: #066163;
     height: 32px;
     line-height: 32px;
     font-size: 22px;
@@ -1746,7 +1760,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     top: 3px;
     width: 120px;
     height: 4px;
-    background: #ecbe13;
+    background: #066163;
     border-radius: 5px
 }
 
@@ -1771,7 +1785,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     font: 900 14px/55px futura;
     color: #fff;
     border-radius: 5px;
-    background: #ecbe13;
+    background: #066163;
     text-align: center;
     text-transform: uppercase
 }
@@ -1821,7 +1835,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .post_content .author_area .add_btn_col .add_btn:focus, .min_container_2 .middle_section .post_details .post_content .author_area .add_btn_col .add_btn:hover {
-    background: #ecbe13;
+    background: #066163;
     color: #fff
 }
 
@@ -1857,7 +1871,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .post_content .post_heding_aea .by_author a:focus, .min_container_2 .middle_section .post_details .post_content .post_heding_aea .by_author a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .middle_section .post_details .post_content .socail_share_area {
@@ -2021,7 +2035,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body .view_mor_r:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body h4 {
@@ -2037,7 +2051,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body h4 a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body p {
@@ -2076,7 +2090,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .media .media_body .replay_btn:focus, .min_container_2 .middle_section .post_details .like_comment_area .media .media_body .replay_btn:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .view_mor_c {
@@ -2093,7 +2107,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .view_mor_c:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .middle_section .post_details .like_comment_area .load_more {
@@ -2160,7 +2174,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .min_container_2 .sponsored_stories .sponsored a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .min_container_2 .sponsored_stories .sponsored h6 {
@@ -2270,7 +2284,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row h4 a {
-    color: #ecbe13;
+    color: #066163;
     text-decoration: underline
 }
 
@@ -2351,11 +2365,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .login_popup_aera .login_popup_row .input_group p label a:focus, .login_popup_aera .login_popup_row .input_group p label a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .login_popup_aera .login_popup_row .input_group button {
-    background: #ecbe13;
+    background: #066163;
     color: #fff;
     font: 900 14px/42px futura;
     text-transform: uppercase;
@@ -2732,7 +2746,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     width: 100px;
     height: 100px;
     image-rendering: pixelated;
-    border: 3px inset #ecbe13;
+    border: 3px inset #066163;
     border-radius: 50%;
 }
 
@@ -2748,7 +2762,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .notifications .notifications_content li .media .media_body p small {
-    color: #ecbe13;
+    color: #066163;
     font: 400 15px/22px futura
 }
 
@@ -2791,7 +2805,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .notifications .follow .media .media_body .btn_group span.follow_b {
-    background: #ecbe13
+    background: #066163
 }
 
 .notifications .follow .media .media_body .btn_group span i {
@@ -2800,7 +2814,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .notifications .follow .media .media_body .btn_group span.confirm {
-    background: #ecbe13;
+    background: #066163;
     min-width: 110px
 }
 
@@ -2917,7 +2931,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .messages_heder .mg_btn li a.active {
-    background: #ecbe13;
+    background: #066163;
     border-radius: 4px;
     color: #fff;
     font: 900 12px/35px futura
@@ -2983,7 +2997,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .search_area .input-field i:focus, .messages_area .messages_row .search_area .input-field i:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .messages_area .messages_row .tab_list {
@@ -3012,7 +3026,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .tab_list li a.active, .messages_area .messages_row .tab_list li a:focus, .messages_area .messages_row .tab_list li a:hover {
-    background: #ecbe13
+    background: #066163
 }
 
 .messages_area .messages_row .tab_list li a.active .media h4, .messages_area .messages_row .tab_list li a.active p, .messages_area .messages_row .tab_list li a.active small, .messages_area .messages_row .tab_list li a:focus .media h4, .messages_area .messages_row .tab_list li a:focus p, .messages_area .messages_row .tab_list li a:focus small, .messages_area .messages_row .tab_list li a:hover .media h4, .messages_area .messages_row .tab_list li a:hover p, .messages_area .messages_row .tab_list li a:hover small {
@@ -3077,7 +3091,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .profile .media_body a:focus, .messages_area .messages_row .all_messages .profile .media_body a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .messages_area .messages_row .all_messages .profile .media_body p {
@@ -3200,7 +3214,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .messages_area .messages_row .all_messages .type_messages .input-field .imoji li a:focus, .messages_area .messages_row .all_messages .type_messages .input-field .imoji li a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .footer_area {
@@ -3257,7 +3271,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a:focus, .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content a:hover {
-    color: #ecbe13
+    color: #56d4d7
 }
 
 .footer_area .footer_row .footer_col .popular_posts .popular_item .p_content .black_text {
@@ -3341,7 +3355,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b .close_btn:focus, .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b .close_btn:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b p {
@@ -3366,11 +3380,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 a {
-    color: #ecbe13
+    color: #066163
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 a:focus, .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_wrpper .media_b h6 a:hover {
-    color: #ecbe13
+    color: #066163
 }
 
 .footer_area .footer_row .footer_col .trending_area .trending_collaps li .collapsible-body .collaps_2 {
@@ -3542,7 +3556,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .copy_right a:focus, .footer_area .copy_right a:hover {
-    color: #ecbe13
+    color: #56d4d7
 }
 
 @media (max-width:1600px) {
@@ -3803,7 +3817,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     }
     .sm_post_btn {
         min-width: 152px;
-        background: #ecbe13;
+        background: #066163;
         border-radius: 6px;
         font-weight: 700;
         line-height: 45px;

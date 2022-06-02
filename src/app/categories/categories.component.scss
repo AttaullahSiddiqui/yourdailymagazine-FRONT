@@ -13,7 +13,7 @@ a {
     text-decoration: underline;
 }
 a.breadcrumbs {
-    color: #ecbe13 !important;
+    color: #066163 !important;
     font-size: 1.55em !important;
 }
 
@@ -59,21 +59,21 @@ a.breadcrumbs {
     }
     button {
         height: auto;
-        width: 50%;
+        // width: 50%;
         padding-top: 11px;
         padding-bottom: 11px;
     }
 }
 
 .card-green {
-    border-top: 4px solid #ecbe13;
+    border-top: 4px solid #066163;
     :before {
-        color: #ecbe13;
+        color: #066163;
         content: "\f2a1";
         font-family: "FontAwesome";
     }
     .card-separator {
-        border: 1px solid #ecbe13;
+        border: 1px solid #066163;
     }
 }
 .display-4 {

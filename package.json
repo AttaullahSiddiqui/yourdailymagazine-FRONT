@@ -1,7 +1,7 @@
 {
-  "name": "@buymedeal/buymedealapp",
+  "name": "@yourdailymagazine/yourdailymagazine",
   "version": "1.0.0",
-  "description": "BuyMeDeal App",
+  "description": "YourDailyMagazine App",
   "author": {
     "name": "Attaullah Siddiqui",
     "url": "https://web.facebook.com/mattaullah2",
@@ -14,7 +14,7 @@
       "url": "https://google.com"
     }
   ],
-  "homepage": "https://buymedeal.com/",
+  "homepage": "https://yourdailymagazine.com/",
   "copyright": "Copyright 2020",
   "license": "MIT",
   "scripts": {

@@ -11,19 +11,19 @@
 
 .nav-tabs {
     .nav-link {
-        color: #e50863 !important;
+        color: #e75555 !important;
         border-radius: 5px;
         &:hover {
             cursor: pointer;
-            border-bottom: 1px solid #e50863 !important;
+            border-bottom: 1px solid #e75555 !important;
         }
         &.active {
             color: white !important;
-            background: #e50863;
+            background: #e75555;
             &:focus {
-                background: #e50863;
+                background: #e75555;
                 color: white !important;
-                border-bottom-color: #e50863;
+                border-bottom-color: #e75555;
             }
         }
     }

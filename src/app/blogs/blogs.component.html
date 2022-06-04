@@ -4,9 +4,9 @@
     <br>
 </div> -->
 <div class="jumbotron blogsPage">
-    <a class="navLink" [routerLink]="['/home']">Home > </a>
-    <a class="navLink" [routerLink]="['/blogs']">Blogs > </a>
-    <h1 class="display-4 text-center">BRINGING UP THE LATEST TRENDS</h1>
+    <a class="navLink" [routerLink]="['/']">Home | </a>
+    <a class="navLink" [routerLink]="['/blogs']">Blogs | </a>
+    <h1 class="display-4 text-center">Blogs published by our Authors</h1>
     <hr class="my-4" />
     <!-- <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
         {{responseError}}
@@ -55,7 +55,7 @@
                             <img src="../../assets/images/author2.png"
                                 class="avatar img-raised avatar-img rounded-circle">
                             <span class="userNm">{{blog.value.author}} <span
-                                    style="color: #e50863 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
+                                    style="color: #e75555 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
                             <br>
                             <br>
                             <h3 class="blogTitle">{{blog.value.title | slice:0:40}}<span
@@ -74,7 +74,8 @@
                                 <div class="author pull-left pl-4">
 
                                 </div>
-                                <a class="stats onlyL pull-right" style="font-size: 1.5em;">Read Full Blog
+                                <a class="stats onlyL pull-right" style="font-size: 1.5em;font-weight: 600;">Read Full
+                                    Blog
                                     &nbsp;&nbsp;<i class="cui-arrow-right"></i></a>
                             </div>
                             <!-- <a class="pull-right">CONTINUE READING<i class="cui-arrow-right"></i></a> -->
@@ -110,7 +111,7 @@
                 <hr class="my-4" />
             </div> -->
         </div>
-        <button type="button" class="btn btn-outline-primary" (click)="loadPrev()">Previous</button>
-        <button type="button" class="btn btn-outline-primary pull-right" (click)="loadNext()">Next</button>
+        <button type="button" class="btn btn-outline-danger" (click)="loadPrev()">Previous</button>
+        <button type="button" class="btn btn-outline-danger pull-right" (click)="loadNext()">Next</button>
     </div>
 </div>

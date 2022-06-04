@@ -27,10 +27,10 @@
 // b {
 //     font-size: 1.1em;
 // }
-// .jumbotron > a {
-//     font-size: 1.55em !important;
-//     color: #066163;
-// }
+.jumbotron > a {
+    font-size: 1.65em !important;
+    color: #e75555;
+}
 // a.viewMore {
 //     font-size: 1.3em;
 //     // color: rgb(74, 74, 189);
@@ -53,9 +53,9 @@
 // a > h3 {
 //     font-family: gothic-bold;
 // }
-// .jumbotron {
-//     padding: 1rem 1rem !important;
-// }
+.jumbotron {
+    padding: 1rem 1rem !important;
+}
 
 .brand-card {
     background: #e5e4e2;
@@ -73,7 +73,7 @@
     margin: auto 10px;
     margin-top: -20px;
     border: none !important;
-    font-family: gothic-light;
+    font-family: gothic-bold;
     font-size: 1.8rem !important;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .changeFlex a {
-    color: #e50863 !important;
+    color: #e75555 !important;
     font-size: 1.25em;
     margin-right: 20px;
     letter-spacing: 0.05em;

@@ -50,8 +50,8 @@
 </div> -->
 
 <div class="jumbotron blogJumb">
-    <a [routerLink]="['/home']">Home > </a>
-    <a [routerLink]="['/blogs']">Blogs > </a>
+    <a [routerLink]="['/']">Home | </a>
+    <a [routerLink]="['/blogs']">Blogs | </a>
     <a [routerLink]="['/blog',blogURL]">{{blogURL}}</a>
     <div class="lead" style="font-size: 1.5em !important;">
         <div class="alert alert-danger alert-dismissible fade show col-lg-8" *ngIf="responseError" role="alert">
@@ -77,6 +77,7 @@
                     <br>
                     <h1 class="display-4 text-center">{{blogNode.title}}</h1>
                     <br>
+                    <hr style="border-color: #e75555;width: 50%;border-width: 3px;">
                     <br>
                     <div class="ck-content">
                         <div [innerHTML]="blogNode.longDesFirst | sanitizeHtml"></div>

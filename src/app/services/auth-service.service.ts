@@ -104,7 +104,7 @@ export class AuthService implements CanActivate {
           });
           break;
         }
-        case "/home": {
+        case "/": {
           this.titleService.setTitle(
             "BuyMeDeal | Relish the acute deals & offers at home solely from BuyMeDeal."
           );

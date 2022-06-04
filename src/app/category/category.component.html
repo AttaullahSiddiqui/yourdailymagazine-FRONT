@@ -4,8 +4,8 @@
     <br>
 </div> -->
 <div class="jumbotron" style="min-height: 80vh;">
-    <a [routerLink]="['/home']">Home > </a>
-    <a [routerLink]="['/categories']">Categories > </a>
+    <a [routerLink]="['/']">Home | </a>
+    <a [routerLink]="['/categories']">Categories | </a>
     <a [routerLink]="['/category',selectedCatURL]">{{selectedCatURL}}</a>
     <h1 class="display-4 text-center">{{selectedCat}}</h1>
     <br>
@@ -51,7 +51,7 @@
                             <div class="brand-card">
                                 <br>
                                 <div class="brand-card-header">
-                                    <img [src]="store.value.img" style="border:3px solid #066163"
+                                    <img [src]="store.value.img" style="border:4px solid #e75555"
                                         class="rounded-circle roundImg" width="110" height="110" />
                                 </div>
                                 <div class="brand-card-body">

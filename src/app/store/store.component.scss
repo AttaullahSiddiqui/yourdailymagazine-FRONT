@@ -40,8 +40,8 @@
     font-size: 1.4em;
 }
 .jumbotron > a {
-    font-size: 1.55em !important;
-    color: #316b83;
+    font-size: 1.65em !important;
+    color: #e75555;
 }
 a:hover {
     text-decoration: underline;
@@ -127,3 +127,9 @@ ul.notifications_content div.media_body {
 // div.first_child{
 //     background-image: url("../../assets/images/untitled.png");
 // }
+.avatar {
+    vertical-align: middle;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}

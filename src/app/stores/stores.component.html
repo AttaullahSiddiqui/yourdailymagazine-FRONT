@@ -4,8 +4,8 @@
     <br>
 </div>
 <div class="jumbotron">
-    <a [routerLink]="['/home']">Home/</a>
-    <a [routerLink]="['/stores']">Stores/</a>
+    <a [routerLink]="['/home']">Home |</a>
+    <a [routerLink]="['/stores']">Stores |</a>
     <h1 class="display-4 text-center" style="font-family: gothic-bold;" *ngIf="storeArray">BROWSE STORES FOR EXCITING
         DEALS</h1>
     <hr class="my-4" />
@@ -16,7 +16,22 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="row justify-content-md-center mb-0 onlyThis" [ngClass]="{'ifWeb': !mobile}"
+        <div class="row mb-0 px-5 mx-5">
+            <div class="col-sm-12 col-md-4 px-5 cursor-pointer" *ngFor="let store of storeArray | keyvalue"
+                [routerLink]="['/store', store.value.storeURL]">
+                <div class="card mx-3 border-0" (click)="openLink(store.value.trackUrl)">
+                    <img [src]="store.value.img" alt="Store Image">
+                </div>
+                <p style="border-left: 3px solid #e75555;margin-left: 20px;font-size: 1.2em">
+                    &nbsp;&nbsp;&nbsp; Store
+                </p>
+                <br>
+                <h2 class="storeName">{{store.value.name}}</h2>
+                <br>
+                <br>
+            </div>
+        </div>
+        <!-- <div class="row justify-content-md-center mb-0 onlyThis" [ngClass]="{'ifWeb': !mobile}"
             style="margin: auto 5px;">
             <div class="col-md-3" *ngFor="let store of storeArray | keyvalue;index as i;"
                 [routerLink]="['/store', store.value.storeURL]">
@@ -25,7 +40,6 @@
                     <img [src]="store.value.img" alt="profile-image" class="profile" />
                     <div class="card-content pb-0">
                         <h2>{{store.value.name | slice:0:10}}</h2>
-                        <!-- <h2>{{store.value.name | slice:0:10}}<small>Store</small></h2> -->
                         <br>
                         <br>
                         <button type="button" class="btn btn-outline-light btn-lg"
@@ -41,7 +55,6 @@
                     </div>
                     <div class="card-content pb-0">
                         <h2>{{store.value.name}}</h2>
-                        <!-- <h2>{{store.value.name}}<small>Store</small></h2> -->
                         <br>
                         <br>
                         <button type="button" class="btn btn-outline-dark btn-lg px-4 py-2"
@@ -50,65 +63,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-md-center">
-
-
-            <!-- <div class="col-sm-12 col-lg-3 mainDiv" *ngFor="let store of storeArray | keyvalue"
-                [routerLink]="['/store', store.value.storeURL]">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-linkedin">
-                        <img [src]="store.value.img" class="circle responsive-img">
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">{{store.value.name}}</div>
-                            <br>
-                            <div class="text-muted storeDetail" [innerHTML]="store.value.shortDes | slice:0:50">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="col-sm-6 col-lg-3">
-                <div class="brand-card">
-                    <div class="brand-card-header bg-google-plus">
-                        <i class="fa fa-google-plus"></i>
-                    </div>
-                    <div class="brand-card-body">
-                        <div>
-                            <div class="text-value">894</div>
-                            <div class="text-uppercase text-muted small">followers</div>
-                        </div>
-                        <div>
-                            <div class="text-value">92</div>
-                            <div class="text-uppercase text-muted small">circles</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-        <section class="min_container min_pages">
+        </div> -->
+        <!-- <div class="row justify-content-md-center">
+        </div> -->
+        <!-- <section class="min_container min_pages">
             <div class="section_row">
 
-                <!-- <div class="middle_section col mx-auto">
-                    <div class="notifications read_latter">
-                        <ul class="notifications_content">
-                            <li *ngFor="let store of storeArray | keyvalue"
-                                [routerLink]="['/store', store.value.storeURL]">
-                                <div class="media first_child">
-                                    <img [src]="store.value.img" class="circle responsive-img">
-                                    <div class="media_body">
-                                        <p>{{store.value.name}}</p>
-                                        <h6 [innerHTML]="store.value.shortDes"></h6>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
-        </section>
+        </section> -->
     </div>
     <div class="text-center m-5" *ngIf="isLoading">
         <div class="lds-facebook">

@@ -140,6 +140,14 @@ export class MenuComponent implements AfterViewInit {
       "_blank"
     );
   }
+  isLinkActive(url): boolean {
+    const queryParamsIndex = this.router.url.indexOf("?");
+    const baseUrl =
+      queryParamsIndex === -1
+        ? this.router.url
+        : this.router.url.slice(0, queryParamsIndex);
+    return baseUrl === url;
+  }
   openIosLink() {
     this.toastr.success("Coming soon...", "IOS App");
   }

@@ -5,6 +5,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from "@angular/core";
+import { Router } from "@angular/router";
 import { DataService } from "../data.service";
 // import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Title } from "@angular/platform-browser";
@@ -55,41 +56,45 @@ export class HomeComponent implements OnInit {
   hiddenInput = null;
   isFetchingProduct: boolean = false;
   web: boolean = false;
-  storeSlideSwitch = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  // storeSlideSwitch = [
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  // ];
 
   // @HostListener('scroll', ['$event']) private onScroll($event: Event): void {
   //   console.log("mnxmnxmnxx m,nx");
   // };
 
-  constructor(private _dataService: DataService, private titleService: Title) {}
+  constructor(
+    private _dataService: DataService,
+    private titleService: Title,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     // this.titleService.setTitle("BuyMeDeal");
@@ -172,6 +177,14 @@ export class HomeComponent implements OnInit {
   // onScroll(event): void {
   //   console.log(event);
   // }
+  isLinkActive(url): boolean {
+    const queryParamsIndex = this.router.url.indexOf("?");
+    const baseUrl =
+      queryParamsIndex === -1
+        ? this.router.url
+        : this.router.url.slice(0, queryParamsIndex);
+    return baseUrl === url;
+  }
   errorHandler(err) {
     this.responseError = "Can't load " + err + " at the moment";
   }

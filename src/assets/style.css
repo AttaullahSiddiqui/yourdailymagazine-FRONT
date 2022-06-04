@@ -595,9 +595,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     text-align: center;
     display: block;
     overflow: hidden;
-    background: #e5e4e2;
+    /* background: #e5e4e2; */
     padding: 12px;
-    border-bottom: 1px solid rgba(39, 49, 62, .06)
+    border-bottom: 1px solid #d1b9b9
 }
 
 .tranding_select li {
@@ -613,14 +613,14 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: auto;
     width: auto;
     background: #fff;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     text-transform: uppercase;
     box-shadow: none;
-    padding: 7px 26px!important
+    padding: 9px 30px!important
 }
 
 .tranding_select li a.active, .tranding_select li a:focus, .tranding_select li a:hover {
-    background: #066163!important;
+    background: #e75555!important;
     color: #fff!important
 }
 
@@ -2474,11 +2474,11 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     margin: 0
 }
 
-.add_post .input_group .upload_photo .tab_nav li {
+/* .add_post .input_group .upload_photo .tab_nav li {
     height: auto
-}
+} */
 
-.add_post .input_group .upload_photo .tab_nav li a {
+/* .add_post .input_group .upload_photo .tab_nav li a {
     font: 400 14px/37px futura;
     color: #758690;
     text-transform: uppercase;
@@ -2498,7 +2498,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 
 .add_post .input_group .upload_photo .tab_nav li a.active {
     border-color: #e0e5e8
-}
+} */
 
 .add_post .input_group .upload_photo .tabs_content {
     padding: 30px
@@ -3552,7 +3552,7 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 .footer_area .copy_right a {
-    color: #7b8aa3
+    color: #e75555
 }
 
 .footer_area .copy_right a:focus, .footer_area .copy_right a:hover {
@@ -3833,13 +3833,13 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
         padding-right: 10px;
         display: inline-block
     }
-    nav .button-collapse {
+    /* nav .button-collapse {
         margin-left: 0;
         margin-top: 22px
     }
     nav .button-collapse i {
         font-size: 32px
-    }
+    } */
     .footer_area .footer_row .footer_col.footer_trending {
         padding-bottom: 50px
     }
@@ -3874,9 +3874,9 @@ nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
 }
 
 @media (max-width:575px) {
-    nav .brand-logo {
+    /* nav .brand-logo {
         left: 35%
-    }
+    } */
     .tranding_select li a {
         margin-bottom: 3px
     }

@@ -39,8 +39,8 @@
 //     cursor: pointer;
 // }
 .jumbotron > a {
-  font-size: 1.3em !important;
-  color: #28baa2;
+  font-size: 1.65em !important;
+  color: #e75555;
 }
 .jumbotron > a:hover {
   text-decoration: underline;
@@ -142,7 +142,7 @@
     max-width: 130px;
     opacity: 1;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-    border: 4px solid #316b83;
+    border: 4px solid #e75555;
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
   }
@@ -238,7 +238,7 @@
     max-width: 120px;
     opacity: 1;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
-    border: 4px solid #316b83;
+    border: 4px solid #e75555;
     -webkit-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     z-index: 4;
@@ -291,4 +291,10 @@
 
 .jumbotron {
   padding: 1rem 1rem !important;
+}
+.storeName {
+  font-family: poppins;
+  font-weight: bold;
+  color: #333;
+  margin-left: 20px;
 }

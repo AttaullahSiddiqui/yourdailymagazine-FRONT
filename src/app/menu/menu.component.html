@@ -70,6 +70,34 @@
   </div>
 </nav> -->
 
+<div class="container" style="width:85%;" *ngIf="!isLinkActive('/')">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center"
+    style="height: 80px;border-radius: 8px;max-width: inherit;background-color: #0c0a0a !important;">
+    <a class="navbar-brand" href=""><img src="../../assets/img/brand/bmd_latest.jpg" alt="Brnad Logo" width="75"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item" routerLink="/">
+          <a class="nav-link">Home</a>
+        </li>
+        <li class="nav-item" routerLink="/categories" routerLinkActive="active">
+          <a class="nav-link">Categories </a>
+        </li>
+        <li class="nav-item" routerLink="/stores" routerLinkActive="active">
+          <a class="nav-link">Stores </a>
+        </li>
+        <li class="nav-item" routerLink="/blogs" routerLinkActive="active">
+          <a class="nav-link">Blogs </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
 <div class="alert alert-secondary text-center cursor-pointer" [ngClass]="{'largeAlert': mobile}"
   [routerLink]="['/event']" role="alert" *ngIf="eventBarText">
   <strong>Hurry Up !</strong> <br *ngIf="mobile"> {{eventBarText}} &nbsp; <br *ngIf="mobile"> <a class="alert-link">Shop
@@ -112,15 +140,15 @@
 
 <div class="app-body mt-0" (click)="closeDropDown()">
   <main class="main">
-    <div class="container-fluid px-0" style="background-color: white"
-      [ngClass]="{'addMarginTop': !eventBarText && !showMobSearch}">
+    <div class="container-fluid px-0" style="background-color: white" [ngClass]="{'addMarginTop': !isLinkActive('/')}">
+      <!-- [ngClass]="{'addMarginTop': !eventBarText && !showMobSearch}"> -->
       <router-outlet></router-outlet>
     </div>
   </main>
 </div>
 
 <footer class="footer_area">
-  <div class="footer_row row" style="padding:25px 20px auto !important">
+  <!--<div class="footer_row row" style="padding:25px 20px auto !important">
     <div class="col-xs-12 col-md-4 l3 m6 footer_col">
       <div class="popular_posts">
         <h3 class="categories_tittle text-center">Popular Blogs</h3>
@@ -162,18 +190,6 @@
             </ng-container>
           </ng-template>
         </ngb-carousel>
-        <!-- <div class="row valign-wrapper popular_item" [routerLink]="['/blog', blog.value._id]"
-          *ngFor="let blog of blogArray | keyvalue">
-          <div class="col-lg-3 col-sm-12 p_img">
-            <div class="manAvatar">
-              <img [src]="blog.value.img" class="customImgRound imageAdjust">
-            </div>
-          </div>
-          <div class="col-lg-9 col-sm-12 s9 p_content">
-            <span class=".d-none .d-sm-block"><br><br></span>
-            <a>{{blog.value.title}}</a>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="col-xs-12 col-md-4 l3 m6 footer_col text-center">
@@ -183,7 +199,7 @@
       <div class="popular_posts">
         <div class="row valign-wrapper popular_item">
           <div class="col s9 p_content">
-            <a routerLink="/home">Home</a>
+            <a routerLink="/">Home</a>
           </div>
         </div>
         <div class="row valign-wrapper popular_item">
@@ -229,17 +245,10 @@
         <h3 class="categories_tittle">Social Sharing</h3>
         <ul class="social_icon">
           <li><a href="https://twitter.com/BuyMeDeal1" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <!-- <li><a class="googleplus" href="https://www.youtube.com/channel/UCn0uamtcjb0CzqA2JiVlWgg" target="_blank"><i
-                class="fa fa-youtube"></i></a></li> -->
           <li><a class="instagram" href="https://www.instagram.com/buymedeal/" target="_blank"><i
                 class="fa fa-instagram"></i></a></li>
           <li><a class="facebook" href="https://www.facebook.com/Buymedeal-104706475339144" target="_blank"><i
                 class="fa fa-facebook"></i></a></li>
-          <!-- <br *ngIf="!mobile"> -->
-          <!-- <li><a class="pinterest" href="https://www.pinterest.com/dig_mycart/" target="_blank"><i
-                class="fa fa-pinterest"></i></a></li>
-          <li><a class="tumblr" href="https://www.tumblr.com/blog/digmycart" target="_blank"><i
-                class="fa fa-tumblr"></i></a></li> -->
         </ul>
       </div>
       <br>
@@ -265,7 +274,15 @@
         </form>
       </div>
     </div>
+  </div> -->
+  <div class="copy_right text-center py-4">
+    <a href="https://twitter.com/BuyMeDeal1" target="_blank"><i class="fa fa-twitter customIconSiz"></i></a>
+    <a class="instagram" href="https://www.instagram.com/buymedeal/" target="_blank"><i
+        class="fa fa-instagram customIconSiz"></i></a>
+    <!-- <a class="facebook customIconSiz" href="https://www.facebook.com/Buymedeal-104706475339144" target="_blank"><i
+        class="fa fa-facebook"></i></a> -->
   </div>
+  <hr style="border-color: #e75555;width: 50%;">
   <div class="copy_right">
     &copy; 2022 <a href="">BuyMeDeal</a>. All rights reserved.
   </div>

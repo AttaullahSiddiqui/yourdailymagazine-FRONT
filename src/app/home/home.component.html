@@ -12,8 +12,9 @@
         </ng-container>
     </ng-template>
 </ngb-carousel>
-<div class="container mt-3" style="max-width:85%;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center" style="height: 80px;border-radius: 8px;">
+<div class="container mt-3" style="max-width:85%;" *ngIf="isLinkActive('/')">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center"
+        style="height: 80px;border-radius: 8px;background-color: #0c0a0a !important;">
         <a class="navbar-brand" href=""><img src="../../assets/img/brand/bmd_latest.jpg" alt="Brnad Logo"
                 width="75"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -67,7 +68,7 @@
                 <div class="brand-card-body changeFlex text-left px-5 pb-4">
                     <!-- <img src="../../assets/images/author2.png" class="avatar img-raised avatar-img rounded-circle">
                     <span class="userNm">{{blog.value.author}} <span
-                            style="color: #e50863 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
+                            style="color: #e75555 ;text-transform: lowercase;font-style: italic;font-weight: normal;">wrote</span></span>
                     <br>-->
                     <br>
                     <br>
@@ -111,10 +112,9 @@
     <div>
         <h1 class="display-4 text-center mt-3 mb-5" *ngIf="storeArray">Trending Stores</h1>
         <div class="row mb-0 px-5 mx-5">
-            <div class="col-sm-12 col-md-4 px-5" *ngFor="let store of storeArray | keyvalue;index as i">
-                <div class="card mx-3 border-0">
-                    <img [src]="store.value.img" [ngClass]="{'storeSliderImg': storeSlideSwitch[i] || !web}"
-                        alt="Store Image">
+            <div class="col-sm-12 col-md-4 px-5 cursor-pointer" *ngFor="let store of storeArray | keyvalue">
+                <div class="card mx-3 border-0" (click)="openLink(store.value.trackUrl)">
+                    <img [src]="store.value.img" alt="Store Image">
                     <!-- <div class="card-img-overlay cursor-pointer" (mouseenter)="storeSlideSwitch[i]=true"
                                 (mouseleave)="storeSlideSwitch[i]=false">
                                 <button type="button" *ngIf="storeSlideSwitch[i] || !web"
@@ -128,7 +128,7 @@
                                     Products</button>
                             </div> -->
                 </div>
-                <p style="border-left: 3px solid #ff7227;margin-left: 20px;font-size: 1.2em;">&nbsp;&nbsp;&nbsp;Store
+                <p style="border-left: 3px solid #e75555;margin-left: 20px;font-size: 1.2em;">&nbsp;&nbsp;&nbsp;Store
                 </p>
                 <br>
                 <h2 class="storeName">{{store.value.name}}</h2>

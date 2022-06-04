@@ -31,8 +31,8 @@
     height: 0;
     margin: 6px;
     box-sizing: border-box;
-    border: 26px solid #066163;
-    border-color: #066163 transparent #066163 transparent;
+    border: 26px solid #e75555;
+    border-color: #e75555 transparent #e75555 transparent;
     animation: lds-hourglass 1.2s infinite
 }
 
@@ -62,7 +62,7 @@
     position: absolute;
     left: 6px;
     width: 13px;
-    background: #066163;
+    background: #e75555;
     animation: lds-facebook 1.2s cubic-bezier(0, .5, .5, 1) infinite
 }
 
@@ -101,7 +101,7 @@
 
 .lds-ripple div {
     position: absolute;
-    border: 4px solid #066163;
+    border: 4px solid #e75555;
     opacity: 1;
     border-radius: 50%;
     animation: lds-ripple 1s cubic-bezier(0, .2, .8, 1) infinite
@@ -140,7 +140,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #066163;
+    background: #e75555;
     animation: lds-grid 1.2s linear infinite
 }
 

@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.titleService.setTitle("BuyMeDeal");
+    // this.titleService.setTitle("YourDailyMagazine");
     if (window.screen.width < 450) this.web = false;
     else this.web = true;
     this._dataService.fetchAPI("/userDisplay/fetchSlides").subscribe((res) => {

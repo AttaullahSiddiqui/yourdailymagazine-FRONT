@@ -6875,7 +6875,7 @@ var AuthService = /** @class */ (function () {
                     break;
                 }
                 case "/": {
-                    _this.titleService.setTitle("fettleforum | Relish the acute deals & offers at home solely from fettleforum.");
+                    _this.titleService.setTitle("Fettleforum | Relish the acute deals & offers at home solely from fettleforum.");
                     _this.metaService.updateTag({
                         name: "description",
                         content: "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with fettleforum.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with fettleforum.com.",

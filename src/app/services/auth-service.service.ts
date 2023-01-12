@@ -106,7 +106,7 @@ export class AuthService implements CanActivate {
         }
         case "/": {
           this.titleService.setTitle(
-            "fettleforum | Relish the acute deals & offers at home solely from fettleforum."
+            "Fettleforum | Relish the acute deals & offers at home solely from fettleforum."
           );
           this.metaService.updateTag({
             name: "description",

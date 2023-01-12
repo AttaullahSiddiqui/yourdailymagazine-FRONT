@@ -1,5 +1,5 @@
 {
-  "name": "@yourdailymagazine/yourdailymagazine",
+  "name": "@fettleforum/fettleforum",
   "version": "1.0.0",
   "description": "YourDailyMagazine App",
   "author": {
@@ -14,7 +14,7 @@
       "url": "https://google.com"
     }
   ],
-  "homepage": "https://yourdailymagazine.com/",
+  "homepage": "https://fettleforum.com/",
   "copyright": "Copyright 2020",
   "license": "MIT",
   "scripts": {

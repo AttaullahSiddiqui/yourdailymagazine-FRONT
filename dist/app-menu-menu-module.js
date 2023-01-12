@@ -4831,7 +4831,7 @@ var NgSelectModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <div *ngIf=\"mobile\">\r\n    <br>\r\n    <br>\r\n    <br>\r\n</div> -->\r\n<div class=\"jumbotron aboutPage\">\r\n    <h1 class=\"display-4 text-center\">About Us</h1>\r\n    <hr class=\"my-4\">\r\n    <p class=\"lead px-5 mx-2\" style=\"font-size: 1.8em !important;color:#2a2929;font-family: futura;\">\r\n        BuyMeDeal is a site that always takes your side to find your desired products at top-tier brand stores to shop\r\n        your best-loved products in incredible prices.\r\n        <br>\r\n        <br>\r\n        BuyMeDeal is a handy and affectionate website which matches to\r\n        your requisite as we lead world-class products at rock-bottom prices at your threshold. The website is adaptable\r\n        designed with various quiet attainable categories that enable anyone to shop simply and skillfully the products\r\n        that their heart ever wished for. Each category has numerous contrary stores with imposing deals and promotion\r\n        codes so anyone can pick the one which rig out his desideration.\r\n        <br>\r\n        <br>\r\n        We embrace our customers throughout the world\r\n        for approaching to shop from here with our surprising deals. Boost your basics needs and wishes, lift up your\r\n        dreams through our website that constantly working for you to fulfill your desires by providing you the best\r\n        ever deals discounts with promo codes and vouchers.\r\n        <br>\r\n        <br>\r\n        From planning a trip with your family friends to going for\r\n        relax on spa or best standard saloon, from choosing stylish cloths to choose décor pieces for home and garden,\r\n        from pet supplies to food supplements, even everything that your heart craving for, we provided you in uppermost\r\n        quality at modest prices.\r\n        <br>\r\n        <br>\r\n        For providing these amazing cost effective products we are working with your favorite\r\n        well known brands like AliExpress, LightInTheBox, Banggood, LovelyWholeSale, KnowFashionStyle, Buyagift,\r\n        RedLetterDays, Boutiquefeel, Joyshoetique, Appliance people, Approved Food and further more. Just click and\r\n        reached us to start easy shopping from <a routerLink=\"/\">Buymedeal.com</a>.\r\n\r\n        <br>\r\n        <br>\r\n    </p>\r\n</div>"
+module.exports = "<!-- <div *ngIf=\"mobile\">\r\n    <br>\r\n    <br>\r\n    <br>\r\n</div> -->\r\n<div class=\"jumbotron aboutPage\">\r\n    <h1 class=\"display-4 text-center\">About Us</h1>\r\n    <hr class=\"my-4\">\r\n    <p class=\"lead px-5 mx-2\" style=\"font-size: 1.8em !important;color:#2a2929;font-family: futura;\">\r\n        YourDailyMagazine is a site that always takes your side to find your desired products at top-tier brand stores to shop\r\n        your best-loved products in incredible prices.\r\n        <br>\r\n        <br>\r\n        YourDailyMagazine is a handy and affectionate website which matches to\r\n        your requisite as we lead world-class products at rock-bottom prices at your threshold. The website is adaptable\r\n        designed with various quiet attainable categories that enable anyone to shop simply and skillfully the products\r\n        that their heart ever wished for. Each category has numerous contrary stores with imposing deals and promotion\r\n        codes so anyone can pick the one which rig out his desideration.\r\n        <br>\r\n        <br>\r\n        We embrace our customers throughout the world\r\n        for approaching to shop from here with our surprising deals. Boost your basics needs and wishes, lift up your\r\n        dreams through our website that constantly working for you to fulfill your desires by providing you the best\r\n        ever deals discounts with promo codes and vouchers.\r\n        <br>\r\n        <br>\r\n        From planning a trip with your family friends to going for\r\n        relax on spa or best standard saloon, from choosing stylish cloths to choose décor pieces for home and garden,\r\n        from pet supplies to food supplements, even everything that your heart craving for, we provided you in uppermost\r\n        quality at modest prices.\r\n        <br>\r\n        <br>\r\n        For providing these amazing cost effective products we are working with your favorite\r\n        well known brands like AliExpress, LightInTheBox, Banggood, LovelyWholeSale, KnowFashionStyle, Buyagift,\r\n        RedLetterDays, Boutiquefeel, Joyshoetique, Appliance people, Approved Food and further more. Just click and\r\n        reached us to start easy shopping from <a routerLink=\"/\">YourDailyMagazine.com</a>.\r\n\r\n        <br>\r\n        <br>\r\n    </p>\r\n</div>"
 
 /***/ }),
 
@@ -5267,7 +5267,7 @@ var BlogsComponent = /** @class */ (function () {
     };
     BlogsComponent.prototype.openLink = function (blogURL) {
         // window.open("http://localhost:4000/blog/" + blogURL, "_blank");
-        window.open("https://www.buymedeal.com/blog/" + blogURL, "_blank");
+        window.open("https://www.fettleforum.com/blog/" + blogURL, "_blank");
     };
     BlogsComponent.prototype.errorHandler = function (err) {
         this.toastr.error(err, "Error");
@@ -5874,7 +5874,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // this.titleService.setTitle("BuyMeDeal");
+        // this.titleService.setTitle("YourDailyMagazine");
         if (window.screen.width < 450)
             this.web = false;
         else
@@ -6808,101 +6808,101 @@ var AuthService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             switch (state.url) {
                 case "/categories": {
-                    _this.titleService.setTitle("Home decor to office supplies BuyMeDeal covers every aspect of desired products.");
+                    _this.titleService.setTitle("Home decor to office supplies fettleforum covers every aspect of desired products.");
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "Home decor to office supplies BuyMeDeal covers every aspect of desired products.",
+                        content: "Home decor to office supplies fettleforum covers every aspect of desired products.",
                     });
                     // document.querySelector('meta[name="og:title"]').setAttribute("content", "Categories");
-                    // document.querySelector('meta[name="description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.");
-                    // document.querySelector('meta[property="og:description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.");
+                    // document.querySelector('meta[name="description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in fettleforum.com. Set your lifestyle in a modish way from fettleforum endows.");
+                    // document.querySelector('meta[property="og:description"]').setAttribute("content", "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in fettleforum.com. Set your lifestyle in a modish way from fettleforum endows.");
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.",
+                        content: "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in fettleforum.com. Set your lifestyle in a modish way from fettleforum endows.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in buymedeal.com. Set your lifestyle in a modish way from buymedeal endows.",
+                        content: "From home to office supplies and tip to toe nurturing products, travel tickets to pet supplies, even everything that you need is including in fettleforum.com. Set your lifestyle in a modish way from fettleforum endows.",
                     });
                     break;
                 }
                 case "/stores": {
-                    _this.titleService.setTitle("Meet uncountable astounding and spectacular stores at BuyMeDeal.");
+                    _this.titleService.setTitle("Meet uncountable astounding and spectacular stores at fettleforum.");
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "Meet uncountable astounding and spectacular stores at BuyMeDeal.",
+                        content: "Meet uncountable astounding and spectacular stores at fettleforum.",
                     });
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with buymedeal.com.",
+                        content: "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with fettleforum.com.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with buymedeal.com.",
+                        content: "Innumerable splendor stores imparting you exorbitant brands in keeping with your desires, so you can swap your way of life into a peak level with fettleforum.com.",
                     });
                     break;
                 }
                 case "/blogs": {
-                    _this.titleService.setTitle("Let’s upgrade yourself from our latest trendy blogs only at BuyMeDeal.");
+                    _this.titleService.setTitle("Let’s upgrade yourself from our latest trendy blogs only at fettleforum.");
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "Let’s get trendy with buymedeal.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
+                        content: "Let’s get trendy with fettleforum.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "Let’s get trendy with buymedeal.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
+                        content: "Let’s get trendy with fettleforum.com because we keep you up to dated with posting the brand new and latest blogs for helping you to get aware of trendy products. Now get up to dated from the blissful brands according to your choice and dreams from our meaningful blogs.",
                     });
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "Let’s upgrade yourself from our latest trendy blogs only at BuyMeDeal.",
+                        content: "Let’s upgrade yourself from our latest trendy blogs only at fettleforum.",
                     });
                     break;
                 }
                 case "/products": {
-                    _this.titleService.setTitle("All your desires come to fulfill at BuyMeDeal.");
+                    _this.titleService.setTitle("All your desires come to fulfill at fettleforum.");
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website buymedeal.com.",
+                        content: "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website fettleforum.com.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website buymedeal.com.",
+                        content: "Get healthy with the supplements, sleep well with comfy bedding, stay shine with beauty products, get warm in winter and cool in summer with the apparel, even every product that you need you can obtain from a single website fettleforum.com.",
                     });
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "All your desires come to fulfill at BuyMeDeal.",
+                        content: "All your desires come to fulfill at fettleforum.",
                     });
                     break;
                 }
                 case "/": {
-                    _this.titleService.setTitle("BuyMeDeal | Relish the acute deals & offers at home solely from BuyMeDeal.");
+                    _this.titleService.setTitle("fettleforum | Relish the acute deals & offers at home solely from fettleforum.");
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com.",
+                        content: "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with fettleforum.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with fettleforum.com.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with Buymedeal.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with Buymedeal.com.",
+                        content: "Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with fettleforum.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with fettleforum.com.",
                     });
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "Relish the acute deals & offers at home solely from BuyMeDeal.",
+                        content: "Relish the acute deals & offers at home solely from fettleforum.",
                     });
                     break;
                 }
                 case "/event": {
-                    _this.titleService.setTitle("Enjoy exquisite discount offers at special events only at BuymeDeal.");
+                    _this.titleService.setTitle("Enjoy exquisite discount offers at special events only at fettleforum.");
                     _this.metaService.updateTag({
                         name: "description",
-                        content: "Do you want to make the best out of the special days of the year? BuymeDeal is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+                        content: "Do you want to make the best out of the special days of the year? fettleforum is here with amazing coupon codes, vouchers and discount deals to help you in it.",
                     });
                     _this.metaService.updateTag({
                         property: "og:description",
-                        content: "Do you want to make the best out of the special days of the year? BuymeDeal is here with amazing coupon codes, vouchers and discount deals to help you in it.",
+                        content: "Do you want to make the best out of the special days of the year? fettleforum is here with amazing coupon codes, vouchers and discount deals to help you in it.",
                     });
                     _this.metaService.updateTag({
                         property: "og:title",
-                        content: "Enjoy exquisite discount offers at special events only at BuymeDeal.",
+                        content: "Enjoy exquisite discount offers at special events only at fettleforum.",
                     });
                     break;
                 }

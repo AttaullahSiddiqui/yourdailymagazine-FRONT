@@ -1,11 +1,21 @@
 .display-4 {
-    font-weight: bold;
-    color: #333;
-    font-family: gothic-bold;
+  font-weight: bold;
+  color: #333;
+  font-family: gothic-bold;
 }
 a {
-    color: #db2e69;
+  color: #db2e69;
 }
 .jumbotron {
-    padding: 1rem 1rem !important;
+  padding: 1rem 1rem !important;
+}
+ul > li.termsListItem {
+  font-size: 1.7em !important;
+  font-family: futura;
+  color: #2a2929;
+  display: list-item !important;
+  list-style: disc !important;
+}
+ul {
+  max-width: 80%;
 }
